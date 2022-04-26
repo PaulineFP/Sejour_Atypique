@@ -52,7 +52,11 @@
     [Image 2](https://www.dropbox.com/s/4lj0g7oelqw576j/Capture4-1.PNG?dl=0)
     - _Séparations_  
     [Separation 1](https://www.dropbox.com/s/fh2xxrp3vlqww2w/Capture5.PNG?dl=0)  
-    [Separation 2](https://www.dropbox.com/s/r94mcsf411s6noa/Capture7.PNG?dl=0)
+    [Separation 2](https://www.dropbox.com/s/r94mcsf411s6noa/Capture7.PNG?dl=0)  
+    [Separation 3](https://www.dropbox.com/s/zh1qaaxsaxe1pfa/Capture10.PNG?dl=0)  
+    [Separation 4](https://www.dropbox.com/s/cpd77n4ssy5bw02/Capture11.PNG?dl=0)  
+    [Separation 5](https://www.dropbox.com/s/9ubjnv8dznffrxf/Capture12.PNG?dl=0)
+
     - _Présentation produit_  
     [Presentation 1](https://www.dropbox.com/s/y77a98dj3qxriuz/pr%C3%A9sentation%20cabane.PNG?dl=0)  
     [Presentation 2](https://www.dropbox.com/s/ttgimv06k03q9hd/Sans-titre-6.jpg?dl=0)
@@ -60,7 +64,7 @@
 
 ##  ~ Réflexion conception ~
 ### Backend :
-- intégration BDD : 
+- Intégration BDD : 
     - Table Produits
         * Tarifs / Réductions
         * Lieux
@@ -95,7 +99,33 @@
         * Point relaits
         * A domicile
     - Commande de chèques Cadeaux
-    - Prise en compte d'éventuels code promos et réductions produits
+    - Prise en compte d'éventuels codes promos et réductions produits
     
+### Frontend :
+
+- Liste des pages :
+    - Acceuil
+    - Destinations
+    - Hébergements
+    - Tarifs & dispoibilités
+    - Réserver
+    - Contact
+- Menu header :
+    - Social
+    - Téléphone
+    - pages 
+    - Logo
+    - Mon panier
+- Footer :
+    - Qui somme nous ?
+    - Mentions legales
+    - rejoinez nous
+    - contactez nous
+    - Assurance annulation
+    - Logos moyens de payement
+    - Newsletter
+    
+***
+(_Une rubrique comment ca marche?_) -> [voir exemple](https://www.abracadaroom.com/fr/commercialiser-location-insolite/)
 
 
