@@ -50,12 +50,12 @@
     - _Disposition d'images_  
     [Image 1](https://www.dropbox.com/s/posoupgrxcygjbd/Capture4.PNG?dl=0)  
     [Image 2](https://www.dropbox.com/s/4lj0g7oelqw576j/Capture4-1.PNG?dl=0)
-    - _Séparations_
-    ![](Img_inspiration/Capture5.PNG)
-    ![](Img_inspiration/Capture7.PNG)
-    - _Présentation produit_
-    ![](Img_inspiration/pr%C3%A9sentation%20cabane.PNG)
-    ![](Img_inspiration/Sans-titre-6.jpg)
+    - _Séparations_  
+    [Separation 1](https://www.dropbox.com/s/fh2xxrp3vlqww2w/Capture5.PNG?dl=0)  
+    [Separation 2](https://www.dropbox.com/s/r94mcsf411s6noa/Capture7.PNG?dl=0)
+    - _Présentation produit_  
+    [Presentation 1](https://www.dropbox.com/s/y77a98dj3qxriuz/pr%C3%A9sentation%20cabane.PNG?dl=0)  
+    [Presentation 2](https://www.dropbox.com/s/ttgimv06k03q9hd/Sans-titre-6.jpg?dl=0)
     ***
 
 ##  ~ Réflexion conception ~
