@@ -16,43 +16,40 @@
 
 ### Idées/exemples visuelles
 - **Pour la conception Backend** 
-    - _Intégration de carte_ :
-    ![](Img_inspiration/Sans-titre-8.jpg)
-    ![](Img_inspiration/Sans-titre-3.jpg)
-    - _News Letter_ : 
-    ![](Img_inspiration/newslatter.PNG)
-    ![](Img_inspiration/Sans-titre-13.jpg)
-    - Réservation
-    ![](Img_inspiration/Sans-titre-7.jpg)
-    - Affichage de catégories
-    ![](Img_inspiration/Sans-titre-15.jpg)
-    ![](Img_inspiration/Capture1.PNG)
-    ![](Img_inspiration/Sans-titre-2.jpg)
-    ![](Img_inspiration/Sans-titre-4.jpg)
-    ![](Img_inspiration/Sans-titre-9.jpg)
-    ![](Img_inspiration/Sans-titre-10.jpg)
-    - Carte cadeau 
-    ![](Img_inspiration/Carte%20cadeaux.PNG)
-    - Description du produit BDD
-    ![](Img_inspiration/Capture3.PNG)
-    ![](Img_inspiration/Capture8.PNG)
+    - _Intégration de carte_ :  
+    [Carte 1](https://www.dropbox.com/s/s4cnl3l2qvfgboi/Sans-titre-3.jpg?dl=0)  
+    [Carte 2](https://www.dropbox.com/s/brj5jbu1foekqop/Sans-titre-8.jpg?dl=0)
+    - _News Letter_ :   
+    [Newslatter 1](https://www.dropbox.com/s/4vtxkayzxulbiqm/newslatter.PNG?dl=0)  
+    [Newslatter 2](https://www.dropbox.com/s/271hakk38yga92v/Sans-titre-13.jpg?dl=0)
+    - Réservation :  
+    [Reservation 1](https://www.dropbox.com/s/kfufgyusvqhb80j/Sans-titre-7.jpg?dl=0)
+    - Affichage de catégories  
+    [Catégories 1](https://www.dropbox.com/s/4qeaj1k5og03w46/Sans-titre-15.jpg?dl=0)  
+    [Catégories 2](https://www.dropbox.com/s/w4br34g3w6hd1jc/Capture1.PNG?dl=0)  
+    [Catégories 3](https://www.dropbox.com/s/tlbvb0swekrm4nd/Sans-titre-2.jpg?dl=0)  
+    [Catégories 4](https://www.dropbox.com/s/19ac0ou7sk8gqvj/Sans-titre-4.jpg?dl=0)  
+    [Catégories 5](https://www.dropbox.com/s/30db4kv7zobycvq/Sans-titre-9.jpg?dl=0)  
+    [Catégories 6](https://www.dropbox.com/s/cgfacgnqtqe8kqm/Sans-titre-10.jpg?dl=0)
+    - Carte cadeau   
+    [Carte cadeau 1](https://www.dropbox.com/s/qbk6wh4rnewmoze/Carte%20cadeaux.PNG?dl=0)
+    - Description du produit BDD  
+    [Description 1](https://www.dropbox.com/s/a6fdwzh2ohoybc1/Capture3.PNG?dl=0)  
+    [Description 2](https://www.dropbox.com/s/utqf9airwwvlz2e/Capture8.PNG?dl=0)
 
 - **Pour conception Frontend**
-    - _Header_ 
-    ![](Img_inspiration/Capture.PNG)
-    (header + recherche)
-    ![](Img_inspiration/Capture6.PNG)
-    ![](Img_inspiration/Sans-titre-12.jpg)
-    Header sous forme de vidéo : 
-    ![](Img_inspiration/video-header.jpg)
-    - _Menu_  
-    Avec une transparance
-    ![](Img_inspiration/over%20transparance.PNG)
-    - _Footer_
-    ![](Img_inspiration/footer.jpg)
-    - _Disposition d'images_
-    ![](Img_inspiration/Capture4.PNG)
-    ![](Img_inspiration/Capture4-1.PNG)
+    - _Header_   
+    [Header 1 (header + recherche)](https://www.dropbox.com/s/nbtm50lz994ckfs/Capture.PNG?dl=0)  
+    [Header 2](Img_inspiration/Capture6.PNG)  
+    [Header 3](https://www.dropbox.com/s/7owd2cesddjsknp/Sans-titre-12.jpg?dl=0)  
+    [Header 4 (video)](https://www.dropbox.com/s/7na6p9dsiuszpe1/video-header.jpg?dl=0)
+    - _Menu_   
+    [Menu (transparence)](https://www.dropbox.com/s/900zh58i5pgifgn/over%20transparance.PNG?dl=0)  
+    - _Footer_  
+    [Footer 1](https://www.dropbox.com/s/348imdgk4mvdhmw/footer.jpg?dl=0)
+    - _Disposition d'images_  
+    [Image 1](https://www.dropbox.com/s/posoupgrxcygjbd/Capture4.PNG?dl=0)  
+    [Image 2](https://www.dropbox.com/s/4lj0g7oelqw576j/Capture4-1.PNG?dl=0)
     - _Séparations_
     ![](Img_inspiration/Capture5.PNG)
     ![](Img_inspiration/Capture7.PNG)
@@ -64,14 +61,14 @@
 ##  ~ Réflexion conception ~
 ### Backend :
 - intégration BDD : 
-    - Produits
+    - Table Produits
         * Tarifs / Réductions
         * Lieux
         * IMG _?BDD ou boucle img ?_
         * Options du séjour (animeaux, wifi, nombre chambres, ..)
         * Catégorie
         * Description
-    - **Concevoir une BDD pour les clients**
+    - **Concevoir une Table pour les clients**
         * Newslatter
         * Réservations (Close annulation, affichage réservation )
 - Interface Admin
