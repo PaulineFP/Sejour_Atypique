@@ -1,3 +1,4 @@
+***
 # Initiation et réflextion du projet
 
 ##  - Réflection du projet -
@@ -102,14 +103,13 @@
     - Prise en compte d'éventuels codes promos et réductions produits
     
 ### Frontend :
-
 - Liste des pages :
     - Acceuil
     - Destinations
     - Hébergements
     - Tarifs & dispoibilités
-    - Réserver
-    - Contact
+    - Rechercher
+    - Contact   
 - Menu header :
     - Social
     - Téléphone
@@ -124,8 +124,28 @@
     - Assurance annulation
     - Logos moyens de payement
     - Newsletter
-    
+    - Réalisateur
 ***
-(_Une rubrique comment ca marche?_) -> [voir exemple](https://www.abracadaroom.com/fr/commercialiser-location-insolite/)
+## ~ Détail du contenu des pages ~
+### Acceuil :
+- Liste régions
+    - un lien _**Toutes nos destinations**_ qui rammenne sur la page **Rechercher** 
+- Liste de catégorie d'hébergement 
+    - lien _**Trouver un hébergements**_ sur la page **Hébergements**
+- Pourquoi nous choisir
+- Une description avec images
+- Un lien sur la page réserver 
+- Un lien sur un formulaire de commande de carte cadeau
+- Un lien page contact
+- Exclusivités insolites (_réductions actuelles_)
+
+### Qui sommes nous ?
+- descriptifs
+- Une rubrique comment ca marche? -> [voir exemple](https://www.abracadaroom.com/fr/commercialiser-location-insolite/)
+- Adesion newsletter + resaux sauciaux
+- Un lien vers la page contact
+- Une équipe victive
+- made in france 
+- Un lien sur la page réserver 
 
 
