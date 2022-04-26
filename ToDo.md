@@ -105,8 +105,12 @@
 ### Frontend :
 - Liste des pages :
     - Acceuil
-    - Destinations
-    - Hébergements
+    - Trouver un hébergement insolite  
+        _Sélect:_  
+            - Hébergements par régions  
+            - Liste des établisements  
+            - Hébergements par expériences -> _#id acceuil catégories_  
+            - Rechecher un hebergement
     - Tarifs & dispoibilités
     - Rechercher
     - Contact   
@@ -125,19 +129,37 @@
     - Logos moyens de payement
     - Newsletter
     - Réalisateur
+- Une page par catégories (spa/ bien être; Dans les arbres; En montagne; nommade ....)
 ***
 ## ~ Détail du contenu des pages ~
 ### Acceuil :
 - Liste régions
-    - un lien _**Toutes nos destinations**_ qui rammenne sur la page **Rechercher** 
+    - Un lien _**Toutes nos destinations**_ qui rammenne sur la page **Liste des établisements** 
 - Liste de catégorie d'hébergement 
-    - lien _**Trouver un hébergements**_ sur la page **Hébergements**
+    - Rammenne sur la page de la catégorie
+    - Lien _**Trouver un hébergements**_ sur la page **Rechecher un hebergement**
+    - Redirection catégorie sur la page de la catégorie
 - Pourquoi nous choisir
 - Une description avec images
 - Un lien sur la page réserver 
 - Un lien sur un formulaire de commande de carte cadeau
 - Un lien page contact
 - Exclusivités insolites (_réductions actuelles_)
+
+### Hébergements par régions :
+- Carte de france interactive
+- affichage des hébergement en fonction de la région choisi
+    - lien fiche produit
+- Lien _**Tous nos hébergements**_ -> page **Hébergements**
+### Liste des établisements :
+- Listing BDD hébergements
+- liens :
+    - **Nos destinations** -> page **Hébergements par régions**
+    - **Les plus belles expériences** -> page **Hébergements par expériences**
+### Rechecher un hebergement :
+- [Formulaire de recherche](https://www.dropbox.com/s/37oxf9qdf0699eo/Capture13.PNG?dl=0)
+- Résultat de la recherche
+
 
 ### Qui sommes nous ?
 - descriptifs
