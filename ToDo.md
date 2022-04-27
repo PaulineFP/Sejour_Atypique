@@ -14,6 +14,7 @@
 - [leboisderosoy.com](https://www.leboisderosoy.com/)
 - [voyages.carrefour.fr](https://voyages.carrefour.fr/)
 - [- bon cadeau - les-cabanes-dans-les-arbres.com](https://www.les-cabanes-dans-les-arbres.com/cabane-bon-cadeau.html)
+- [insoolite.fr](https://www.insoolite.fr/nos-conseils/assurance-vacances-et-annulations/)
 
 ### Idées/exemples visuelles
 - **Pour la conception Backend** 
@@ -92,7 +93,7 @@
     - Actualitées
         * Ajout
         * Supression
-    - visualisation transaction paiments et remboursement
+    - Visualisation transaction paiments et remboursement
 - Intégration commandes
     - Création du pannier client
     - Intégration de moyen de payement et sécurité
@@ -111,19 +112,20 @@
             - Liste des établisements  
             - Hébergements par expériences -> _#id acceuil catégories_  
             - Rechecher un hebergement
-    - Rechercher
-    - Contact   
+    - Nons services & prestations
+    - Contact  
+    - Ma réservation 
 - Menu header :
     - Social
     - Téléphone
-    - pages 
+    - Pages 
     - Logo
-    - Mon panier
+    - Ma réservation
 - Footer :
     - Qui somme nous ?
     - Mentions legales
-    - rejoinez nous
-    - contactez nous
+    - Rejoinez nous
+    - Contactez nous
     - Assurance annulation
     - Logos moyens de payement
     - Newsletter
@@ -147,12 +149,12 @@
 
 ### **Hébergements par régions** :
 - Carte de france interactive
-- affichage des hébergement en fonction de la région choisi
-    - lien fiche produit
+- Affichage des hébergement en fonction de la région choisi
+    - Lien fiche produit
 - Lien _**Tous nos hébergements**_ -> page **Hébergements**
 ### **Liste des établisements** :
 - Listing BDD hébergements
-- liens :
+- Liens :
     - **Nos destinations** -> page **Hébergements par régions**
     - **Les plus belles expériences** -> page **Hébergements par expériences**
 ### **Rechecher un hebergement** :
@@ -161,23 +163,45 @@
 
 ### **Hébergement à l'unité** :
 - Tarifs & dispoibilités
-- description du produits
+- Description du produits
     - Type d'hébergement
     - Lieux
     - [Particularités](https://www.dropbox.com/s/o8wgdmg7s3gkqvq/Capture14.PNG?dl=0)  
     - [Infos logements](https://www.dropbox.com/s/ee9i98wu72y68te/Capture15.PNG?dl=0)  
     - [Services](https://www.dropbox.com/s/2qq68t9qctohnvb/Capture16.PNG?dl=0)
     - Photos
-- formulaire de réservation
-
+- Formulaire de réservation et close d'annulation
 
 ### **Qui sommes nous ?**
-- descriptifs
+- Descriptifs
 - Une rubrique comment ca marche? -> [voir exemple](https://www.abracadaroom.com/fr/commercialiser-location-insolite/)
 - Adesion newsletter + resaux sauciaux
 - Un lien vers la page contact
 - Une équipe victive
-- made in france 
+- Made in france 
 - Un lien sur la page réserver 
 
+### Nons services & prestations :
+- Les services inclus lors de votre réservation
+    - Petit dejeuner 
+    - Linge de lit et bain
+    - Mise à dispo produit bio
+- Les services en option (RÉSERVATION UNIQUEMENT)
+    - Liste des menus
+    - Repas végétarien
+    - Pack romantique
+    - Massage
+    - Champagne
+    - fleurs 
 
+### Contact : 
+- Formulaire de contact
+- Lieu / adresse/ telephone fictif 
+
+### Voir ma reservation
+- Connection par e-mail et code de réservation (_Pas d'inscription_)
+- Recherche table et affichage du séjour payé
+
+### Mentions légales
+- Trouver des mentions légales fictives 
+- Clause d'annulation
