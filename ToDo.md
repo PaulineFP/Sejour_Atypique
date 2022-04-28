@@ -166,15 +166,35 @@
 
 ### **Hébergement à l'unité** :
 - Tarifs & dispoibilités
-- Description du produits
+- Description du produits / Menu produit
     - Type d'hébergement
     - Lieux
+    - Hébergement
     - [Particularités](https://www.dropbox.com/s/o8wgdmg7s3gkqvq/Capture14.PNG?dl=0)  
     - [Infos logements](https://www.dropbox.com/s/ee9i98wu72y68te/Capture15.PNG?dl=0)  
     - [Services](https://www.dropbox.com/s/2qq68t9qctohnvb/Capture16.PNG?dl=0)
     - Photos
 - Formulaire de réservation et close d'annulation
-
+### Page de réservation
+- Options sup séjour à cocher
+- Nombres de personnes
+- date arrivée et date de départ
+- Récuperer le nom de l'hebergement et tarif
+- Client
+    * Nom et premon
+    * Adresse
+    * Date de naissance
+- Paiement 
+    * coordonées bancaire du client
+    * Nom et prénom
+    * Adresse de paiment
+    * Option de paiment 
+        - Paypal
+        - mastercarte 
+        - ...
+    * Code promo
+    * Assurance annulation
+- Détail assurance annulation
 ### **Qui sommes nous ?**
 - Descriptifs
 - Une rubrique comment ca marche? -> [voir exemple](https://www.abracadaroom.com/fr/commercialiser-location-insolite/)
