@@ -32,7 +32,8 @@
     [Catégories 3](https://www.dropbox.com/s/tlbvb0swekrm4nd/Sans-titre-2.jpg?dl=0),
     [Catégories 4](https://www.dropbox.com/s/19ac0ou7sk8gqvj/Sans-titre-4.jpg?dl=0), 
     [Catégories 5](https://www.dropbox.com/s/30db4kv7zobycvq/Sans-titre-9.jpg?dl=0),
-    [Catégories 6](https://www.dropbox.com/s/cgfacgnqtqe8kqm/Sans-titre-10.jpg?dl=0)
+    [Catégories 6](https://www.dropbox.com/s/cgfacgnqtqe8kqm/Sans-titre-10.jpg?dl=0),
+    [Catégorie 7](https://www.dropbox.com/s/3cfgqaluva5fhgp/categories.PNG?dl=0)
     - Carte cadeau   
     [Carte cadeau 1](https://www.dropbox.com/s/qbk6wh4rnewmoze/Carte%20cadeaux.PNG?dl=0)
     - Description du produit BDD  
@@ -57,7 +58,8 @@
     [Separation 2](https://www.dropbox.com/s/r94mcsf411s6noa/Capture7.PNG?dl=0),
     [Separation 3](https://www.dropbox.com/s/zh1qaaxsaxe1pfa/Capture10.PNG?dl=0),
     [Separation 4](https://www.dropbox.com/s/cpd77n4ssy5bw02/Capture11.PNG?dl=0),
-    [Separation 5](https://www.dropbox.com/s/9ubjnv8dznffrxf/Capture12.PNG?dl=0)
+    [Separation 5](https://www.dropbox.com/s/9ubjnv8dznffrxf/Capture12.PNG?dl=0),
+    [Separation cadeaux](https://www.dropbox.com/s/08d1lwlc6y6hvph/sepa%20cadeau.PNG?dl=0)
 
     - _Présentation produit_  
     [Presentation 1](https://www.dropbox.com/s/y77a98dj3qxriuz/pr%C3%A9sentation%20cabane.PNG?dl=0),
@@ -74,6 +76,7 @@
         * Options du séjour (animeaux, wifi, nombre chambres, ..)
         * Catégorie
         * Description
+    - Table services en option
     - **Concevoir une Table pour les clients**
         * Newslatter
         * Réservations (Close annulation, affichage réservation )
@@ -112,7 +115,7 @@
             - Liste des établisements  
             - Hébergements par expériences -> _#id acceuil catégories_  
             - Rechecher un hebergement
-    - Nons services & prestations
+    - Nos services & prestations
     - Contact  
     - Ma réservation 
 - Menu header :
