@@ -200,7 +200,7 @@
 - Une rubrique comment ca marche? -> [voir exemple](https://www.abracadaroom.com/fr/commercialiser-location-insolite/)
 - Adesion newsletter + resaux sauciaux
 - Un lien vers la page contact
-- Une équipe victive
+- Une équipe fictive
 - Made in france 
 - Un lien sur la page réserver 
 
