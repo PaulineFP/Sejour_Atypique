@@ -15,13 +15,14 @@
 - [voyages.carrefour.fr](https://voyages.carrefour.fr/)
 - [- bon cadeau - les-cabanes-dans-les-arbres.com](https://www.les-cabanes-dans-les-arbres.com/cabane-bon-cadeau.html)
 - [insoolite.fr](https://www.insoolite.fr/nos-conseils/assurance-vacances-et-annulations/)  
--[airbnb.fr](https://www.airbnb.fr/)
+- [airbnb.fr](https://www.airbnb.fr/)
 
 ### Idées/exemples visuelles
 - **Pour la conception Backend** 
     - _Intégration de carte_ :  
     [Carte 1](https://www.dropbox.com/s/s4cnl3l2qvfgboi/Sans-titre-3.jpg?dl=0),
-    [Carte 2](https://www.dropbox.com/s/brj5jbu1foekqop/Sans-titre-8.jpg?dl=0)
+    [Carte 2](https://www.dropbox.com/s/brj5jbu1foekqop/Sans-titre-8.jpg?dl=0),
+    [Integration de carte](https://www.gites-de-france.com/fr/pays-de-la-loire/location-de-vacances-vendee)
     - _News Letter_ :   
     [Newslatter 1](https://www.dropbox.com/s/4vtxkayzxulbiqm/newslatter.PNG?dl=0),
     [Newslatter 2](https://www.dropbox.com/s/271hakk38yga92v/Sans-titre-13.jpg?dl=0)

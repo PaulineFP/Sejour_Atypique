@@ -1,5 +1,11 @@
 const Encore = require('@symfony/webpack-encore');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+Encore
+   
+;
+
+module.exports = Encore.getWebpackConfig();
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
 if (!Encore.isRuntimeEnvironmentConfigured()) {
@@ -8,12 +14,16 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 
 Encore
     // directory where compiled assets will be stored
-    .setOutputPath('public/build/')
+    .setOutputPath('public/')
     // public path used by the web server to access the output path
-    .setPublicPath('/build')
-    // only needed for CDN's or sub-directory deploy
-    //.setManifestKeyPrefix('build/')
-
+    .setPublicPath('/')
+    .cleanupOutputBeforeBuild()
+    // builder notre CSS avec PostCSS
+    .enablePostCssLoader((options) => {
+        options.postcssOptions = {
+            config: './.postcss.config.js'
+        }
+    })
     /*
      * ENTRY CONFIG
      *
@@ -44,6 +54,9 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
+    .enablePreactPreset()
+    .enableSingleRuntimeChunk()
+    .addPlugin(new HtmlWebpackPlugin({ template: 'src/index.ejs', alwaysWriteToDisk: true }))
 
     .configureBabel((config) => {
         config.plugins.push('@babel/plugin-proposal-class-properties');
