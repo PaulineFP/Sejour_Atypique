@@ -1,11 +1,6 @@
 const Encore = require('@symfony/webpack-encore');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-Encore
-   
-;
-
-module.exports = Encore.getWebpackConfig();
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
 if (!Encore.isRuntimeEnvironmentConfigured()) {
@@ -56,7 +51,7 @@ Encore
     .enableVersioning(Encore.isProduction())
     .enablePreactPreset()
     .enableSingleRuntimeChunk()
-    .addPlugin(new HtmlWebpackPlugin({ template: 'src/index.ejs', alwaysWriteToDisk: true }))
+   // .addPlugin(new HtmlWebpackPlugin({ template: 'src/index.ejs', alwaysWriteToDisk: true }))
 
     .configureBabel((config) => {
         config.plugins.push('@babel/plugin-proposal-class-properties');
@@ -69,7 +64,7 @@ Encore
     })
 
     // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enableSassLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
