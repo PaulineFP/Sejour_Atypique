@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
     background-color: lightgray;
+}
+
+.navbar1 , .navbar2 {
+    li a, select, select option {font-size: 1rem;}    
+    select {font-weight: 600;}
+    option { font-weight: 200;}
 }
