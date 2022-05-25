@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+{% block title %}Qui sommes nous?{% endblock %}    
+{% block body %}
+    {% set class_header = 'header_about' %}
+    {% include 'partials/header.html.twig'%}
+<section id="france-map">
+    <div>
+        <div>
+            <div>
+                <div>Trouvez votre porchaine <span>destination</span></div>
+                <form action="">
+                    <select name="lieu" id="lieu">
+                        <option value="#">Où souhaitez-vous aller</option>
+                        <option value="Alsace">Alsace</option>
+                        <option value="Aquitaine">Aquitaine</option>
+                        <option value="Auvergne">Auvergne</option>
+                        <option value="Basse-Normandie">Basse-Normandie</option>
+                        <option value="Bourgogne">Bourgogne</option>
+                        <option value="Bretagne">Bretagne</option>
+                        <option value="Centre">Centre</option>
+                        <option value="Champagne-Ardenne">Champagne-Ardenne</option>
+                        <option value="Corse">Corse</option>
+                        <option value="Franche-Comté">Franche-Comté</option>
+                        <option value="Haute-Normandie">Haute-Normandie</option>
+                        <option value="Île-de-France">Île-de-France</option>
+                        <option value="Languedoc-Roussillon">Languedoc-Roussillon</option>
+                        <option value="Limousin">Limousin</option>
+                        <option value="Lorraine">Lorraine</option>
+                        <option value="Midi-Pyrénées">Midi-Pyrénées</option>
+                        <option value="Nord-Pas-de-Calais">Nord-Pas-de-Calais</option>
+                        <option value="Pays-de-la-Loire">Pays de la Loire</option>
+                        <option value="Picardie">Picardie</option>
+                        <option value="Poitou-Charentes">Poitou-Charentes</option>
+                        <option value="Provence-Alpes-Cote-d-Azur">Provence-Alpes-Côte d'Azur</option>
+                        <option value="Rhone-Alpes">Rhône-Alpes</option>
+                        <option value="Corse">Corse</option>
+                    </select>
+                    <div>
+                    {# https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/date #}
+                        <input type="date" value="depart" required pattern="\d{4}-\d{2}-\d{2}" {#min="Date du jour"#}>
+                        <input type="date" value="arrivee" required pattern="\d{4}-\d{2}-\d{2}"{#min="Date de départ"#}>
+                    </div>
+                    <input type="text" placeholder="nombre de voyageur.eu(s.es)" >
+                     <input type="submit" value="Rechercher">                
+                </form>
+            </div>
+            <div>
+                <div>Cliquez pour découvrir une région</div>
+                <div>
+                    {# Carte de fance #}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id='country'>
+    <div>Titre de la région</div>
+    {# présentation 3 ? #}
+    <div>
+    {# Création de boucle et ou avec modele #}
+        <div>
+            <img src="" alt="">
+        </div>
+        <div>
+            <div>
+                <p>A partir de :</p>
+                <p>Prix</p>
+                <p>/ nuit</p>
+            </div>
+            <div>
+                <div>
+                    <div>Titre de l'hebergement</div>
+                    <div>Particularités</div>
+                    <div>Description</div>
+                </div>
+                <div>
+                    <a href="">Choisir l'hebergement</a>
+                    <div>
+                        <p>Promotion si il y a</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <img src="" alt="">
+        </div>
+        <div>
+            <div>
+                <p>A partir de :</p>
+                <p>Prix</p>
+                <p>/ nuit</p>
+            </div>
+            <div>
+                <div>
+                    <div>Titre de l'hebergement</div>
+                    <div>Particularités</div>
+                    <div>Description</div>
+                </div>
+                <div>
+                    <a href="">Choisir l'hebergement</a>
+                    <div>
+                        <p>Promotion si il y a</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <img src="" alt="">
+        </div>
+        <div>
+            <div>
+                <p>A partir de :</p>
+                <p>Prix</p>
+                <p>/ nuit</p>
+            </div>
+            <div>
+                <div>
+                    <div>Titre de l'hebergement</div>
+                    <div>Particularités</div>
+                    <div>Description</div>
+                </div>
+                <div>
+                    <a href="">Choisir l'hebergement</a>
+                    <div>
+                        <p>Promotion si il y a</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
