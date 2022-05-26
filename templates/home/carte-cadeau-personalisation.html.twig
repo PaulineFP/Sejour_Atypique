@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %}Acceuil{% endblock %}    
+{% block body %}
+    {% set class_header = 'header_gift_card' %}
+    {% include 'models/header.html.twig'%}
+<section>
+    <div>
+        <div>Personnalisation</div>
+        <div>Informations</div>
+        <div>Paiement</div>
+    </div>
+    <div>
+        {# Trouver un moyen de conserver les infos, tableau ?? #}
+        <div>
+            <div><img src="" alt=""></div>
+            <p></p>
+            <input type="checkbox" id="duo" value="duo">
+        </div>
+        <div>
+            <div><img src="" alt=""></div>
+            <p></p>
+            <input type="checkbox" id="familly" value="familly">
+        </div>
+        <div>
+            <div><img src="" alt=""></div>
+            <p></p>
+            <input type="checkbox" id="loose" value="loose">
+        </div>
+        <div>
+            <p>Montant de votre carte cadeau</p>
+            <div>
+                <input type="text">
+                <div>€</div>
+            </div>
+            <a href="">suivant</a>
+        </div>
+    </div>    
+</section>
+{% include "models/modalite_paiement.html.twig" %}
+
+{% endblock %}
