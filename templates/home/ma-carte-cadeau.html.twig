@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block title %}Acceuil{% endblock %}    
+{% block body %}
+    {% set class_header = 'header_gift_card' %}
+    {% include 'models/header.html.twig'%}
+<section>
+    <div>Titre</div>
+    <div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quas ex, adipisci quidem laudantium rerum nobis, necessitatibus, ut totam earum delectus at error magni praesentium nemo ab inventore nostrum corrupti.
+    </div>
+</section>
+<section>
+    <div>
+    {# Faire sous forme de formulaire pour recup les infon ?? #}
+        <div>
+            <i class="fa-solid fa-gift"></i>
+            <p>Catre couple</p>
+            <p>à partir de ... €</p>
+        </div>
+        <div>
+            <i class="fa-solid fa-gift"></i>
+            <p>Catre famille</p>
+            <p>à partir de ... €</p>
+        </div>
+        <div>
+            <i class="fa-solid fa-gift"></i>
+            <p>Catre montant libre</p>
+        </div>
+    </div>
+</section>
+<section>
+    <div>
+        <div>
+            <div></div>
+            <div>Une livraison simple et rapide</div>
+            <div>Recevez instantanément votre carte cadeau à imprimer par mail et offre-la !</div>
+        </div>
+        <div>
+            <div></div>
+            <div>Valable 18 mois</div>
+            <div>Une durée de validité de 18 mois à pratir de sa date d'émission</div>
+        </div>
+        <div>
+            <div></div>
+            <div>Pour tous les budegets</div>
+            <div>Des carte cadeau à partir de .. €</div>
+        </div>
+    </div>
+</section>
+{% include "models/out_more.html.twig" %}
+{% endblock %}
