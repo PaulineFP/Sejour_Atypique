@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+{% block title %}Acceuil{% endblock %}    
+{% block body %}
+    {% set class_header = 'header_service' %}
+    {% include 'models/header.html.twig'%}
+<section id='service_presentation'>
+    <div>
+        <div>{% Sociéte_name %}</div>
+        <div>Titre</div>
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto facere, minus tempora pariatur earum nostrum porro consequatur ut ab ratione dicta facilis quos ullam sequi quae fugiat fuga maiores?</div>
+    </div>
+</section>
+<Section>
+    <div>
+        <div>Les services inclus lor de votre réservation</div>
+        <div>
+            <div>
+                <div>
+                    <div>Titre</div>
+                    <p>lorem ipsum</p>
+                </div>
+                <div><img src="" alt=""></div>
+            </div>
+            <div>
+                <div>Lorem ipsum dolor sit amet </div>
+                <div>consectetur adipisicing elit</div>
+            </div>
+            <div><img src="" alt=""></div>
+        </div>
+    </div>
+</Section>
+<section>
+    <div>
+        <div>Les services en option</div>
+        <div>réservation uniquement</div>
+    </div>
+    <div>
+
+        <div>
+            <div><img src="" alt=""></div>
+            <div>
+                tarif <br> x €
+            </div>
+            <div>
+                <div>Titre de l'option</div>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sunt doloremque, dolorem, qui magnam adipisci vitae ut minus beatae, aliquid voluptate velit consequatur placeat maiores non voluptatum labore assumenda eveniet.</div>
+            </div>
+        </div>
+
+        <div>
+            <div><img src="" alt=""></div>
+            <div>
+                tarif <br> x €
+            </div>
+            <div>
+                <div>Titre de l'option</div>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sunt doloremque, dolorem, qui magnam adipisci vitae ut minus beatae, aliquid voluptate velit consequatur placeat maiores non voluptatum labore assumenda eveniet.</div>
+            </div>
+        </div>
+
+        <div>
+            <div><img src="" alt=""></div>
+            <div>
+                tarif <br> x €
+            </div>
+            <div>
+                <div>Titre de l'option</div>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sunt doloremque, dolorem, qui magnam adipisci vitae ut minus beatae, aliquid voluptate velit consequatur placeat maiores non voluptatum labore assumenda eveniet.</div>
+            </div>
+        </div>
+
+        <div>
+            <div><img src="" alt=""></div>
+            <div>
+                tarif <br> x €
+            </div>
+            <div>
+                <div>Titre de l'option</div>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sunt doloremque, dolorem, qui magnam adipisci vitae ut minus beatae, aliquid voluptate velit consequatur placeat maiores non voluptatum labore assumenda eveniet.</div>
+            </div>
+        </div>
+        <a href="">Je réserve un logement</a>
+    </div>
+</section>
+{% include "models/out_more.html.twig" %}
+{% endblock %}
