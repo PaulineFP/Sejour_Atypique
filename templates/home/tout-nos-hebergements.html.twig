@@ -17,33 +17,29 @@
                     </button>
                     {# Chercher la requette sql classer par cat promo #}
                     
-                    {{ dump(post) }}
-
-
-                    {# 
 				    <div aria-live="polite" class="">
                         <div class="" role="listbox">
                              <div class="" data-slick-index="6" aria-hidden="true" tabindex="-1">
                                 <div class='IMG'>
                                     <img src="IMG/hebergement_img" alt="">
                                     <div class="promo">
-                                    {% hebergement_promo %}
+                                     {# {% hebergement_promo %} #}
                                     </div>
                                 </div>
                                 <div class=''>
                                     <div>
-                                        <div>{% hebergement_nom %}</div>
-                                        <div>{% hebergement_tarif %}</div>
+                                        <div>{{hebergement.title}}</div>
+                                        {# <div>{{hebergement_descriptions}}</div> #}
                                     </div>
-                                    <div>{% hebergement_lieu %}</div>
-                                    <div>{% hebergement_descriptions %}</div>
+                                    <div>{{hebergement.lieux}}</div>
+                                    <div>{{hebergement.description}}</div>
                                 </div>
                             </div>
-                          <div class="" data-slick-index="6" aria-hidden="true" tabindex="-1">
+                        {#}  <div class="" data-slick-index="6" aria-hidden="true" tabindex="-1">
                                 <div class='IMG'>
                                     <img src="IMG/hebergement_img" alt="">
                                     <div class="promo">
-                                    {% hebergement_promo %}
+                                    {# {% hebergement_promo %} 
                                     </div>
                                 </div>
                                 <div class=''>
@@ -119,11 +115,12 @@
                                     <div>{% hebergement_descriptions %}</div>
                                 </div>
                             </div>
+                              #}
                         </div>	
 					 <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">
                      <i class="fa-solid fa-angle-right"></i>
                     </button>
-                    #}
+                  
                 </div>
             </div>
             {#

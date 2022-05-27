@@ -24,11 +24,12 @@ class HomeController extends AbstractController
         // Crée manuellement le contenu
         $hebergement = new Hebergement();
         $hebergement->setTitle('Logement 1')
-                    ->setDescription('Fugiat voluptate sit ea est aute tempor qui et nisi minim veniam. ');
+                    ->setDescription('Fugiat voluptate sit ea est aute tempor qui et nisi minim veniam. ')
+                    ->setTarif('150')
+                    ->setLieux('ICI');
 
         return $this->render('home/tout-nos-hebergements.html.twig', [
-            "post" => $hebergement
-
+            "hebergement" => $hebergement
         ]);
     }
     
