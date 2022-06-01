@@ -5,7 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Hebergement;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-Use Faker\factory;
+use Faker\Factory;
 
 class AppFixtures extends Fixture
 {
@@ -21,8 +21,13 @@ class AppFixtures extends Fixture
         $hebergement->setTitle($faker->sentence($nbWords = 2, $variableNbWords = true))
                     ->setDescription($faker->sentence($nbWords = 10, $variableNbWords = true))
                     ->setTarif($faker->randomNumber(3))
-                    ->setLieux('ICI');
-
+                    ->setLieux('ICI')                    
+                    ->setSurface('m²')
+                    ->setPublicationDate($faker->dateTimeBetween('-6 months'))
+                    ->setLastUpdateDate($faker->dateTimeBetween('-6 months'))
+                    ->setIsPublished('no')
+                    ->setPicture('https://loremflickr.com/640/360');
+                    
          $manager->persist($hebergement);
         }
         
