@@ -12,10 +12,10 @@
             <div>
                 <div>
                 {# https://kenwheeler.github.io/slick/ #}
-                    <button type="button" data-role="none" class="" aria-label="" role="button">
+                    {# <button type="button" data-role="none" class="" aria-label="" role="button">
                         <i class="fa-solid fa-angle-left"></i>
-                    </button>
-                    {# Chercher la requette sql classer par cat promo #}
+                    </button> #}
+                    {# Chercher la requette sql classer par cat promo 
                     
 				    <div aria-live="polite" class="">
                         <div class="" role="listbox">
@@ -24,23 +24,23 @@
                                     <img src="IMG/hebergement_img" alt="">
                                     <div class="promo">
                                      {# {% hebergement_promo %} #}
-                                    </div>
+                                    {# </div>
                                 </div>
                                 <div class=''>
                                     <div>
-                                        <div>{{hebergement.title}}</div>
+                                        <div>{{hebergement.title}}</div> #}
                                         {# <div>{{hebergement_descriptions}}</div> #}
-                                    </div>
+                                    {# </div>
                                     <div>{{hebergement.lieux}}</div>
                                     <div>{{hebergement.description}}</div>
                                 </div>
                             </div>
-                        {#}  <div class="" data-slick-index="6" aria-hidden="true" tabindex="-1">
+                         <div class="" data-slick-index="6" aria-hidden="true" tabindex="-1">
                                 <div class='IMG'>
                                     <img src="IMG/hebergement_img" alt="">
-                                    <div class="promo">
-                                    {# {% hebergement_promo %} 
-                                    </div>
+                                    <div class="promo"> #}
+                                    {# {% hebergement_promo %} #}
+                                    {# </div>
                                 </div>
                                 <div class=''>
                                     <div>
@@ -114,8 +114,8 @@
                                     <div>{% hebergement_lieu %}</div>
                                     <div>{% hebergement_descriptions %}</div>
                                 </div>
-                            </div>
-                              #}
+                            </div> #}
+                             
                         </div>	
 					 <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">
                      <i class="fa-solid fa-angle-right"></i>
@@ -123,34 +123,37 @@
                   
                 </div>
             </div>
-            {#
+            
             <div></div>
             <div></div>
         </section>
+        
         <section id="hebergement">
-        {# Chercher la requette sql qui affiche tout les hebergement 
-        <div>Titre</div>
+        {# Chercher la requette sql qui affiche tout les hebergement #}
+        
+        <div>titre</div>
         <div>
+            {% for herbergement in hebergements %}
             <div>
                 <div>
                     <div>
-                        {# Image di logement avec montage carte de la région inclus dedans 
-                        <img src="IMG/{% hebergement_img_carte %}" alt="{% hebergement_nom %}">                        
+                        {# Image di logement avec montage carte de la région inclus dedans #}
+                        <img src="IMG/{{ hebergement.picture }}" alt="{{ hebergement.title }}">                        
                     </div>
                     <div>
                         <div>
-                            <div>{% hebergement_nom %}</div>
-                            <div>{% hebergement_tarif %}</div>
+                            <div>{{ hebergement.title }}</div>
+                            <div>{{ hebergement.tarif }}</div>
                         </div>
-                        <div>{% hebergement_lieu %}</div>
-                        <div>{% hebergement_descriptions %}</div>
+                        <div>{{ hebergement.lieu }}</div>
+                        <div>{{ hebergement.description }}</div>
                     </div>
                 </div>
                 <div>
                     <a href="">Choisir</a>
                 </div>
             </div>
-
+           {% endfor %}
            <div>
            {# Faire une condition en fonction du nombre de page + nb d'articles par page limite 
                 <ul>
