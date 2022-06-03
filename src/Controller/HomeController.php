@@ -22,9 +22,20 @@ class HomeController extends AbstractController
      */
     public function showall(HebergementRepository $ripo)
     {
-        $Hebergement = $ripo->findAll();
+        $Hebergements = $ripo->findAll();
 
-        return $this->render('home/index.html.twig', [
+        return $this->render('home/tout-nos-hebergements.html.twig', 
+        [
+            'Hebergements' => $Hebergements
+        ]);
+    }
+    /**
+     * @Route("/hebergement/{id}", name="show_herbergement")
+     */
+    public function show(Hebergement $Hebergement){
+
+        return $this->render('models/hebergement.html.twig',
+        [
             'Hebergement' => $Hebergement
         ]);
     }   

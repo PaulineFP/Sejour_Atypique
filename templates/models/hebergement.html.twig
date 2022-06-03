@@ -1,27 +1,15 @@
 {% extends 'base.html.twig' %}
-{% block title %}Qui sommes nous?{% endblock %}    
+{% block title %}{{ hebergement.tiltle}}{% endblock %}    
 {% block body %}
-{# besoin une requette sql pour recuperer les infos de chaque hebergement #}
-{# Faire une redirection pour les variables #}
- {% set hebergement_nom = ""%}
- {% set hebergement_lieu = value %}
- {% set hebergement_tarif = value %}
- {% set hebergement_particularite = value %}
- {% set hebergement_dimentions = value %}
- {% set hebergement_descriptions = value %}
- {% set hebergement_region = value %}
- {% set hebergement_lat = value %}
- {% set hebergement_long = value %}
- {% set hebergement_equipement = value %}
- {% set info_petitdej = value %}
- {% set hebergement_img_full = value %}
- {% set hebergement_img = value %}
+
 <header class= "" >
-    {% include 'partials/navbar.html.twig'%}
+    {# Faire un header spéciale pour recuperer l'imge de la bdd #}
+    {% set class_header = 'header_home text-rose-700 h-screen' %}
+    {% include 'models/header.html.twig'%}
 </header>
 <div>
     <div>
-    <a href="">Photo</a>
+    <a href="">Photos</a>
     <a href="">Hebergement</a>
     <a href="">Infos protiques</a>
     <a href="">Conditions de réservation</a>
@@ -33,10 +21,10 @@
     <div>
         <div>
             <div>
-               <h2>{% hebergement_nom %}</h2> 
-               <p>{% hebergement_lieu%}</p> 
+               <h2>{{hebergement.title}}</h2> 
+               <p>{{hebergement.lieu}}</p> 
             </div>
-            <div>{% hebergement_tarif %}</div>
+            <div>{{hebergement.tarif}}</div>
         </div>
         <div>
             {# Faire une condition twig en fonction du comtenue de la bdd avec {% hebergement_particularite %} #}
@@ -66,15 +54,15 @@
         <div>
                 <div>
                     <div>Présentation</div>
-                    <div>surface du logement: {% hebergement_dimentions %} m²</div>
+                    <div>surface du logement: {{ hebergement.surface}} m²</div>
                 </div>
                 <p>
-                    {% hebergement_descriptions %}
+                    {{ hebergement.description}}
                 </p>
         </div>
         <div>
             <div>Localisation</div>
-            <div>{% hebergement_region %}</div>
+            <div>{{ hebergement.lieu }}</div>
             <hr>
             <div>
                 {# Intégration map avec leaflette #}
@@ -84,7 +72,7 @@
     <div>
         <div>
             <div>
-            réservation = <img src="" alt=""> 1 arbre planté
+            réservation = <img src="https://picsum.photos/2000/500" alt=""> 1 arbre planté
             </div> 
         </div>
         <div>
@@ -98,52 +86,64 @@
     <div>
     {# Faire une condition en fonction de la bdd #}
         <div>
-            <div><img src="" alt=""></div>
-            <p>{% hebergement_equipement %}</p>
+            <div><img src="https://picsum.photos/40/40" alt=""></div>
+            {# <p>{% hebergement_equipement %}</p> #}
+            <p>nom de l'équipement</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
-            <p>{% hebergement_equipement %}</p>
+            <div><img src="https://picsum.photos/40/40" alt=""></div>
+            {# <p>{% hebergement_equipement %}</p> #}
+            <p>nom de l'équipement</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
-            <p>{% hebergement_equipement %}</p>
+            <div><img src="https://picsum.photos/40/40" alt=""></div>
+            {# <p>{% hebergement_equipement %}</p> #}
+            <p>nom de l'équipement</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
-            <p>{% hebergement_equipement %}</p>
+            <div><img src="https://picsum.photos/40/40" alt=""></div>
+            {# <p>{% hebergement_equipement %}</p> #}
+            <p>nom de l'équipement</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
-            <p>{% hebergement_equipement %}</p>
+            <div><img src="https://picsum.photos/40/40" alt=""></div>
+            {# <p>{% hebergement_equipement %}</p> #}
+            <p>nom de l'équipement</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
-            <p>{% hebergement_equipement %}</p>
+            <div><img src="https://picsum.photos/40/40" alt=""></div>
+            {# <p>{% hebergement_equipement %}</p> #}
+            <p>nom de l'équipement</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
-            <p>{% hebergement_equipement %}</p>
+            <div><img src="https://picsum.photos/40/40" alt=""></div>
+            {# <p>{% hebergement_equipement %}</p> #}
+            <p>nom de l'équipement</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
-            <p>{% hebergement_equipement %}</p>
+            <div><img src="https://picsum.photos/40/40" alt=""></div>
+            {# <p>{% hebergement_equipement %}</p> #}
+            <p>nom de l'équipement</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
-            <p>{% hebergement_equipement %}</p>
+            <div><img src="https://picsum.photos/40/40" alt=""></div>
+            {# <p>{% hebergement_equipement %}</p> #}
+            <p>nom de l'équipement</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
-            <p>{% hebergement_equipement %}</p>
+            <div><img src="https://picsum.photos/40/40" alt=""></div>
+            {# <p>{% hebergement_equipement %}</p> #}
+            <p>nom de l'équipement</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
-            <p>{% hebergement_equipement %}</p>
+            <div><img src="https://picsum.photos/40/40" alt=""></div>
+            {# <p>{% hebergement_equipement %}</p> #}
+            <p>nom de l'équipement</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
-            <p>{% hebergement_equipement %}</p>
+            <div><img src="https://picsum.photos/40/40" alt=""></div>
+            {# <p>{% hebergement_equipement %}</p> #}
+            <p>nom de l'équipement</p>
         </div>
     </div>
 </section>
@@ -152,21 +152,21 @@
         <div>Informations pratiques </div>
         <div>
             <div>
-                <div><img src="" alt=""></div>
+                <div><img src="https://picsum.photos/640/360" alt=""></div>
                 <div>
                     <p>Horraire d'arrivée :</p>
                     <p>lroem ipsum</p>
                 </div>
             </div>
             <div>
-                <div><img src="" alt=""></div>
+                <div><img src="https://picsum.photos/640/360" alt=""></div>
                 <div>
                     <p>Petit déjeuner</p>
-                    <p>{% info_petitdej %}</p>
+                    {# <p>{% info_petitdej %}</p> #}
                 </div>
             </div>
             <div>
-                <div><img src="" alt=""></div>
+                <div><img src="https://picsum.photos/640/360" alt=""></div>
                 <div>
                     <p>Restauration</p>
                     <p>Panier repas sur réservation</p>
@@ -178,17 +178,17 @@
         <div>Option suplémentaires</div>
         {# Meme options sur tout les sites #}
         <div>
-            <div><img src="" alt=""></div>
+            <div><img src="https://picsum.photos/640/360" alt=""></div>
             <p>Nom option</p>
             <p>tarif</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
+            <div><img src="https://picsum.photos/640/360" alt=""></div>
             <p>Nom option</p>
             <p>tarif</p>
         </div>
         <div>
-            <div><img src="" alt=""></div>
+            <div><img src="https://picsum.photos/640/360" alt=""></div>
             <p>Nom option</p>
             <p>tarif</p>
         </div>
@@ -196,7 +196,7 @@
 </section>
 <section>
     <div>Comment ça marche ?</div>
-    <div><img src="" alt=""></div>
+    <div><img src="https://picsum.photos/2000/500" alt=""></div>
     <div>
      {# Chercher cb d'option mettre en détail #}
     </div>
@@ -217,21 +217,21 @@
 <section>
 <div id="arrow-left" class="arrow"></div>
     <div class="slide slide1">
-        <img src="IMG/{% hebergement_img_full%}-1" alt="">
+        <img src="https://picsum.photos/640/360" alt="">
     </div>
     <div class="slide slide2">
-        <img src="IMG/{% hebergement_img_full%}-2" alt="">
+        <img src="https://picsum.photos/640/360" alt="">
     </div>
     <div class="slide slide3">
-        <img src="IMG/{% hebergement_img_full%}-3" alt="">
+        <img src="https://picsum.photos/640/360" alt="">
     </div>
 <div id="arrow-right" class="arrow"></div>
 
 </section>
-<section>
+{# <section>
 <div>Dans la meme région :</div>
 <div>
-{# Faire un appel sql #}
+{# Faire un appel sql 
     <div>
         <div>
             <div><img src="" alt=""></div>
@@ -276,7 +276,7 @@
         </div>
     </div>
 </div>
-</section>
+</section> #}
 
 <a href="">Choisir</a>
 {% endblock %}
