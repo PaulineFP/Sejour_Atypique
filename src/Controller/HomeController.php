@@ -22,11 +22,11 @@ class HomeController extends AbstractController
      */
     public function showall(HebergementRepository $ripo)
     {
-        $Hebergements = $ripo->findAll();
+        $hebergements = $ripo->findAll();
 
         return $this->render('home/tout-nos-hebergements.html.twig', 
         [
-            'Hebergements' => $Hebergements
+            'hebergements' => $hebergements
         ]);
     }
     /**
