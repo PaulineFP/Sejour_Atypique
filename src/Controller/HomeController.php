@@ -32,11 +32,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/hebergement/{id}", name="show_herbergement")
      */
-    public function show(Hebergement $Hebergement){
+    public function show(Hebergement $hebergement){
 
         return $this->render('models/hebergement.html.twig',
         [
-            'Hebergement' => $Hebergement
+            'hebergement' => $hebergement
         ]);
     }   
     
