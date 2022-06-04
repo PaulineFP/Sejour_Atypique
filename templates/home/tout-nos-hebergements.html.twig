@@ -133,24 +133,25 @@
         
         <div>titre</div>
         <div>
-            {% for herbergement in hebergements %}
+            {% for hebergement in hebergements %}
+            
             <div>
                 <div>
                     <div>
                         {# Image di logement avec montage carte de la région inclus dedans #}
-                        <img src="IMG/{{ hebergement.picture }}" alt="{{ hebergement.title }}">                        
+                        <img src="{{hebergement.picture}}" alt="{{hebergement.title}}">                        
                     </div>
                     <div>
                         <div>
-                            <div>{{ hebergement.title }}</div>
-                            <div>{{ hebergement.tarif }}</div>
+                            <div>{{hebergement.title}}</div>
+                            <div>{{hebergement.tarif}}</div>
                         </div>
-                        <div>{{ hebergement.lieu }}</div>
-                        <div>{{ hebergement.description }}</div>
+                        <div>{{hebergement.lieux}}</div>
+                        <div>{{hebergement.description}}</div>
                     </div>
                 </div>
                 <div>
-                    <a href="/hebergement/{{ hebergement.id }}">Choisir</a>
+                    <a href="/hebergement/{{hebergement.id}}">Choisir</a>
                 </div>
             </div>
            {% endfor %}

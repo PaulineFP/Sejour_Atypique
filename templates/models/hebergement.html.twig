@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ hebergement.tiltle}}{% endblock %}    
+{% block title %}{{hebergement.title}}{% endblock %}    
 {% block body %}
 
 <header class= "" >
@@ -22,30 +22,30 @@
         <div>
             <div>
                <h2>{{hebergement.title}}</h2> 
-               <p>{{hebergement.lieu}}</p> 
+               <p>{{hebergement.lieux}}</p> 
             </div>
             <div>{{hebergement.tarif}}</div>
         </div>
         <div>
             {# Faire une condition twig en fonction du comtenue de la bdd avec {% hebergement_particularite %} #}
             <div>
-                <div><img src="" alt=""></div>
+                <div><img src="https://picsum.photos/40/40" alt=""></div>
                 <div>Cabane dans les arbres</div>
             </div>
             <div>
-                <div><img src="" alt=""></div>
+                <div><img src="https://picsum.photos/40/40" alt=""></div>
                 <div>2 personnes</div>
             </div>
             <div>
-                <div><img src="" alt=""></div>
+                <div><img src="https://picsum.photos/40/40" alt=""></div>
                 <div>A partiir de 3 ans</div>
             </div>
             <div>
-                <div><img src="" alt=""></div>
+                <div><img src="https://picsum.photos/40/40" alt=""></div>
                 <div>Petit-déjeuner inclus</div>
             </div>
             <div>
-                <div><img src="" alt=""></div>
+                <div><img src="https://picsum.photos/40/40" alt=""></div>
                 <div>Animaux acceptés</div>                
             </div>
             {# ect #}           
@@ -54,15 +54,15 @@
         <div>
                 <div>
                     <div>Présentation</div>
-                    <div>surface du logement: {{ hebergement.surface}} m²</div>
+                    <div>surface du logement: {{hebergement.surface}} m²</div>
                 </div>
                 <p>
-                    {{ hebergement.description}}
+                    {{hebergement.description}}
                 </p>
         </div>
         <div>
             <div>Localisation</div>
-            <div>{{ hebergement.lieu }}</div>
+            <div>{{hebergement.lieux}}</div>
             <hr>
             <div>
                 {# Intégration map avec leaflette #}
