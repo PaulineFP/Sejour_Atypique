@@ -63,11 +63,6 @@ class Hebergement
     private $isPublished;
 
     /**
-    * @ORM\Column(type="string", length=255)
-     */
-    private $promotion;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $pormotion;
@@ -85,18 +80,6 @@ class Hebergement
     public function setPicture(string $picture): self
     {
         $this->picture = $picture;
-
-        return $this;
-    }
-
-    public function getPromotion(): ?string
-    {
-        return $this->promotion;
-    }
-
-    public function setPromotion(string $promotion): self
-    {
-        $this->promotion = $promotion;
 
         return $this;
     }
