@@ -15,6 +15,7 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
+        $promotions = $this->getDoctrine()->getRepository(Hebergement::class)->findBy();
         return $this->render('home/index.html.twig');
     }
        /**

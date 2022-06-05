@@ -19,6 +19,7 @@
                     </button>
 				    <div aria-live="polite" class="">
                         <div class="" role="listbox">
+                        {% for promotion in promotions %}
                             <div class="" data-slick-index="-4" aria-hidden="true" s tabindex="-1">
 					            <div class='IMG'>
                                     <div class="promo">
@@ -27,165 +28,14 @@
                                 </div>
                                 <div class=''>
                                     <div>
-                                        <div>Titre</div>
-                                        <div>Tarif</div>
+                                        <div>{{hebergement.title}}</div>
+                                        <div>{{hebergement.tarif}}</div>
                                     </div>
-                                    <div>Lieux</div>
-                                    <div>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    </div>
+                                    <div>{{heberrgement.lieux}}</div>
+                                    <div>{{hebergement.description}}</div>
                                 </div>
                             </div>
-                            <div class="" data-slick-index="-3" aria-hidden="true" tabindex="-1">
-                                <div class='IMG'>
-                                    <div class="promo">
-                                    
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>Titre</div>
-                                        <div>Tarif</div>
-                                    </div>
-                                    <div>Lieux</div>
-                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                </div>
-                            </div>
-                            <div class="" data-slick-index="-2" aria-hidden="true" tabindex="-1">
-                                <div class='IMG'>
-                                    <div class="promo">
-                                    
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>Titre</div>
-                                        <div>Tarif</div>
-                                    </div>
-                                    <div>Lieux</div>
-                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                </div>
-                            </div>
-                            <div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 140px;" tabindex="-1">
-                                <div class='IMG'>
-                                    <div class="promo">
-                                    
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>Titre</div>
-                                        <div>Tarif</div>
-                                    </div>
-                                    <div>Lieux</div>
-                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                </div>
-                            </div>
-                            <div class="" data-slick-index="0" aria-hidden="false"  tabindex="-1" role="option" aria-describedby="slick-slide30">
-                                <div class='IMG'>
-                                    <div class="promo">
-                                    
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>Titre</div>
-                                        <div>Tarif</div>
-                                    </div>
-                                    <div>Lieux</div>
-                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                </div>
-                            </div>
-                            <div class="" data-slick-index="1" aria-hidden="false"  tabindex="-1" role="option" aria-describedby="slick-slide31">
-                                <div class='IMG'>
-                                    <div class="promo">
-                                    
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>Titre</div>
-                                        <div>Tarif</div>
-                                    </div>
-                                    <div>Lieux</div>
-                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                </div>
-                            </div>
-                            <div class="" data-slick-index="2" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide32">
-                                <div class='IMG'>
-                                    <div class="promo">
-                                    
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>Titre</div>
-                                        <div>Tarif</div>
-                                    </div>
-                                    <div>Lieux</div>
-                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                </div>
-                            </div>
-                            <div class="" data-slick-index="3" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide33">
-                                <div class='IMG'>
-                                    <div class="promo">
-                                    
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>Titre</div>
-                                        <div>Tarif</div>
-                                    </div>
-                                    <div>Lieux</div>
-                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                </div>
-                            </div>
-                            <div class="" data-slick-index="4" aria-hidden="true"  tabindex="-1" role="option" aria-describedby="slick-slide34">
-                                <div class='IMG'>
-                                    <div class="promo">
-                                    
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>Titre</div>
-                                        <div>Tarif</div>
-                                    </div>
-                                    <div>Lieux</div>
-                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                </div>
-                            </div>
-                            <div class="" data-slick-index="5" aria-hidden="true"  tabindex="-1" role="option" aria-describedby="slick-slide35">
-                                <div class='IMG'>
-                                    <div class="promo">
-                                    
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>Titre</div>
-                                        <div>Tarif</div>
-                                    </div>
-                                    <div>Lieux</div>
-                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                </div>
-                            </div>
-                            <div class="" data-slick-index="6" aria-hidden="true" tabindex="-1">
-                                <div class='IMG'>
-                                    <div class="promo">
-                                    
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>Titre</div>
-                                        <div>Tarif</div>
-                                    </div>
-                                    <div>Lieux</div>
-                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                </div>
-                            </div>
+                        {% endfor %}
                         </div>	
 					 <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">
                      <i class="fa-solid fa-angle-right"></i>
