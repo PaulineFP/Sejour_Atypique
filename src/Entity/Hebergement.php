@@ -65,7 +65,7 @@ class Hebergement
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $pormotion;
+    private $promotion;
 
     public function getId(): ?int
     {
@@ -180,12 +180,12 @@ class Hebergement
         return $this;
     }
 
-    public function getPormotion(): ?string
+    public function getPromotion(): ?string
     {
         return $this->pormotion;
     }
 
-    public function setPormotion(?string $pormotion): self
+    public function setPromotion(?string $pormotion): self
     {
         $this->pormotion = $pormotion;
 
