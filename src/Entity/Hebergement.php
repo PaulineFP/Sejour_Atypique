@@ -62,6 +62,11 @@ class Hebergement
      */
     private $isPublished;
 
+    /**
+    * @ORM\Column(type="string", length=255)
+     */
+    private $promotion;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,6 +81,17 @@ class Hebergement
     {
         $this->picture = $picture;
 
+        return $this;
+    }
+
+    public function getPromotion(): ?string
+    {
+        return $this->promotion;
+    }
+    public function setPromotion(): ?string
+    {
+        $this->promotion = $promotion;
+        
         return $this;
     }
 
