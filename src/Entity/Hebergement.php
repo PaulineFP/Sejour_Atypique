@@ -88,10 +88,11 @@ class Hebergement
     {
         return $this->promotion;
     }
-    public function setPromotion(): ?string
+
+    public function setPromotion(string $promotion): self
     {
         $this->promotion = $promotion;
-        
+
         return $this;
     }
 
