@@ -1,4 +1,7 @@
-<header class= "{{ class_header }}" >
-{% include 'partials/navbar.html.twig'%}
- test
+<header  >
+    {% include 'partials/navbar.html.twig'%}    
+    <div class ='{{ class_header }} flex justify-center items-center mb-12'>
+        <div class =" h-screen bg-black opacity-20 w-full order-2 relative"></div> 
+        <h1 class="font-bold text-white text-4xl opacity-1 order-1 absolute">{{ title_h1 }}</h1>       
+    </div>   
 </header>
