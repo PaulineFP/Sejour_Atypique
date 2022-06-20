@@ -47,6 +47,19 @@ class HebergementRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @return Hebergement[] Returns an array of Hebergement objects
+     */
+  
+    public function findByPromotion()
+    {
+        return $this->createQueryBuilder('h')
+            ->andWhere('h.isPromotional = 1')
+            ->orderBy('h.promotion', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     // /**
     //  * @return Hebergement[] Returns an array of Hebergement objects
     //  */

@@ -14,16 +14,22 @@ class HomeController extends AbstractController
      * @Route("/", name="home")
      */
     public function index(): Response
-    {
-        // $promotions = $this->getDoctrine()->getRepository(Hebergement::class)->findBy();
-        $doctrine = $this->getDoctrine;
+    {                       
+        $repository = $this->getDoctrine()
+                            ->getManager()
+                            ->getRepository(Hebergement::class);
+        $listePromotions = $repository->findByPromotion();
+     
+        // foreach($listePromotions as $promotion)
+        // {
+        //     echo $promotion->getIsPromotional();
+        // }
+        
+        return $this->render('home/index.html.twig',
+    [
+        'promotions' => $listePromotions
+    ]);
 
-        $repository = $doctrine->getRepository(Hebergement::class);
-
-        // $promotions = $repository->findBy(array(promotion =>));
-        // ou 
-        $promotions = $repository->findOneBy(['promotion' => true]); 
-        return $this->render('home/index.html.twig');
     }
        /**
      * @Route("/hebergements", name="herbergements")

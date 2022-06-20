@@ -19,20 +19,21 @@
                     </button>
 				    <div aria-live="polite" class="">
                         <div class="" role="listbox">
+                        {# {% for promotion in promotions %} #}
                         {% for promotion in promotions %}
                             <div class="" data-slick-index="-4" aria-hidden="true" s tabindex="-1">
 					            <div class='IMG'>
                                     <div class="promo">
-                                    
+                                        <div>Ca Marche !</div>
                                     </div>
                                 </div>
                                 <div class=''>
                                     <div>
-                                        <div>{{hebergement.title}}</div>
-                                        <div>{{hebergement.tarif}}</div>
+                                        <div>{{promotion.title}}</div>
+                                        <div>{{promotion.tarif}}</div>
                                     </div>
-                                    <div>{{heberrgement.lieux}}</div>
-                                    <div>{{hebergement.description}}</div>
+                                    <div>{{promotion.lieux}}</div>
+                                    <div>{{promotion.description}}</div>
                                 </div>
                             </div>
                         {% endfor %}

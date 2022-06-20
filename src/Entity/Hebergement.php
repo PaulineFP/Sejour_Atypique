@@ -67,6 +67,11 @@ class Hebergement
      */
     private $promotion;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isPromotional;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -182,12 +187,24 @@ class Hebergement
 
     public function getPromotion(): ?string
     {
-        return $this->pormotion;
+        return $this->promotion;
     }
 
-    public function setPromotion(?string $pormotion): self
+    public function setPromotion(?string $promotion): self
     {
-        $this->pormotion = $pormotion;
+        $this->promotion = $promotion;
+
+        return $this;
+    }
+
+    public function getIsPromotional(): ?bool
+    {
+        return $this->isPromotional;
+    }
+
+    public function setIsPromotional(?bool $isPromotional): self
+    {
+        $this->isPromotional = $isPromotional;
 
         return $this;
     }
