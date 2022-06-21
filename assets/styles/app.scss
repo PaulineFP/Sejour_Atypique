@@ -17,3 +17,18 @@ body {
     background-size: cover;
     background-position: center;
 }
+
+// CAROUSEL-------------
+.carousel{
+    width: 100%; position: relative;
+    .slide{ 
+        // position: absolute;
+         inset: 0; opacity: 0;}
+    .slide[data-active] {opacity: 1;}
+    .carousel-button {position: absolute; font-size: 4rem; top: 50%; z-index: 2; color: rgba(255, 255, 255, .5); transform: translateY(-50%); cursor: pointer; padding: 0 .5rem; background-color: rgba (0, 0, 0, .1);}
+    .carousel-button.perv {left: 2rem;}
+    .carousel-button.next {right: 5px;}
+    .carousel-button:hover, .carousel-button:focus {color: white;background-color: rgba (0, 0, 0, .2);}
+    .carousel-button:focus {outline: 1px solid black;}
+
+}
