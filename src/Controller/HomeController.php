@@ -15,13 +15,18 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {                       
+        // PROMOTIONS ------------------
         $repository = $this->getDoctrine()
                             ->getManager()
                             ->getRepository(Hebergement::class);
         $listePromotions = $repository->findByPromotion();
 
        // $groups = découpe $listePromotion[] en petit bout 4 avec array_chunk()
-        $groups = (array_chunk($listePromotions, 4, true));        
+        $groups = (array_chunk($listePromotions, 4, true));   
+        
+        //CATEGORIES----------------------
+
+        //REGIONS-------------------------
         
         return $this->render('home/index.html.twig',
     [
