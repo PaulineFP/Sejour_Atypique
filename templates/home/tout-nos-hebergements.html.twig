@@ -26,7 +26,7 @@
                 {# ajoute un attribut si condition, sinon rien #} 
                 <div class=" slide "  {{ loop.index0 is same as(0) ? "data-active" : "" }}> 
                     {% for promo in group_promo %}
-                        <div class="  content-promo w-1/4 mx-4 shadow-xl bg-gray-100 rounded-br-3xl rounded-tl-3xl">
+                        <div class="  content-promo aw-1/4 mx-4 shadow-xl bg-gray-100 rounded-br-3xl rounded-tl-3xl">
                             <div class='IMG flex justify-end'>
                                 <img src="https://picsum.photos/400/300" alt="" class="order-2 relative rounded-tl-3xl">
                                 <div class="promo  text-yellow-500 bg-gray-50 rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{promo.promotion}}</div>
