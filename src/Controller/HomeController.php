@@ -28,8 +28,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig',
     [
         'promotions' => $listePromotions,
-        'group_promos' => $groups
-              
+        'group_promos' => $groups              
     ]);
     }
        /**
