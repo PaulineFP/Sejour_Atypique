@@ -2,160 +2,89 @@
 {% block title %}Qui sommes nous?{% endblock %}    
 {% block body %}
     {% set class_header = 'header_list' %}
+    {% set title_h1 = 'Tous les hébergements' %}
     {% include 'models/header.html.twig'%}
-   <section class='promotion' id='promotion'>
-            <div>Section Promotion titre</div>
-            <div>
+   <section class='promotion  mt-20 mb-28 mx-auto w-11/12' id='promotion'>
+        <div class="mb-6">
+            <div class="text-center font-bold text-2xl my-4">Section Promotion titre</div>
+            <div class="mx-auto w-3/4">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
                 Iusto et, adipisci laboriosam, nisi totam, doloremque quia dolores fuga maiores nobis quam molestiae expedita unde earum velit nam non perferendis? Sequi.
             </div>
-            <div>
-                <div>
-                {# https://kenwheeler.github.io/slick/ #}
-                    {# <button type="button" data-role="none" class="" aria-label="" role="button">
-                        <i class="fa-solid fa-angle-left"></i>
-                    </button> #}
-                    {# Chercher la requette sql classer par cat promo 
-                    
-				    <div aria-live="polite" class="">
-                        <div class="" role="listbox">
-                             <div class="" data-slick-index="6" aria-hidden="true" tabindex="-1">
-                                <div class='IMG'>
-                                    <img src="IMG/hebergement_img" alt="">
-                                    <div class="promo">
-                                     {# {% hebergement_promo %} #}
-                                    {# </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>{{hebergement.title}}</div> #}
-                                        {# <div>{{hebergement_descriptions}}</div> #}
-                                    {# </div>
-                                    <div>{{hebergement.lieux}}</div>
-                                    <div>{{hebergement.description}}</div>
-                                </div>
+        </div>    
+        {# -----------CAROUSEL -------------------------------#}
+        <div class="carousel my-2 mx-auto" data-carousel>
+        {# https://kenwheeler.github.io/slick/ #}
+            <button type="button" class="carousel-button prev" data-carousel-button="prev">
+                <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <button type="button" class="carousel-button next" data-carousel-button="next">
+                <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <div class="flex justify-between w-11/12 mx-auto " data-slides>
+            {% for group_promo in group_promos %}
+                {# ajoute un attribut si condition, sinon rien #} 
+                <div class=" slide "  {{ loop.index0 is same as(0) ? "data-active" : "" }}> 
+                    {% for promo in group_promo %}
+                        <div class="  content-promo w-1/4 mx-4 shadow-xl bg-gray-100 rounded-br-3xl rounded-tl-3xl">
+                            <div class='IMG flex justify-end'>
+                                <img src="https://picsum.photos/400/300" alt="" class="order-2 relative rounded-tl-3xl">
+                                <div class="promo  text-yellow-500 bg-gray-50 rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{promo.promotion}}</div>
                             </div>
-                         <div class="" data-slick-index="6" aria-hidden="true" tabindex="-1">
-                                <div class='IMG'>
-                                    <img src="IMG/hebergement_img" alt="">
-                                    <div class="promo"> #}
-                                    {# {% hebergement_promo %} #}
-                                    {# </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>{% hebergement_nom %}</div>
-                                        <div>{% hebergement_tarif %}</div>
+                            <div class="">
+                                <div class='p-6'>
+                                    <div class="flex items-start justify-between mb-2">
+                                        <div class="font-semibold text-xl">{{promo.title}}</div>
+                                        <div class="font-semibold text-xl w-1/4">
+                                            {{promo.tarif}}
+                                            <i class="text-base fa-solid fa-euro-sign"></i>
+                                        </div>
                                     </div>
-                                    <div>{% hebergement_lieu %}</div>
-                                    <div>{% hebergement_descriptions %}</div>
+                                    <div class="text-sm font-medium mb-2">{{promo.lieux}}</div>
+                                    <div class="text-justify text-base">{{promo.description}}</div>
                                 </div>
-                            </div>
-                           <div class="" data-slick-index="6" aria-hidden="true" tabindex="-1">
-                                <div class='IMG'>
-                                    <img src="IMG/hebergement_img" alt="">
-                                    <div class="promo">
-                                    {% hebergement_promo %}
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>{% hebergement_nom %}</div>
-                                        <div>{% hebergement_tarif %}</div>
-                                    </div>
-                                    <div>{% hebergement_lieu %}</div>
-                                    <div>{% hebergement_descriptions %}</div>
-                                </div>
-                            </div>
-                            <div class="" data-slick-index="6" aria-hidden="true" tabindex="-1">
-                                <div class='IMG'>
-                                    <img src="IMG/hebergement_img" alt="">
-                                    <div class="promo">
-                                    {% hebergement_promo %}
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>{% hebergement_nom %}</div>
-                                        <div>{% hebergement_tarif %}</div>
-                                    </div>
-                                    <div>{% hebergement_lieu %}</div>
-                                    <div>{% hebergement_descriptions %}</div>
-                                </div>
-                            </div>
-                             <div class="" data-slick-index="6" aria-hidden="true" tabindex="-1">
-                                <div class='IMG'>
-                                    <img src="IMG/hebergement_img" alt="">
-                                    <div class="promo">
-                                    {% hebergement_promo %}
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>{% hebergement_nom %}</div>
-                                        <div>{% hebergement_tarif %}</div>
-                                    </div>
-                                    <div>{% hebergement_lieu %}</div>
-                                    <div>{% hebergement_descriptions %}</div>
-                                </div>
-                            </div>
-                            <div class="" data-slick-index="6" aria-hidden="true" tabindex="-1">
-                                <div class='IMG'>
-                                    <img src="IMG/hebergement_img" alt="">
-                                    <div class="promo">
-                                    {% hebergement_promo %}
-                                    </div>
-                                </div>
-                                <div class=''>
-                                    <div>
-                                        <div>{% hebergement_nom %}</div>
-                                        <div>{% hebergement_tarif %}</div>
-                                    </div>
-                                    <div>{% hebergement_lieu %}</div>
-                                    <div>{% hebergement_descriptions %}</div>
-                                </div>
-                            </div> #}
-                             
-                        </div>	
-					 <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">
-                     <i class="fa-solid fa-angle-right"></i>
-                    </button>
-                  
-                </div>
-            </div>
-            
-            <div></div>
-            <div></div>
+                            </div>                            
+                        </div>   
+                {% endfor %}
+                 </div>
+            {% endfor %}  
+             </div>             
+        </div>
+        {# --------------------------------------------------#}        
         </section>
         
-        <section id="hebergement">
+        <section id="hebergement" class="mx-auto w-11/12">
         {# Chercher la requette sql qui affiche tout les hebergement #}
         
-        <div>titre</div>
-        <div>
+        <div class="text-center font-bold text-2xl mb-12">
+            Trouvez l'hébergement qui vous correspond parmis notre sélection
+        </div>
+        <div class="grid grid-rows-4 grid-flow-col gap-4 justify-between w-11/12 mx-auto">
             {% for hebergement in hebergements %}
-            
-            <div>
+            <div class=" w-4/5 mx-4 my-12 shadow-xl bg-gray-100 rounded-bl-3xl rounded-tr-3xl relative order-2">  
                 <div>
-                    <div>
-                        {# Image di logement avec montage carte de la région inclus dedans #}
-                        <img src="{{hebergement.picture}}" alt="{{hebergement.title}}">                        
-                    </div>
-                    <div>
-                        <div>
-                            <div>{{hebergement.title}}</div>
-                            <div>{{hebergement.tarif}}</div>
+                    {# Image du logement avec montage carte de la région inclus dedans #}
+                    <img src="{{hebergement.picture}}" alt="{{hebergement.title}}" class="rounded-tr-3xl">  
+                    <div class=" p-6 h-52 ">
+                        <div class="flex items-start justify-between mb-2 ">
+                            <div class="font-semibold text-xl">{{hebergement.title}}</div>
+                            <div class="font-semibold text-xl w-1/4">
+                                {{hebergement.tarif}}
+                                <i class="text-base fa-solid fa-euro-sign"></i>
+                            </div>
                         </div>
-                        <div>{{hebergement.lieux}}</div>
-                        <div>{{hebergement.description}}</div>
+                        <div class="text-sm font-medium mb-2">{{hebergement.lieux}}</div>
+                        <div class="text-justify text-base">{{hebergement.description}}</div>                    
                     </div>
-                </div>
-                <div>
-                    <a href="/hebergement/{{hebergement.id}}">Choisir</a>
-                </div>
+                </div>      
+                
+                <div class="flex justify-center  ">
+                    <a class=" py-4 px-28 absolute order-1 bg-red-400 -bottom-8" href="/hebergement/{{hebergement.id}}">Choisir</a>
+                </div>                
             </div>
+            
            {% endfor %}
-           <div>
+        </div>
            {# Faire une condition en fonction du nombre de page + nb d'articles par page limite 
                 <ul>
                     <li>
