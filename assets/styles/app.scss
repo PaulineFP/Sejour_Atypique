@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    background-color: lightgray;
+    background-color: #f7f3f3;
 }
 
 .navbar1 , .navbar2 {
@@ -15,7 +15,7 @@ body {
 .header_home {
     background: url('../IMG/fond.jpg')no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center; 
 }
 
 // CAROUSEL-------------
@@ -23,9 +23,11 @@ body {
     width: 100%; position: relative;
     .slide{ inset: 0; opacity: 0; transition: 200ms opacity ease-in-out; display: none;}
     .slide[data-active] {opacity: 1; display: flex;}
-    .carousel-button {position: absolute; font-size: 4rem; top: 50%; z-index: 2; color: rgba(255, 255, 255, .5); transform: translateY(-50%); cursor: pointer; padding: 0 .5rem; background-color: rgba (0, 0, 0, .1);}
+    .carousel-button {position: absolute; font-size: 4rem; top: 50%; z-index: 2; color: rgb(195, 191, 191, .5); transform: translateY(-50%); cursor: pointer; padding: 0 .5rem; background-color: rgba (0, 0, 0, .1);}
     .carousel-button.perv {left: 2rem;}
     .carousel-button.next {right: 5px;}
-    .carousel-button:hover, .carousel-button:focus {color: white;background-color: rgba (0, 0, 0, .2);}
+    .carousel-button:hover, .carousel-button:focus {color: white;background-color: rgba (195, 191, 191, .2);}
     .carousel-button:focus {outline: 1px solid black;}
-}
+} 
+
+.min-content {height: min-content;}

@@ -6,8 +6,8 @@
     {% set title_h1 = 'Ma page acceuil' %}
     {% include 'models/header.html.twig'%}
 
-    <div class=" mx-auto w-11/12">
-         <section class='promotion' id='promotion'>
+    <div class=" ">
+         <section class='promotion  mt-20 mb-28 mx-auto w-11/12' id='promotion'>
         <div class="mb-6">
             <div class="text-center font-bold text-2xl my-4">Section Promotion titre</div>
             <div class="mx-auto w-3/4">
@@ -29,7 +29,7 @@
                 {# ajoute un attribut si condition, sinon rien #} 
                 <div class=" slide "  {{ loop.index0 is same as(0) ? "data-active" : "" }}> 
                     {% for promo in group_promo %}
-                        <div class=" w-1/4 mx-4 shadow-lg bg-gray-100 rounded-br-3xl rounded-tl-3xl">
+                        <div class=" w-1/4 mx-4 shadow-xl bg-gray-100 rounded-br-3xl rounded-tl-3xl">
                                                     <div class='IMG flex justify-end'>
                                 <img src="https://picsum.photos/400/300" alt="" class="order-2 relative rounded-tl-3xl">
                                 <div class="promo  text-yellow-500 bg-gray-50 rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{promo.promotion}}</div>
@@ -56,33 +56,46 @@
         {# --------------------------------------------------#}        
         </section>
 
-        <section>
+        <section class=" my-20">
             {# Séparation #}
+            <img src="https://picsum.photos/2000/500" alt="">
         </section>
-        <section id="about">
-            <div>
-                <div class="div">
-                    <div>
-                        <div>Qui sommes nous ?</div>
-                        <div>
+        <section id="about" class="mx-auto w-11/12">
+          
+            <div class="flex ">
+                <div class=" mb-6 w-2/3 mr-12">
+                    <div class="mb-6">
+                        <div class=" text-4xl font-bold mb-4 ">Qui sommes nous ?</div>
+                        <div class="mb-4 text-base">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sed earum aliquid ut, incidunt rerum exercitationem voluptas quasi ea fugiat debitis dolorem qui eaque, quia amet delectus. Dolor, a nemo.
                         </div>
+                        <div class="mb-4 text-base">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sed earum aliquid ut, incidunt rerum exercitationem voluptas quasi ea fugiat debitis dolorem qui eaque, quia amet delectus. Dolor, a nemo.
+                        </div>
+                        <div class="mb-4 text-base">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam consequatur similique eaque, delectus vitae numquam quis omnis voluptas dolore recusandae blanditiis ullam earum porro fugiat quasi molestiae repellendus obcaecati reprehenderit!
+                        </div>
                     </div>
-                    <div>
-                        <a href="">Mieux nous connaitre</a>
-                        <div>
-                        </div><img src="" alt=""></div>
+                    <div class="flex justify-evenly pt-6">
+                        <a href="" class=" min-content border-4  border-green-700 p-5  mr-8" >Mieux nous connaitre</a>
+                                                
+                        <div class=""><img src="https://picsum.photos/600/320" alt=""></div>
+                    </div>
                 </div>
-                <div>
-                    <div><img src="" alt=""></div>
-                    <a href="">Nous contactez</a>
-                </div>
+                
+                <div class='mb-6'>
+                    <div class="mb-12"><img src="https://picsum.photos/500/600" alt=""></div>
+                    <div class="flex justify-center"><a href="" class="bg-green-600 p-5 text-white mb-4">Nous contactez</a></div>
+                    
+                </div>                
             </div>
-            <div>
-                <div><img src="" alt=""></div>
-                <div><img src="" alt=""></div>
-            </div>
+            <div class="flex justify-around my-8">
+                    <div class="mr-4"><img src="https://picsum.photos/700/300" alt=""></div>
+                    <div><img src="https://picsum.photos/700/300" alt=""></div>
+             </div>      
+            
         </section>
+
         <section id="home_category">
         {# Cat_7 model #}
         <div>Nos catégories</div>
