@@ -23,8 +23,8 @@ body {
     width: 100%; position: relative;
     .slide{ 
         // position: absolute;
-         inset: 0; opacity: 0;}
-    .slide[data-active] {opacity: 1;}
+         inset: 0; opacity: 0; transition: 200ms opacity ease-in-out; display: none;}
+    .slide[data-active] {opacity: 1; display: block;}
     .carousel-button {position: absolute; font-size: 4rem; top: 50%; z-index: 2; color: rgba(255, 255, 255, .5); transform: translateY(-50%); cursor: pointer; padding: 0 .5rem; background-color: rgba (0, 0, 0, .1);}
     .carousel-button.perv {left: 2rem;}
     .carousel-button.next {right: 5px;}

@@ -19,15 +19,14 @@ class HomeController extends AbstractController
                             ->getManager()
                             ->getRepository(Hebergement::class);
         $listePromotions = $repository->findByPromotion();
-     
-        // foreach($listePromotions as $promotion)
-        // {
-        //     echo $promotion->getIsPromotional();
-        // }
+
+        // $groups = découper listePromotion en petit bout de 3 ou 4 avec arrayschunk
+        // https://www.php.net/manual/fr/function.array-chunk.php
         
         return $this->render('home/index.html.twig',
     [
         'promotions' => $listePromotions
+        // renvoyer groups;
     ]);
 
     }
