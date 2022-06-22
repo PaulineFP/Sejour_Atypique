@@ -21,9 +21,7 @@ class HomeController extends AbstractController
         $listePromotions = $repository->findByPromotion();
 
        // $groups = découpe $listePromotion[] en petit bout 4 avec array_chunk()
-        $groups = (array_chunk($listePromotions, 4, true));
-        //dd($groups);
-        
+        $groups = (array_chunk($listePromotions, 4, true));        
         
         return $this->render('home/index.html.twig',
     [
