@@ -27,26 +27,24 @@
             <div class="flex justify-between w-11/12 mx-auto " data-slides>
             {% for group_promo in group_promos %}
                 {# ajoute un attribut si condition, sinon rien #} 
-                <div class=" slide "  {{ loop.index0 is same as(0) ? "data-active" : "" }}> 
+                <div class=" slide w-full"  {{ loop.index0 is same as(0) ? "data-active" : "" }}> 
                     {% for promo in group_promo %}
-                        <div class=" w-1/4 mx-4 shadow-xl bg-gray-100 rounded-br-3xl rounded-tl-3xl">
-                                                    <div class='IMG flex justify-end'>
+                        <div class=" content-promo w-1/4 mx-4 shadow-xl bg-gray-100 rounded-br-3xl rounded-tl-3xl" >
+                            <div class='IMG flex justify-end'>
                                 <img src="https://picsum.photos/400/300" alt="" class="order-2 relative rounded-tl-3xl">
                                 <div class="promo  text-yellow-500 bg-gray-50 rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{promo.promotion}}</div>
                             </div>
-                            <div class="">
-                                <div class='p-6'>
-                                    <div class="flex items-start justify-between mb-2">
-                                        <div class="font-semibold text-xl">{{promo.title}}</div>
-                                        <div class="font-semibold text-xl w-1/4">
-                                            {{promo.tarif}}
-                                            <i class="text-base fa-solid fa-euro-sign"></i>
-                                        </div>
+                            <div class='p-6'>
+                                <div class="flex items-start justify-between mb-2">
+                                    <div class="font-semibold text-xl">{{promo.title}}</div>
+                                    <div class="font-semibold text-xl w-1/4">
+                                        {{promo.tarif}}
+                                        <i class="text-base fa-solid fa-euro-sign"></i>
                                     </div>
-                                    <div class="text-sm font-medium mb-2">{{promo.lieux}}</div>
-                                    <div class="text-justify text-base">{{promo.description}}</div>
                                 </div>
-                            </div>                            
+                                <div class="text-sm font-medium mb-2">{{promo.lieux}}</div>
+                                <div class="text-justify text-base">{{promo.description}}</div>
+                            </div>                           
                         </div>   
                 {% endfor %}
                  </div>
