@@ -35,4 +35,15 @@ body {
     .carousel-button:focus {outline: 1px solid black;}
 } 
 
+// SLIDER----------------
+.slide_container {}
+.slide_content{}
+.card_wrapper {}
+.card {
+    .image_content{
+        .overlay{}
+        img {}
+    }
+}
+
 .min-content {height: min-content;}
