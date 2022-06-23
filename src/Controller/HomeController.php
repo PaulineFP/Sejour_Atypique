@@ -41,19 +41,28 @@ class HomeController extends AbstractController
     {
         $hebergements = $ripo->findAll();
 
+        // PROMOTIONS ------------------
+        $repository = $this->getDoctrine()
+        ->getManager()
+        ->getRepository(Hebergement::class);
+       $listePromotions = $repository->findByPromotion();
+       
+       $groups = (array_chunk($listePromotions, 4, true)); 
+
         return $this->render('home/tout-nos-hebergements.html.twig', 
         [
-            'hebergements' => $hebergements
+            'hebergements' => $hebergements,
+            'group_promos' => $groups
         ]);
     }
     /**
      * @Route("/hebergement/{id}", name="show_herbergement")
      */
-    public function show(Hebergement $hebergement){
+    public function show(Hebergement $hebergement){         
 
         return $this->render('models/hebergement.html.twig',
         [
-            'hebergement' => $hebergement
+            'hebergement' => $hebergement            
         ]);
     }   
     
