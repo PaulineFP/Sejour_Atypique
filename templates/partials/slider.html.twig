@@ -1,13 +1,33 @@
-<div class="slide_container">
-    <div class="slide_content">
-        <div class="card_wrapper">
-            <div class="card">
-                <div class="image_content">
-                    <span class="overlay"></span>
-                    <img src="https://picsum.photos/400/300" alt="hébergements en promotion">
-
+ <div class="slide-container swiper">
+    <div class="slide-content">
+        <div class="card_wrapper swiper-wrapper">
+        {% for promotion in promotions %}
+            <div class="card swiper-slide">
+                <div class="image_content ">
+                    <img src="{{img_card}}" alt="hébergements en promotion" class="card_img relative rounded-tl-3xl">
+                    <div class="promo  text-yellow-500 bg-gray-50 rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{promotion.promotion}}</div>
+                </div>
+                <div class="card_content ">
+                    <div class="card_height">
+                        <div class="card_header">
+                            <div class="card_title font-semibold text-xl">{{promotion.title}}</div>
+                            <div class="card_price font-semibold text-xl w-1/4">
+                                {{promotion.tarif}}
+                                <i class="text-base fa-solid fa-euro-sign"></i>
+                            </div>
+                        </div>
+                        <div>{{promotion.lieux}}</div>
+                        <div>{{promotion.description}}</div>
+                    </div>
+                    
+                    <button class="button"> Je fonce !</button>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
-</div>
+
+    <div class="swiper-button-next swiper-navBtn"></div>
+    <div class="swiper-button-prev swiper-navBtn"></div>
+    <div class="swiper-pagination"></div>
+</div> 

@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    background-color: #f7f3f3;
+body {  
+    background-color: #efefef;
 }
 
 .navbar1 , .navbar2 {
@@ -11,7 +11,8 @@ body {
     select {font-weight: 600;}
     option { font-weight: 200;}
 }
-// HEADER---------------
+
+//HEADER---------------
 .header_home {
     background: url('../IMG/fond.jpg')no-repeat;
     background-size: cover;
@@ -22,28 +23,41 @@ body {
     background-position: center; 
 }
 
-// CAROUSEL-------------
-.carousel{
-    width: 100%; position: relative;
-    .slide{ inset: 0; opacity: 0; transition: 200ms opacity ease-in-out; display: none;}
-    .slide[data-active] {opacity: 1; display: flex;}
-    .carousel-button {position: absolute; font-size: 4rem; top: 50%; z-index: 2; color: rgb(195, 191, 191, .5); transform: translateY(-50%); cursor: pointer; padding: 0 .5rem; background-color: rgba (0, 0, 0, .1);}
-    .carousel-button.perv {left: 2rem;}
-    .carousel-button.next {right: 5px;}
-    .content-promo{width: 280px;}
-    .carousel-button:hover, .carousel-button:focus {color: white;background-color: rgba (195, 191, 191, .2);}
-    .carousel-button:focus {outline: 1px solid black;}
-} 
-
-// SLIDER----------------
-.slide_container {}
-.slide_content{}
-.card_wrapper {}
-.card {
-    .image_content{
-        .overlay{}
-        img {}
-    }
-}
+ //SLIDER----------------
+ .slide-container { width: 100%; height: 100%; padding: 40px 0 ;  }  
+ .slide-content {margin: 0 40px; overflow: hidden; padding: 2rem 0.5rem;  background-color: transparent;}
+ .card_wrapper {display: flex; }
+ .card {  
+     margin-right: 1rem;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; border-radius: 1.5rem 0 1.5rem 0;background: #FFF;
+     .image_content{
+         width: 100%; height: auto; display: flex; justify-content: end;
+         .card_img{ width: 100%; object-fit: cover;} 
+     }
+     .card_content {
+         padding: 1.5rem; display: flex; flex-direction: column;
+         .card_header{display: flex; justify-content: space-between ; margin-bottom: 0.5rem;}
+         .card_height {height: 180px;}
+     }
+ }
+ .button{ 
+    border: none;font-size: 16px; color: #FFF; padding: 8px 16px; background-color: #4070F4; border-radius: 6px; margin: 14px; cursor: pointer;transition: all 0.3s ease;
+    &:hover{ background: #265DF2;}
+   }
+ 
+ .swiper-navBtn{
+     color: rgb(195, 191, 191, .8); transform: translateY(-50%);
+     &:hover{color: black;}
+     &::before, &::after{font-size: 35px;  font-weight: blold; }
+   }
+ 
+ .swiper-button-next{ right: 0; }
+   .swiper-button-prev{left: 0; }
+   .swiper-pagination-bullet{ background-color: #6E93f7; opacity: 1;  }
+   .swiper-pagination-bullet-active{background-color: #4070F4; }
+  
+   @media screen and (max-width: 768px) {
+     .slide-content{ margin: 0 10px; }
+     .swiper-navBtn{ display: none; }
+   }
 
 .min-content {height: min-content;}

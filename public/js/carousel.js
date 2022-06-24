@@ -7,8 +7,8 @@ buttons.forEach(button => {
             .closest("[data-carousel]")
             .querySelector("[data-slides]")
 
-        console.log(offset);
-        console.log(slides);
+        // console.log(offset);
+        // console.log(slides);
 
 
         const activeSlide = slides.querySelector("[data-active]")

@@ -19,20 +19,17 @@ class HomeController extends AbstractController
         $repository = $this->getDoctrine()
                             ->getManager()
                             ->getRepository(Hebergement::class);
-        $listePromotions = $repository->findByPromotion();
-
-       // $groups = découpe $listePromotion[] en petit bout 4 avec array_chunk()
-        $groups = (array_chunk($listePromotions, 4, true));   
+        $listePromotions = $repository->findByPromotion();       
         
         //CATEGORIES----------------------
 
         //REGIONS-------------------------
         
         return $this->render('home/index.html.twig',
-    [
-        'promotions' => $listePromotions,
-        'group_promos' => $groups              
-    ]);
+        [
+            'promotions' => $listePromotions          
+        ]);
+      
     }
        /**
      * @Route("/hebergements", name="herbergements")
@@ -43,8 +40,8 @@ class HomeController extends AbstractController
 
         // PROMOTIONS ------------------
         $repository = $this->getDoctrine()
-        ->getManager()
-        ->getRepository(Hebergement::class);
+                            ->getManager()
+                            ->getRepository(Hebergement::class);
        $listePromotions = $repository->findByPromotion();
        
        $groups = (array_chunk($listePromotions, 4, true)); 
@@ -52,7 +49,7 @@ class HomeController extends AbstractController
         return $this->render('home/tout-nos-hebergements.html.twig', 
         [
             'hebergements' => $hebergements,
-            'group_promos' => $groups
+            'promotions' => $listePromotions  
         ]);
     }
     /**
