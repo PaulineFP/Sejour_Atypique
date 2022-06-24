@@ -64,6 +64,13 @@
         <section id="home_category">
         {# Cat_7 model #}
         <div>Nos catégories</div>
+            {% for category in categories %}
+                <div>{{category.id}}</div>
+                <div>{{category.name}}</div>
+                 
+            {% endfor %}
+
+
             <div>
                 <div>
                     <div>Titre de la catégorie</div>

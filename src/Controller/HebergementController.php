@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Hebergement;
+use App\Entity\Categories;
 use App\Repository\HebergementRepository;
+use App\Repository\CategoriesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,7 +15,7 @@ class HebergementController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(): Response
+    public function index(CategoriesRepository $cat): Response
     {                       
         // PROMOTIONS ------------------
         $repository = $this->getDoctrine()
@@ -22,12 +24,14 @@ class HebergementController extends AbstractController
         $listePromotions = $repository->findByPromotion();       
         
         //CATEGORIES----------------------
+        $listeCategories = $cat->findAll();
 
         //REGIONS-------------------------
         
         return $this->render('home/index.html.twig',
         [
-            'promotions' => $listePromotions          
+            'promotions' => $listePromotions,
+            'categories' => $listeCategories          
         ]);
       
     }
