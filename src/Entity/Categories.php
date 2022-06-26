@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CategoriesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,9 +25,14 @@ class Categories
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToMany(targetEntity=hebergement::class, inversedBy="categories")
      */
-    private $relations;
+    private $categoryRelations;
+
+    public function __construct()
+    {
+        $this->categoryRelations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -42,16 +49,28 @@ class Categories
         $this->name = $name;
 
         return $this;
+    }    
+
+    /**
+     * @return Collection<int, hebergement>
+     */
+    public function getCategoryRelations(): Collection
+    {
+        return $this->categoryRelations;
     }
 
-    public function getRelations(): ?string
+    public function addCategoryRelation(hebergement $categoryRelation): self
     {
-        return $this->relations;
+        if (!$this->categoryRelations->contains($categoryRelation)) {
+            $this->categoryRelations[] = $categoryRelation;
+        }
+
+        return $this;
     }
 
-    public function setRelations(?string $relations): self
+    public function removeCategoryRelation(hebergement $categoryRelation): self
     {
-        $this->relations = $relations;
+        $this->categoryRelations->removeElement($categoryRelation);
 
         return $this;
     }

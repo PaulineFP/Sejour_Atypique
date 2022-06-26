@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\HebergementRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -71,6 +73,16 @@ class Hebergement
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $isPromotional;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Categories::class, mappedBy="categoryRelations")
+     */
+    private $categories;
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -205,6 +217,33 @@ class Hebergement
     public function setIsPromotional(?bool $isPromotional): self
     {
         $this->isPromotional = $isPromotional;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Categories>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Categories $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+            $category->addCategoryRelation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Categories $category): self
+    {
+        if ($this->categories->removeElement($category)) {
+            $category->removeCategoryRelation($this);
+        }
 
         return $this;
     }

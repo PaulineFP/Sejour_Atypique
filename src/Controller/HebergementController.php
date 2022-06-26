@@ -25,6 +25,7 @@ class HebergementController extends AbstractController
         
         //CATEGORIES----------------------
         $listeCategories = $cat->findAll();
+        
 
         //REGIONS-------------------------
         
