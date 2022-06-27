@@ -25,7 +25,7 @@ class Categories
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=hebergement::class, inversedBy="categories")
+     * @ORM\ManyToMany(targetEntity=Hebergement::class, inversedBy="categories")
      */
     private $categoryRelations;
 
