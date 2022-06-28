@@ -66,5 +66,15 @@ class HebergementController extends AbstractController
         [
             'hebergement' => $hebergement            
         ]);
+    } 
+      /**
+     * @Route("/{name}", name="show_category")
+     */
+    public function showCat(Categories $category){         
+
+        return $this->render('models/category.html.twig',
+        [
+            'category' => $category            
+        ]);
     }  
 }
