@@ -46,6 +46,20 @@ class CategoriesRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
+     /**
+     * @return Categorie[] Returns an array of Category objects
+     */
+  
+    public function findByCategory()
+    {
+        // Truc du genre mais moins formel
+        // return $this->createQueryBuilder('h')
+        //     ->andWhere('h.isPromotional = 1')
+        //     ->orderBy('h.promotion', 'DESC')
+        //     ->getQuery()
+        //     ->getResult()
+        // ;
+    }
 
     // /**
     //  * @return Categories[] Returns an array of Categories objects

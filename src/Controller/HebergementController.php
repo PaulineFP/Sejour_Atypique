@@ -77,4 +77,6 @@ class HebergementController extends AbstractController
             'category' => $category            
         ]);
     }  
+
+    //Crée une vue pour lister tout les hebergements d'une catégorie
 }
