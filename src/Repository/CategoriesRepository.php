@@ -55,7 +55,7 @@ class CategoriesRepository extends ServiceEntityRepository
         // Truc du genre mais moins formel
         // return $this->createQueryBuilder('h')
         //     ->andWhere('h.isPromotional = 1')
-        //     ->orderBy('h.promotion', 'DESC')
+        //     ->orderBy('h.categorie', 'DESC')
         //     ->getQuery()
         //     ->getResult()
         // ;
