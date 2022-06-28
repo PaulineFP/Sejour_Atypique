@@ -53,6 +53,7 @@ class CategoriesRepository extends ServiceEntityRepository
     public function findByCategory()
     {
         // Truc du genre mais moins formel
+        // Relier avec les relations
         // return $this->createQueryBuilder('h')
         //     ->andWhere('h.isPromotional = 1')
         //     ->orderBy('h.categorie', 'DESC')
