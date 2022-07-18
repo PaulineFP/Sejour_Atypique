@@ -46,23 +46,7 @@ class CategoriesRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
-     /**
-     * @return Categorie[] Returns an array of Category objects
-     */
-  
-    public function findByCategory($value)
-    {
-        // Truc du genre mais moins formel
-        // Relier avec les relations
-         return $this->createQueryBuilder('h')
-             ->andWhere('h.categoryRelations = :h')
-             ->setParameter('h', $value)
-             ->orderBy('h.categorie', 'DESC')
-             ->getQuery()
-             ->getResult()
-         ;
-    }
-
+ 
     // /**
     //  * @return Categories[] Returns an array of Categories objects
     //  */
