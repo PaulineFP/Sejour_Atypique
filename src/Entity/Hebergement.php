@@ -233,7 +233,7 @@ class Hebergement
     {
         if (!$this->categories->contains($category)) {
             $this->categories[] = $category;
-            $category->addCategoryRelation($this);
+            $category->addHebergement($this);
         }
 
         return $this;
@@ -242,7 +242,7 @@ class Hebergement
     public function removeCategory(Categories $category): self
     {
         if ($this->categories->removeElement($category)) {
-            $category->removeCategoryRelation($this);
+            $category->removeHebergement($this);
         }
 
         return $this;

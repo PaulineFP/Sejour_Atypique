@@ -5,6 +5,8 @@
 
 {{category.name}}
 
-
+  {% for hebergement in category.hebergements %}
+    {{hebergement.title}}
+  {% endfor %}
 
 {% endblock %}

@@ -27,11 +27,11 @@ class Categories
     /**
      * @ORM\ManyToMany(targetEntity=Hebergement::class, inversedBy="categories")
      */
-    private $categoryRelations;
+    private $hebergements;
 
     public function __construct()
     {
-        $this->categoryRelations = new ArrayCollection();
+        $this->hebergements = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -54,23 +54,23 @@ class Categories
     /**
      * @return Collection<int, hebergement>
      */
-    public function getCategoryRelations(): Collection
+    public function getHebergements(): Collection
     {
-        return $this->categoryRelations;
+        return $this->hebergements;
     }
 
-    public function addCategoryRelation(hebergement $categoryRelation): self
+    public function addHebergement(hebergement $categoryRelation): self
     {
-        if (!$this->categoryRelations->contains($categoryRelation)) {
-            $this->categoryRelations[] = $categoryRelation;
+        if (!$this->hebergements->contains($categoryRelation)) {
+            $this->hebergements[] = $categoryRelation;
         }
 
         return $this;
     }
 
-    public function removeCategoryRelation(hebergement $categoryRelation): self
+    public function removeHebergement(hebergement $categoryRelation): self
     {
-        $this->categoryRelations->removeElement($categoryRelation);
+        $this->hebergements->removeElement($categoryRelation);
 
         return $this;
     }

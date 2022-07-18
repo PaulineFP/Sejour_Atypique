@@ -70,10 +70,8 @@ class HebergementController extends AbstractController
       /**
      * @Route("/{name}", name="show_category")
      */
-    public function showCat(Categories $category){         
-         //Crée une vue pour lister tout les hebergements d'une catégorie -> findbyAll relier avec les herebgements
-
-
+    public function showCat(Categories $category){       
+       
         return $this->render('models/category.html.twig',
         [
             'category' => $category            
