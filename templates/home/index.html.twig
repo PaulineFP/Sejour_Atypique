@@ -61,41 +61,27 @@
             
         </section>
 
-        <section id="home_category">
+        <section id="home_category" class="w-11/12 mx-auto ">
         {# Cat_7 model #}
         <div>Nos catégories</div>
-            {% for category in categories %}
-                <div>{{category.id}}</div>
-                <div>{{category.name}}</div>
-                  <a class="" href="/{{category.name}}">Choisir</a>
-            {% endfor %}
-
-
-            <div>
-                <div>
-                    <div>Titre de la catégorie</div>
-                    <hr>
-                    <div>Sous titre de la catégorie</div>
-                </div>
-                <div>
-                    <div>
-                        {# Bon cadeau #}
-                    </div>
-                    <div>
-                        {# remene sur une page ? #}
-                    </div>
-                </div>
-                <div>
-                    <div>Titre de la catégorie</div>
-                    <hr>
-                    <div>Sous titre de la catégorie</div>
-                </div>
-                <div>
-                    <div>Titre de la catégorie</div>
-                    <hr>
-                    <div>Sous titre de la catégorie</div>
-                </div>
+        <div class="inline-grid grid-cols-7 gap-5">
+         {% for category in categories %}
+            <div class='overflow-hidden '>
+             {# <div>{{category.id}}</div> #}
+             <a class="text-black hover:border-gray-800 " href="/{{category.name}}">
+            <img  class=" relative  " src="https://picsum.photos/300/450" alt="">
+            <div class="absolute -mt-60 flex flex-col justify-center items-center p-2">
+                <div class=" text-white text-bold text-2xl w-11/12 ">{{category.name}}</div>
+                <hr class="  text-bold text-2xl">
             </div>
+                Découvrir nos séjours</a>
+            
+        </div>
+                
+               
+            {% endfor %}
+        </div>
+           
         </section>
         <section id="present">
             <div>
