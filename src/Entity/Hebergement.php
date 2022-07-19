@@ -39,10 +39,6 @@ class Hebergement
      */
     private $description;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $tarif;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -62,7 +58,7 @@ class Hebergement
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isPublished;
+    private $active;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -78,6 +74,16 @@ class Hebergement
      * @ORM\ManyToMany(targetEntity=Categories::class, mappedBy="categoryRelations")
      */
     private $categories;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=2)
+     */
+    private $tarif;
 
     public function __construct()
     {
@@ -137,17 +143,6 @@ class Hebergement
         return $this;
     }
 
-    public function getTarif(): ?string
-    {
-        return $this->tarif;
-    }
-
-    public function setTarif(string $tarif): self
-    {
-        $this->tarif = $tarif;
-
-        return $this;
-    }
 
     public function getSurface(): ?string
     {
@@ -185,14 +180,14 @@ class Hebergement
         return $this;
     }
 
-    public function getIsPublished(): ?bool
+    public function getActive(): ?bool
     {
-        return $this->isPublished;
+        return $this->active;
     }
 
-    public function setIsPublished(bool $isPublished): self
+    public function setActive(bool $active): self
     {
-        $this->isPublished = $isPublished;
+        $this->active = $active;
 
         return $this;
     }
@@ -244,6 +239,30 @@ class Hebergement
         if ($this->categories->removeElement($category)) {
             $category->removeHebergement($this);
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getTarif(): ?string
+    {
+        return $this->tarif;
+    }
+
+    public function setTarif(string $tarif): self
+    {
+        $this->tarif = $tarif;
 
         return $this;
     }

@@ -29,6 +29,11 @@ class Categories
      */
     private $hebergements;
 
+        /**
+     * @ORM\Column(type="boolean")
+     */
+    private $active;
+
     public function __construct()
     {
         $this->hebergements = new ArrayCollection();
@@ -50,6 +55,18 @@ class Categories
 
         return $this;
     }    
+    
+    public function getActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): self
+    {
+        $this->active = $active;
+
+        return $this;
+    }
 
     /**
      * @return Collection<int, hebergement>
