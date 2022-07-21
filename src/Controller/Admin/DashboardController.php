@@ -2,6 +2,8 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Categories;
+use App\Entity\Hebergement;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -39,7 +41,19 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        yield MenuItem::section('Gestion hébergements');
+        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud( 'Ajouter un hebergement', 'fas fa-plus', Hebergement::class)
+            ->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Afficher les hebergements', 'fas fa-eye', Hebergement::class)
+        ]);
+        
+        yield MenuItem::section('Gestion catégories');
+        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Crée une categorie', 'fas fa-plus', Categories::class)
+            ->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Afficher les categories', 'fas fa-eye', Categories::class)
+        ]);
+       
     }
 }
