@@ -66,7 +66,7 @@ class Hebergement
     private $isPromotional;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Categories::class, mappedBy="categoryRelations")
+     * @ORM\ManyToMany(targetEntity=Categories::class, mappedBy="hebergements")
      */
     private $categories;
 

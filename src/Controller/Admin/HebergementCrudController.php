@@ -19,7 +19,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -59,11 +58,6 @@ class HebergementCrudController extends AbstractCrudController
         ];     
     }
 
-    public function persistEntity(EntityManagerInterface $em, $entityInstance): void
-    {
-        if (!$entityInstance instanceof Hebergement) return;
-        $entityInstance->setPublicationDate(new \DateTimeImmutable);
-        parent::persistEntity($em, $entityInstance);
-    }
+ 
     
 }
