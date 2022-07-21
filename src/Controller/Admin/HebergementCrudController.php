@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Hebergement;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -24,8 +25,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class HebergementCrudController extends AbstractCrudController
 {
-
-    public const HEBERGEMENTS_BASE_PATH= 'upload/images/hebergements';
+    public const ACTION_DUPLICATE ='duplicate';
+    public const HEBERGEMENTS_BASE_PATH = 'upload/images/hebergements';
     public const HEBERGEMENTS_UPLOAD_DIR ='public/upload/images/hebergements';
 
     public static function getEntityFqcn(): string
@@ -33,6 +34,17 @@ class HebergementCrudController extends AbstractCrudController
         return Hebergement::class;
     }
     
+    public function configureActions(Actions $actions): Actions
+    {
+        $duplicate = Action::new(self::ACTION_DUPLICATE)
+            ->linkToCrudAction('duplicateHebergement')
+            ->setCssClass('btn btn-info');
+           
+        return $actions
+            ->add(Crud::PAGE_EDIT, $duplicate)
+            ->reorder(Crud::PAGE_EDIT, [self::ACTION_DUPLICATE, Action::SAVE_AND_RETURN]);
+    }
+
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -44,8 +56,6 @@ class HebergementCrudController extends AbstractCrudController
             BooleanField::new('active', 'Active'),
             TextField::new('surface', 'Surface'),
             MoneyField::new('tarif', 'Prix')->setCurrency('EUR'),
-            BooleanField::new('isPromotional', 'Promotion'),
-            TextField::new('promotion', 'Montant de la promotion'),
 
             ImageField::new('image', 'Image de présentation')
                 ->setBasePath(self::HEBERGEMENTS_BASE_PATH)
@@ -53,9 +63,33 @@ class HebergementCrudController extends AbstractCrudController
                 ->setSortable(false)
                 ->setRequired(true),  
 
+            BooleanField::new('isPromotional', 'Promotion'),
+            TextField::new('promotion', 'Montant de la promotion'),
             DateTimeField::new('lastUpdateDate')->hideOnForm(),
-            DateTimeField::new('publicationDate')->hideOnForm()
+            DateTimeField::new('publicationDate')
         ];     
+    }
+    public function duplicateHebergement(
+        AdminContext $context, 
+        AdminUrlGenerator $adminUrlGenerator,
+        EntityManagerInterface $em
+        ): Response
+    {
+        /** 
+        *@var Hebergement $hebergement
+        */
+        $hebergement = $context->getEntity()->getInstance();
+
+        $duplicateHebergement = clone $hebergement;
+
+        parent::persistEntity($em , $duplicateHebergement);
+
+        $url = $adminUrlGenerator->setController(self::class)
+            ->setAction(Action::DETAIL)
+            ->setEntityId($duplicateHebergement->getId())
+            ->generateUrl();
+        
+        return $this->redirect($url);
     }
 
  
