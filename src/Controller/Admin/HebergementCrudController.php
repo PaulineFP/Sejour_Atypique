@@ -69,6 +69,16 @@ class HebergementCrudController extends AbstractCrudController
             DateTimeField::new('publicationDate')
         ];     
     }
+
+    public function updateEntity(EntityManagerInterface $em, $entityInstance): void
+    {
+        if (!$entityInstance instanceof Hebergement) return;
+        $entityInstance->setLastUpdateDate(new \DateTimeImmutable);
+        parent::updateEntity($em, $entityInstance);
+    }
+
+
+
     public function duplicateHebergement(
         AdminContext $context, 
         AdminUrlGenerator $adminUrlGenerator,
