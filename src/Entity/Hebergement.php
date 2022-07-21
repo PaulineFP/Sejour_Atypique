@@ -22,11 +22,6 @@ class Hebergement
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $picture;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $title;
 
     /**
@@ -51,12 +46,12 @@ class Hebergement
     private $publicationDate;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $lastUpdateDate;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $active;
 
@@ -76,7 +71,7 @@ class Hebergement
     private $categories;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $image;
 
@@ -93,18 +88,6 @@ class Hebergement
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
     }
 
     public function getTitle(): ?string
