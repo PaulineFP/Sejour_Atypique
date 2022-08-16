@@ -61,7 +61,7 @@ class HebergementCrudController extends AbstractCrudController
                 ->setBasePath(self::HEBERGEMENTS_BASE_PATH)
                 ->setUploadDir(self::HEBERGEMENTS_UPLOAD_DIR)
                 ->setSortable(false)
-                ->setRequired(true),  
+                ->setRequired(false),  
 
             BooleanField::new('isPromotional', 'Promotion'),
             TextField::new('promotion', 'Montant de la promotion'),
@@ -72,9 +72,24 @@ class HebergementCrudController extends AbstractCrudController
 
     public function updateEntity(EntityManagerInterface $em, $entityInstance): void
     {
+       
         if (!$entityInstance instanceof Hebergement) return;
+        // if (!$entityInstance ->getImage()){
+        //     $repo = $em ->getRepository(Hebergement::class);
+            
+        //     $result = $repo->findById($entityInstance->getId());      
+        //      dd($result[0]);      
+        //     $entityInstance->setImage($result[0]->getImage());
+        //     //dd($entityInstance);
+        // }
+
+        // Regarder pour que symfony appelle l event suscriber
+        
+          //dd($entityInstance);
         $entityInstance->setLastUpdateDate(new \DateTimeImmutable);
-        parent::updateEntity($em, $entityInstance);
+        parent::updateEntity($em, $entityInstance);       
+        
+        
     }
 
 
@@ -105,3 +120,4 @@ class HebergementCrudController extends AbstractCrudController
  
     
 }
+

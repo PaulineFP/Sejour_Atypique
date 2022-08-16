@@ -26,6 +26,7 @@ class Categories
 
     /**
      * @ORM\ManyToMany(targetEntity=Hebergement::class, inversedBy="categories")
+     * @ORM\JoinColumn()
      */
     private $hebergements;
 
