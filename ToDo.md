@@ -1,5 +1,5 @@
 ***
-# Initiation et réflextion du projet
+# Initiation et réflection du projet
 
 ##  - Réflection du projet -
 #### Sites web qui ont servit à l'imagination du projet :
@@ -68,7 +68,7 @@
     [Presentation 2](https://www.dropbox.com/s/ttgimv06k03q9hd/Sans-titre-6.jpg?dl=0), [Presentation 3](https://www.dropbox.com/s/eet1y5orzinnmrl/Capture17.PNG?dl=0), [Presentation 4](https://www.dropbox.com/s/e6iowelui4doc2v/Capture18.PNG?dl=0)
     ***
 
-##  ~ Réflexion conception ~
+##  ~ Réflection conception ~
 ### Backend :
 - Intégration BDD : 
     - Table Produits
@@ -86,21 +86,21 @@
     - Gestion des produits
         * Ajout
         * Modifications
-        * Supression
+        * Suppression
     - Gestion des catégories
         * Ajout
         * Modifications
-        * Supression
+        * Suppression
     - Intégration de planning pour les réservations 
         * Ajout
         * Modifications
-        * Supression
+        * Suppression
     - Actualitées
         * Ajout
-        * Supression
-    - Visualisation transaction paiments et remboursement
+        * Suppression
+    - Visualisation transactions paiments et remboursements
 - Intégration commandes
-    - Création du pannier client
+    - Création du panier client
     - Intégration de moyen de payement et sécurité
     - Intégration livraison avec tarifs
         * Point relaits
@@ -140,10 +140,10 @@
 ## ~ Détail du contenu des pages ~
 ### **Acceuil** :
 - Liste régions
-    - Un lien _**Toutes nos destinations**_ qui rammenne sur la page **Liste des établisements** 
+    - Un lien _**Toutes nos destinations**_ qui ramène sur la page **Liste des établissements** 
 - Liste de catégorie d'hébergement 
-    - Rammenne sur la page de la catégorie
-    - Lien _**Trouver un hébergements**_ sur la page **Rechecher un hebergement**
+    - Ramène sur la page de la catégorie
+    - Lien _**Trouver un hébergement**_ sur la page **Rechecher un hébergement**
     - Redirection catégorie sur la page de la catégorie
 - Pourquoi nous choisir
 - Une description avec images
@@ -154,10 +154,10 @@
 
 ### **Hébergements par régions** :
 - Carte de france interactive
-- Affichage des hébergement en fonction de la région choisi
+- Affichage des hébergements en fonction de la région choisie
     - Lien fiche produit
 - Lien _**Tous nos hébergements**_ -> page **Hébergements**
-### **Liste des établisements** :
+### **Liste des établissements** :
 - Listing BDD hébergements
 - Liens :
     - **Nos destinations** -> page **Hébergements par régions**
