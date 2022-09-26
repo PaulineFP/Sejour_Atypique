@@ -49,40 +49,53 @@
                 </div>
                 
                 <div class='mb-6'>
-                    <div class="mb-12"><img src="https://picsum.photos/500/600" alt=""></div>
+                    <div class="mb-12"><img src="https://picsum.photos/400/500" alt=""></div>
                     <div class="flex justify-center"><a href="" class="bg-green-600 p-5 text-white mb-4">Nous contactez</a></div>
                     
                 </div>                
             </div>
-            <div class="flex justify-around my-8">
+            {# <div class="flex justify-around my-8">
                     <div class="mr-4"><img src="https://picsum.photos/700/300" alt=""></div>
                     <div><img src="https://picsum.photos/700/300" alt=""></div>
-             </div>      
+             </div>       #}
             
         </section>
 
-        <section id="home_category" class="w-11/12 mx-auto ">
-        {# Cat_7 model #}
-        <div>Nos catégories</div>
-        <div class="inline-grid grid-cols-7 gap-5">
-         {% for category in categories %}
-            <div class='overflow-hidden '>
-             {# <div>{{category.id}}</div> #}
-             <a class="text-black hover:border-gray-800 " href="/{{category.name}}">
-            <img  class=" relative  " src="https://picsum.photos/300/450" alt="">
-            <div class="absolute -mt-60 flex flex-col justify-center items-center p-2">
-                <div class=" text-white text-bold text-2xl w-11/12 ">{{category.name}}</div>
-                <hr class="  text-bold text-2xl">
+        <section id="home_category" class=" my-16 ">
+        
+            <div class="w-screen object-contain z-1 absolute">
+                <img src="{{ asset('build/images/fond-cat.jpg') }}" alt="" class="">
             </div>
-                Découvrir nos séjours</a>
+            {# Cat_7 model #}
+            <div class=" w-11/12 z-2 mx-auto relative top-12">
+                <div class="my-8 ml-32 w-3/5">
+                    <div class="text-4xl mb-6 text-center">Trouvez l'hébergment qui VOUS coresponde !</div>
+                    <p class=" mb-2 text-center text-2xl">Peut importe votre destination, nous mettons toutes nos compétances au service de votre confort.</p>
+                    <p class=" text-base text-center">Choisissez parmis notre selection selon vos envies:</p>
+                </div>
             
-        </div>
-                
-               
-            {% endfor %}
-        </div>
-           
+            
+                <div class="inline-grid grid-cols-7 gap-5 mx-auto mt-8">
+                {% for category in categories %}
+                    {% if category.active == true %}
+                    
+                    <div class=' border-green-600 border-2 flex items-center category_link'>
+                    {# <div>{{category.id}}</div> #}
+                    <a class="p-2 flex items-center  " href="/{{category.name}}">
+                        
+                        {% if category.icon %}
+                            <i class=" mr-2 {{category.icon}}"></i>
+                        {% endif %} 
+                        <div class=" text-[#0f120a] font-semibold">{{category.name}}</div>                
+                    </a>
+                    {% endif %}            
+                </div>              
+                {% endfor %}
+            </div>           
+            </div>
+            
         </section>
+
         <section id="present">
             <div>
                 <div>Offrez un cadeau</div>

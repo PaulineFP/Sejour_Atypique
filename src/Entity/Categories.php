@@ -35,6 +35,11 @@ class Categories
      */
     private $active;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $icon;
+
     public function __construct()
     {
         $this->hebergements = new ArrayCollection();
@@ -96,5 +101,17 @@ class Categories
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(?string $icon): self
+    {
+        $this->icon = $icon;
+
+        return $this;
     }
 }
