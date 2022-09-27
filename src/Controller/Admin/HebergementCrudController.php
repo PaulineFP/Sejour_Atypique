@@ -26,8 +26,8 @@ use Symfony\Component\HttpFoundation\Response;
 class HebergementCrudController extends AbstractCrudController
 {
     public const ACTION_DUPLICATE ='duplicate';
-    public const HEBERGEMENTS_BASE_PATH = 'upload/images/hebergements';
-    public const HEBERGEMENTS_UPLOAD_DIR ='public/upload/images/hebergements';
+    public const HEBERGEMENTS_BASE_PATH = 'build/images';
+    public const HEBERGEMENTS_UPLOAD_DIR ='public/build/images';
 
     public static function getEntityFqcn(): string
     {
@@ -52,7 +52,12 @@ class HebergementCrudController extends AbstractCrudController
             TextField::new('title' , 'Titre'),
             TextEditorField::new('description', 'Description'),
             TextField::new('lieux' , 'Lieu'),
-            AssociationField::new('categories', 'Categorie.s')->setRequired(true),
+            AssociationField::new('categories', 'Categorie.s')
+                ->setRequired(true)
+                //setFormTypeOptions Pour lui forcer à changer la catégorie ManyToMany (pb: vodoo récurent) -> et one to many ??
+                //https://stackoverflow.com/questions/65900855/easyadmin-manytomany-relation-not-saving-data-in-base
+                //https://stackoverflow.com/questions/66727482/symfony-5-easyadmin-3-entity-with-relation-manytoone-not-saving-on-the-many
+                ->setFormTypeOptions(['by_reference' => false]),
             BooleanField::new('active', 'Active'),
             TextField::new('surface', 'Surface'),
             MoneyField::new('tarif', 'Prix')->setCurrency('EUR'),
@@ -60,6 +65,8 @@ class HebergementCrudController extends AbstractCrudController
             ImageField::new('image', 'Image de présentation')
                 ->setBasePath(self::HEBERGEMENTS_BASE_PATH)
                 ->setUploadDir(self::HEBERGEMENTS_UPLOAD_DIR)
+               
+
                 ->setSortable(false)
                 ->setRequired(false),  
 
@@ -85,11 +92,9 @@ class HebergementCrudController extends AbstractCrudController
 
         // Regarder pour que symfony appelle l event suscriber
         
-          //dd($entityInstance);
+        //dd($entityInstance);
         $entityInstance->setLastUpdateDate(new \DateTimeImmutable);
-        parent::updateEntity($em, $entityInstance);       
-        
-        
+        parent::updateEntity($em, $entityInstance);
     }
 
 

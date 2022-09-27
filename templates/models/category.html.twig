@@ -1,36 +1,39 @@
 {% extends 'base.html.twig' %}
 {% block title %}Tous nos hebergement {{category.name}}{% endblock %}    
 {% block body %}
-  {% set class_header = 'header_list' %}
+{% set class_header = 'header_list' %}
 {% set title_h1 = category.name %}
 {% include 'models/header.html.twig'%}
 
 
   <section id="categorie" class="mx-auto w-11/12">
   
-  <div class="grid grid-flow-col gap-4 justify-between w-11/12 mx-auto">
+  <div class="grid grid-flow-col gap-4 justify-around w-11/12 mx-auto">
         {% for hebergement in category.hebergements %}
-      <div class=" w-4/5 mx-4 my-12 shadow-xl bg-gray-100 rounded-bl-3xl rounded-tr-3xl relative order-2">  
-          <div>
-              {# Image du logement avec montage carte de la région inclus dedans #}
-              <img src="{{hebergement.picture}}" alt="{{hebergement.title}}" class="rounded-tr-3xl">  
-              <div class=" p-6 h-52 ">
-                  <div class="flex items-start justify-between mb-2 ">
-                      <div class="font-semibold text-xl">{{hebergement.title}}</div>
-                      <div class="font-semibold text-xl w-1/4">
-                          {{hebergement.tarif}}
-                          <i class="text-base fa-solid fa-euro-sign"></i>
-                      </div>
-                  </div>
-                  <div class="text-sm font-medium mb-2">{{hebergement.lieux}}</div>
-                  <div class="text-justify text-base">{{hebergement.description}}</div>                    
-              </div>
-          </div>      
-          
-          <div class="flex justify-center  ">
-              <a class=" py-4 px-28 absolute order-1 bg-red-400 -bottom-8" href="/hebergement/{{hebergement.id}}">Choisir</a>
-          </div>                
-      </div>
+            {% if hebergement.active == true %}
+                <div class=" w-96 mx-4 my-12 shadow-xl bg-gray-100 rounded-bl-3xl rounded-tr-3xl relative order-2">  
+                    <div>
+                        {# Image du logement avec montage carte de la région inclus dedans #}                        
+                        <img class="rounded-tr-3xl" src="{{ asset('build/images/'~ hebergement.image) }}" alt="{{hebergement.title}}" class="rounded-tr-3xl">
+                        <div class=" p-6 h-52 ">
+                            <div class="flex items-start justify-between mb-2 ">
+                                <div class="font-semibold text-xl">{{hebergement.title}}</div>
+                                <div class="font-semibold text-xl w-1/4">
+                                    {{hebergement.tarif}}
+                                    <i class="text-base fa-solid fa-euro-sign"></i>
+                                </div>
+                            </div>
+                            <div class="text-sm font-medium mb-2">{{hebergement.lieux}}</div>
+                            <div class="text-justify text-base">{{hebergement.description}}</div>                    
+                        </div>
+                    </div>      
+            
+            <div class="flex justify-center  ">
+                <a class=" py-4 px-28 absolute order-1 bg-red-400 -bottom-8" href="/hebergement/{{hebergement.id}}">Choisir</a>
+            </div>                
+        </div>
+        {% endif %}
+     
       
       {% endfor %}
   </div>
