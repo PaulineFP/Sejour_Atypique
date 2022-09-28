@@ -10,5 +10,9 @@ class UploaderHelper
     public function uploadHebergementImage(UploadedFile $uploadedFile){
         $destination = $this->uploadsPath.'/'.self::HEBERGEMENT_IMAGE;
     }
+
+    public function getPublicPath(string $path): string {
+        return 'upload/'.$path;
+    }
 }
 ?>
