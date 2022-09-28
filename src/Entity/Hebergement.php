@@ -238,6 +238,11 @@ class Hebergement
         return $this;
     }
 
+    public function getImagePath()
+    {
+        return 'upload/images/hebergements'.$this->getImage();
+    }
+
     public function getTarif(): ?string
     {
         return $this->tarif;
@@ -249,4 +254,6 @@ class Hebergement
 
         return $this;
     }
+
+
 }
