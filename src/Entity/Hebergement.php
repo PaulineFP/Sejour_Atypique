@@ -241,7 +241,7 @@ class Hebergement
 
     public function getImagePath()
     {
-        return 'upload/'.UploaderHelper::HEBERGEMENT_IMAGE.'/'.$this->getImage();
+        return UploaderHelper::HEBERGEMENT_IMAGE.'/'.$this->getImage();
     }
 
     public function getTarif(): ?string
