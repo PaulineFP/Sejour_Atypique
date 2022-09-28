@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\HebergementRepository;
+use App\Service\UploaderHelper;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -240,7 +241,7 @@ class Hebergement
 
     public function getImagePath()
     {
-        return 'upload/images/hebergements'.$this->getImage();
+        return 'upload/'.UploaderHelper::HEBERGEMENT_IMAGE.'/'.$this->getImage();
     }
 
     public function getTarif(): ?string
