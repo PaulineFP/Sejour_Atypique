@@ -1,7 +1,7 @@
 <?php
 namespace App\Service;
-use Gedmo\Sluggable\Util\Urlizer;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 class UploaderHelper
 {

@@ -1,17 +1,36 @@
 <?php
+namespace App\Twig;
 
+use App\Service\MarkdownHelper;
 use App\Service\UploaderHelper;
+use Psr\Container\ContainerInterface;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 class AppExtension extends AbstractExtension implements ServiceSubscriberInterface
 {
-    public function getFunction(): array
+    private $container;
+    public function __construct(ContainerInterface $container)
     {
-        return [
+        $this->container = $container;
+    }
+
+    public function getFunctions(): array
+    {
+        return $uploaded_asset = [
             new TwigFunction('uploaded_asset', [$this, 'getUploadedAssetPath'])
         ];
+    }
+
+ 
+
+    public function getUploadedAssetPath(string $path): string
+    {
+        return $this->container
+            ->get(UploaderHelper::class)
+            ->getPublicPath($path);
     }
 
     public static function getSubscribedServices()
@@ -19,13 +38,6 @@ class AppExtension extends AbstractExtension implements ServiceSubscriberInterfa
         return [
             UploaderHelper::class,
         ];
-    }
-
-    public function getUploadedAssetPath(string $path): string
-    {
-        return $this->container
-            ->get(UploaderHelper::class)
-            ->getPublicPath($path);
     }
 }
 ?>

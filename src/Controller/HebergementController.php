@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+
 class HebergementController extends AbstractController
 {
     /**
@@ -74,7 +76,7 @@ class HebergementController extends AbstractController
        
         return $this->render('models/category.html.twig',
         [
-            'category' => $category            
+            'category' => $category           
         ]);
     }  
 
