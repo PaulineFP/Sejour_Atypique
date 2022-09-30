@@ -81,6 +81,13 @@ class Hebergement
      */
     private $tarif;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Countries::class, inversedBy="country_accommodations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $hebergement_region;
+
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -256,5 +263,16 @@ class Hebergement
         return $this;
     }
 
+    public function getHebergementRegion(): ?Countries
+    {
+        return $this->hebergement_region;
+    }
+
+    public function setHebergementRegion(?Countries $hebergement_region): self
+    {
+        $this->hebergement_region = $hebergement_region;
+
+        return $this;
+    }
 
 }
