@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Hebergement;
+use App\Entity\Countries;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
@@ -58,6 +59,16 @@ class HebergementRepository extends ServiceEntityRepository
             ->orderBy('h.promotion', 'DESC')
             ->getQuery()
             ->getResult()
+        ;
+    }
+
+    public function findByCountry(Countries $countries){
+        return $this->createQueryBuilder('h')
+        ->andWhere('h.hebergementCountry = :val')
+        ->setParameter('val', $countries->getId())
+        ->orderBy('h.id', 'ASC')
+        ->getQuery()
+        ->getResult()
         ;
     }
     // /**

@@ -85,7 +85,7 @@ class Hebergement
      * @ORM\ManyToOne(targetEntity=Countries::class, inversedBy="country_accommodations")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $hebergement_country;
+    private $hebergementCountry;
 
     public function __construct()
     {
@@ -264,12 +264,12 @@ class Hebergement
 
     public function getHebergementCountry(): ?Countries
     {
-        return $this->hebergement_region;
+        return $this->hebergementCountry;
     }
 
-    public function setHebergementCountry(?Countries $hebergement_region): self
+    public function setHebergementCountry(?Countries $hebergementCountry): self
     {
-        $this->hebergement_region = $hebergement_region;
+        $this->hebergementCountry = $hebergementCountry;
 
         return $this;
     }

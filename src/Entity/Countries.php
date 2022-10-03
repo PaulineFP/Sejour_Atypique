@@ -22,7 +22,7 @@ class Countries
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Country;
+    private $name;
 
     /**
      * @ORM\OneToMany(targetEntity=Hebergement::class, mappedBy="hebergement_region", orphanRemoval=true)
@@ -39,14 +39,14 @@ class Countries
         return $this->id;
     }
 
-    public function getCountry(): ?string
+    public function getName(): ?string
     {
-        return $this->Country;
+        return $this->name;
     }
 
-    public function setCountry(string $Country): self
+    public function setName(string $name): self
     {
-        $this->Country = $Country;
+        $this->name = $name;
 
         return $this;
     }

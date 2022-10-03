@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Hebergement;
 use App\Entity\Categories;
+use App\Entity\Countries;
 use App\Repository\HebergementRepository;
 use App\Repository\CategoriesRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,11 +32,16 @@ class HebergementController extends AbstractController
         
 
         //REGIONS-------------------------
+        $repository_count = $this->getDoctrine()
+                                 ->getManager()
+                                 ->getRepository(Countries::class);
+        $listeCountries = $repository_count->findAll();
         
         return $this->render('home/index.html.twig',
         [
             'promotions' => $listePromotions,
-            'categories' => $listeCategories          
+            'categories' => $listeCategories,
+            'countries' => $listeCountries         
         ]);
       
     }
@@ -70,7 +77,7 @@ class HebergementController extends AbstractController
         ]);
     } 
       /**
-     * @Route("/{name}", name="show_category")
+     * @Route("/categorie/{name}", name="show_category")
      */
     public function showCat(Categories $category){       
        
@@ -79,6 +86,25 @@ class HebergementController extends AbstractController
             'category' => $category           
         ]);
     }  
+
+    /**
+     * @Route("/region/{name}", name ="show_country")
+     */
+    public function showCountry(HebergementRepository $repo, Countries $countries): Response
+    {
+        
+        $hebergements = $repo->findByCountry($countries);
+        $countryName = $countries->getName();
+
+        return $this->render('models/country.html.twig',
+        [
+            'country'=> $countries,
+            'countryName'=> $countryName,
+            'hebergements' => $hebergements          
+        ]);
+       
+    }
+
 
    
 }

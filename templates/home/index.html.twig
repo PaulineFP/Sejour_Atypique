@@ -38,7 +38,7 @@
                     
                     <div class=' border-green-600 border-2 flex items-center category_link'>
                     {# <div>{{category.id}}</div> #}
-                    <a class="p-2 flex items-center  " href="/{{category.name}}">
+                    <a class="p-2 flex items-center  " href="/categorie/{{category.name}}">
                         
                         {% if category.icon %}
                             <i class=" mr-2 {{category.icon}}"></i>
@@ -148,48 +148,17 @@
                 <div class="relative z-1 top-1 text-3xl font-bold text-center">Titre hébergement régions</div>
             </div>
             <div class="grid grid-row-3 grid-flow-col gap-3 mb-6">
-            <a href="">
+            {% for country in countries %}
+            <a href="/region/{{country.name}}">
                 <div class="relative overflow-hidden flex flex-col align-center justify-center h-52">
                     <img src="https://picsum.photos/300/300" alt="" class="absolute -z-1">
-                    <div class="relative z-1 text-center text-2xl">Région</div> 
+                    <div class="relative z-1 text-center text-2xl">{{country.name}}</div> 
                                      
                 </div>
              </a> 
-            <a href="">
-                <div class="relative overflow-hidden flex flex-col align-center justify-center h-52">
-                    <img src="https://picsum.photos/300/300" alt="" class="absolute -z-1">
-                    <div class="relative z-1 text-center text-2xl">Région</div> 
-                                     
-                </div>
-             </a> 
-               <a href="">
-                <div class="relative overflow-hidden flex flex-col align-center justify-center h-52">
-                    <img src="https://picsum.photos/300/300" alt="" class="absolute -z-1">
-                    <div class="relative z-1 text-center text-2xl">Région</div> 
-                                     
-                </div>
-             </a> 
-               <a href="">
-                <div class="relative overflow-hidden flex flex-col align-center justify-center h-52">
-                    <img src="https://picsum.photos/300/300" alt="" class="absolute -z-1">
-                    <div class="relative z-1 text-center text-2xl">Région</div> 
-                                     
-                </div>
-             </a> 
-               <a href="">
-                <div class="relative overflow-hidden flex flex-col align-center justify-center h-52">
-                    <img src="https://picsum.photos/300/300" alt="" class="absolute -z-1">
-                    <div class="relative z-1 text-center text-2xl">Région</div> 
-                                     
-                </div>
-             </a> 
-               <a href="">
-                <div class="relative overflow-hidden flex flex-col align-center justify-center h-52">
-                    <img src="https://picsum.photos/300/300" alt="" class="absolute -z-1">
-                    <div class="relative z-1 text-center text-2xl">Région</div> 
-                                     
-                </div>
-             </a> 
+            {% endfor %}
+       
+           
             </div>
             <div class="flex justify-center">
                 <a href="" class="text-center p-4 bg-green-600 text-white font-bold border rounded-tl-lg rounded-br-lg mx-auto">Toutes nos destinations</a>
