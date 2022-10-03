@@ -63,7 +63,7 @@ class Countries
     {
         if (!$this->country_accommodations->contains($countryAccommodation)) {
             $this->country_accommodations[] = $countryAccommodation;
-            $countryAccommodation->setHebergementRegion($this);
+            $countryAccommodation->setHebergementCountry($this);
         }
 
         return $this;
@@ -73,8 +73,8 @@ class Countries
     {
         if ($this->country_accommodations->removeElement($countryAccommodation)) {
             // set the owning side to null (unless already changed)
-            if ($countryAccommodation->getHebergementRegion() === $this) {
-                $countryAccommodation->setHebergementRegion(null);
+            if ($countryAccommodation->getHebergementCountry() === $this) {
+                $countryAccommodation->setHebergementcountry(null);
             }
         }
 
