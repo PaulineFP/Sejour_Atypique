@@ -7,6 +7,7 @@ use App\Entity\Categories;
 use App\Entity\Countries;
 use App\Repository\HebergementRepository;
 use App\Repository\CategoriesRepository;
+use App\Repository\CountriesRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,23 +20,16 @@ class HebergementController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(CategoriesRepository $cat): Response
+    public function index(CategoriesRepository $repoCat, HebergementRepository $repoHeb, CountriesRepository $repoCount ): Response
     {                       
         // PROMOTIONS ------------------
-        $repository = $this->getDoctrine()
-                            ->getManager()
-                            ->getRepository(Hebergement::class);
-        $listePromotions = $repository->findByPromotion();       
+        $listePromotions = $repoHeb->findByPromotion();       
         
         //CATEGORIES----------------------
-        $listeCategories = $cat->findAll();
-        
+        $listeCategories = $repoCat->findAll();
 
         //REGIONS-------------------------
-        $repository_count = $this->getDoctrine()
-                                 ->getManager()
-                                 ->getRepository(Countries::class);
-        $listeCountries = $repository_count->findAll();
+        $listeCountries = $repoCount->findAll();
         
         return $this->render('home/index.html.twig',
         [
@@ -48,15 +42,12 @@ class HebergementController extends AbstractController
          /**
      * @Route("/hebergements", name="herbergements")
      */
-    public function showall(HebergementRepository $ripo)
+    public function showall(HebergementRepository $repo)
     {
-        $hebergements = $ripo->findAll();
+        $hebergements = $repo->findAll();
 
         // PROMOTIONS ------------------
-        $repository = $this->getDoctrine()
-                            ->getManager()
-                            ->getRepository(Hebergement::class);
-       $listePromotions = $repository->findByPromotion();
+       $listePromotions = $repo->findByPromotion();
        
        $groups = (array_chunk($listePromotions, 4, true)); 
 
