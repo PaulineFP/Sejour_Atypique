@@ -25,7 +25,7 @@ class Countries
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Hebergement::class, mappedBy="hebergement_region", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Hebergement::class, mappedBy="hebergementCountry", orphanRemoval=true)
      */
     private $country_accommodations;
 
