@@ -25,14 +25,13 @@ class Countries
     private $Country;
 
     /**
-     * @ORM\OneToMany(targetEntity=Hebergement::class, mappedBy="hebergement_region")
+     * @ORM\OneToMany(targetEntity=Hebergement::class, mappedBy="hebergement_region", orphanRemoval=true)
      */
     private $country_accommodations;
 
     public function __construct()
     {
         $this->country_accommodations = new ArrayCollection();
-        $this->country_hebergements = new ArrayCollection();
     }
 
     public function getId(): ?int
