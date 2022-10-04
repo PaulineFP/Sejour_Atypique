@@ -52,6 +52,10 @@ class HebergementCrudController extends AbstractCrudController
             TextField::new('title' , 'Titre'),
             TextEditorField::new('description', 'Description'),
             TextField::new('lieux' , 'Lieu'),
+            AssociationField::new('hebergementCountry' , 'Région')
+                ->setRequired(true),
+            AssociationField::new('departmentRelation' , 'Département')
+                ->setRequired(true),
             AssociationField::new('categories', 'Categorie.s')
                 ->setRequired(true)
                 //setFormTypeOptions Pour lui forcer à changer la catégorie ManyToMany (pb: vodoo récurent) -> et one to many ??

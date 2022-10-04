@@ -29,6 +29,10 @@ class Countries
      */
     private $country_accommodations;
 
+    public function __toString() {
+        return $this->somePropertyOrPlainString;
+    }
+
     public function __construct()
     {
         $this->country_accommodations = new ArrayCollection();
