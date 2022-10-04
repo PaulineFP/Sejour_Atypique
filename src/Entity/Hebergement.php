@@ -87,6 +87,11 @@ class Hebergement
      */
     private $hebergementCountry;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Department::class, inversedBy="hebergementRelation")
+     */
+    private $departmentRelation;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -270,6 +275,18 @@ class Hebergement
     public function setHebergementCountry(?Countries $hebergementCountry): self
     {
         $this->hebergementCountry = $hebergementCountry;
+
+        return $this;
+    }
+
+    public function getDepartmentRelation(): ?Department
+    {
+        return $this->departmentRelation;
+    }
+
+    public function setDepartmentRelation(?Department $departmentRelation): self
+    {
+        $this->departmentRelation = $departmentRelation;
 
         return $this;
     }
