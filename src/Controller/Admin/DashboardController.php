@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Categories;
+use App\Entity\Countries;
 use App\Entity\Hebergement;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -53,6 +54,13 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Crée une categorie', 'fas fa-plus', Categories::class)
             ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Afficher les categories', 'fas fa-eye', Categories::class)
+        ]);
+
+        yield MenuItem::section('Gestion régions');
+        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Ajouter une région', 'fas fa-plus', Countries::class)
+            ->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Afficher les régions', 'fas fa-eye', Countries::class)
         ]);
        
     }
