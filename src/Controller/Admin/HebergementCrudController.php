@@ -53,9 +53,13 @@ class HebergementCrudController extends AbstractCrudController
             TextEditorField::new('description', 'Description'),
             TextField::new('lieux' , 'Lieu'),
             AssociationField::new('hebergementCountry' , 'Région')
-                ->setRequired(true),
+                ->setRequired(true)
+                //setFormTypeOptions Pour lui forcer le type pour une OneToMany
+                //https://symfonycasts.com/screencast/easyadminbundle/association-many
+                ->setFormTypeOption('choice_label', 'id'),
             AssociationField::new('departmentRelation' , 'Département')
-                ->setRequired(true),
+                ->setRequired(true)
+                ->setFormTypeOption('choice_label', 'id'),
             AssociationField::new('categories', 'Categorie.s')
                 ->setRequired(true)
                 //setFormTypeOptions Pour lui forcer à changer la catégorie ManyToMany (pb: vodoo récurent) -> et one to many ??

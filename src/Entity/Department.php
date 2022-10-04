@@ -27,10 +27,6 @@ class Department
      */
     private $img;
 
-    public function __toString() {
-        return $this->somePropertyOrPlainString;
-    }
-
     public function getId(): ?int
     {
         return $this->id;
