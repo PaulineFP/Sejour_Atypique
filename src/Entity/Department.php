@@ -28,6 +28,11 @@ class Department
      */
     private $img;
 
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=0)
+     */
+    private $code;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +65,18 @@ class Department
     public function getImagePath()
     {
         return UploaderHelper::DEPARTEMENT_IMAGE.'/'.$this->getImg();
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
     }
 
 }

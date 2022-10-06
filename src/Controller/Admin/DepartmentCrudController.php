@@ -6,8 +6,10 @@ namespace App\Controller\Admin;
 use App\Entity\Department;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CountryField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class DepartmentCrudController extends AbstractCrudController
@@ -24,6 +26,7 @@ class DepartmentCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
+            NumberField::new('code', 'Code')->setStoredAsString(),
             TextField::new('name' , 'Département'),
             // BooleanField::new('active', 'Active'),
 
