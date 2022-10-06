@@ -12,8 +12,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class DepartmentCrudController extends AbstractCrudController
 {
-    public const DEPARTEMENT_BASE_PATH = 'upload\images\hebergements';
-    public const DEPARTEMENT_UPLOAD_DIR ='public/upload\images\hebergements';
+    public const DEPARTEMENT_BASE_PATH = 'upload/images/hebergements';
+    public const DEPARTEMENT_UPLOAD_DIR ='public/upload/images/hebergements';
 
     public static function getEntityFqcn(): string
     {

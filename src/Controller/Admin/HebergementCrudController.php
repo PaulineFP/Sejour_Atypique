@@ -26,8 +26,8 @@ use Symfony\Component\HttpFoundation\Response;
 class HebergementCrudController extends AbstractCrudController
 {
     public const ACTION_DUPLICATE ='duplicate';
-    public const HEBERGEMENTS_BASE_PATH = 'upload\images\hebergements';
-    public const HEBERGEMENTS_UPLOAD_DIR ='public/upload\images\hebergements';
+    public const HEBERGEMENTS_BASE_PATH = 'upload/images/hebergements';
+    public const HEBERGEMENTS_UPLOAD_DIR ='public/upload/images/hebergements';
 
     public static function getEntityFqcn(): string
     {

@@ -8,7 +8,7 @@ class UploaderHelper
     private $uploadsPath;
     
     const HEBERGEMENT_IMAGE = 'images/hebergements';
-    const DEPARTEMENT_IMAGE = 'images/departements';
+    const DEPARTEMENT_IMAGE = 'images/hebergements';
 
     public function __construct(string $uploadsPath, RequestStackContext $requestStackContext)
     {

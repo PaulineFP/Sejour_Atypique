@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\DepartmentRepository;
+use App\Service\UploaderHelper;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,7 +37,7 @@ class Department
     {
         return $this->name;
     }
-
+  
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -54,6 +55,11 @@ class Department
         $this->img = $img;
 
         return $this;
+    }
+
+    public function getImagePath()
+    {
+        return UploaderHelper::DEPARTEMENT_IMAGE.'/'.$this->getImg();
     }
 
 }

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Hebergement;
 use App\Entity\Categories;
 use App\Entity\Countries;
+use App\Entity\Department;
 use App\Repository\HebergementRepository;
 use App\Repository\CategoriesRepository;
 use App\Repository\CountriesRepository;
@@ -12,6 +13,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 
 
@@ -83,7 +85,6 @@ class HebergementController extends AbstractController
      */
     public function showCountry(HebergementRepository $repo, Countries $countries): Response
     {
-        
         $hebergements = $repo->findByCountry($countries);
         $countryName = $countries->getName();
 

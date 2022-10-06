@@ -15,6 +15,9 @@
                     <div>
                         {# Image du logement avec montage carte de la région inclus dedans #}                        
                         <img class="rounded-tr-3xl" src="{{ uploaded_asset(hebergement.imagePath) }}" alt="{{hebergement.title}}" class="rounded-tr-3xl">
+                        
+                            <img src="{{ uploaded_asset(hebergement.departmentRelation.imagePath) }}" alt="">
+                        
                         <div class=" p-6 h-52 ">
                             <div class="flex items-start justify-between mb-2 ">
                                 <div class="font-semibold text-xl">{{hebergement.title}}</div>
