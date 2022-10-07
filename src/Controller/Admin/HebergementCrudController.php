@@ -74,11 +74,14 @@ class HebergementCrudController extends AbstractCrudController
                     return $entite -> getDepartmentRelation()->getName();
                 }),
             AssociationField::new('categories', 'Categorie.s')
-                ->setRequired(true)
-                //setFormTypeOptions Pour lui forcer à changer la catégorie ManyToMany (pb: vodoo récurent) -> et one to many ??
+                ->setRequired(true)                
+                //setFormTypeOptions Pour lui forcer à changer la catégorie ManyToMany (pb: vodoo récurent)
                 //https://stackoverflow.com/questions/65900855/easyadmin-manytomany-relation-not-saving-data-in-base
                 //https://stackoverflow.com/questions/66727482/symfony-5-easyadmin-3-entity-with-relation-manytoone-not-saving-on-the-many
-                ->setFormTypeOptions(['by_reference' => false]),
+                ->setFormTypeOptions(['by_reference' => false])
+                ->formatValue(function($id, $entite){
+                   return join(' , ', $entite->getCategories()->map(fn($category)=>$category->getName())->toArray());                
+                }),
             BooleanField::new('active', 'Active'),
             TextField::new('surface', 'Surface'),
             MoneyField::new('tarif', 'Prix')->setCurrency('EUR'),
