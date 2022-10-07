@@ -29,7 +29,7 @@ class Department
     private $img;
 
     /**
-     * @ORM\Column(type="decimal", precision=10, scale=0)
+     * @ORM\Column(type="string", length=2, nullable=false)
      */
     private $code;
 

@@ -26,7 +26,7 @@ class DepartmentCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            NumberField::new('code', 'Code')->setStoredAsString(),
+            TextField::new('code', 'Code'),
             TextField::new('name' , 'Département'),
             // BooleanField::new('active', 'Active'),
 

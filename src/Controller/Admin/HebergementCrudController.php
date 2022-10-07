@@ -56,10 +56,23 @@ class HebergementCrudController extends AbstractCrudController
                 ->setRequired(true)
                 //setFormTypeOptions Pour lui forcer le type pour une OneToMany
                 //https://symfonycasts.com/screencast/easyadminbundle/association-many
-                ->setFormTypeOption('choice_label', 'id'),
-            AssociationField::new('departmentRelation' , 'Département')
+                ->setFormTypeOption('choice_label', 'name')
+                ->formatValue(function($id, $entite){
+                    if($entite->getHebergementCountry() == null){
+                        return '';
+                    }
+                    return $entite -> getHebergementCountry()->getName();
+                }),
+            AssociationField::new('departmentRelation', 'Département')
                 ->setRequired(true)
-                ->setFormTypeOption('choice_label', 'id'),
+                ->setFormTypeOption('choice_label', 'code')
+                //Formater le nom de la vue
+                ->formatValue(function($id, $entite){
+                    if($entite->getDepartmentRelation() == null){
+                        return '';
+                    }
+                    return $entite -> getDepartmentRelation()->getName();
+                }),
             AssociationField::new('categories', 'Categorie.s')
                 ->setRequired(true)
                 //setFormTypeOptions Pour lui forcer à changer la catégorie ManyToMany (pb: vodoo récurent) -> et one to many ??
@@ -73,7 +86,6 @@ class HebergementCrudController extends AbstractCrudController
             ImageField::new('image', 'Image de présentation')
                 ->setBasePath(self::HEBERGEMENTS_BASE_PATH)
                 ->setUploadDir(self::HEBERGEMENTS_UPLOAD_DIR)
-               
 
                 ->setSortable(false)
                 ->setRequired(false),  
