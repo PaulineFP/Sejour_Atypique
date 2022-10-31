@@ -94,16 +94,16 @@ class HebergementCrudController extends AbstractCrudController
                 ->setRequired(false),  
 
             AssociationField::new('media_relation','nombre de média')
-            ->setRequired(true)
+            ->hideOnForm()
             ->setFormTypeOption('choice_label', 'media')
             ->formatValue(function($id, $entite){
                 if($entite->getMediaRelation() == null){
                     return '';
                 }
-                // return $entite -> getMediaRelation()->getMedia();
-                return "toto";
+                return count($entite->getMediaRelation());
+                
             }),
-
+            
             BooleanField::new('isPromotional', 'Promotion'),
             TextField::new('promotion', 'Montant de la promotion'),
             DateTimeField::new('lastUpdateDate')->hideOnForm(),
