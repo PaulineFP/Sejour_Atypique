@@ -92,9 +92,15 @@ class Hebergement
      */
     private $departmentRelation;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Media::class, mappedBy="media_relation")
+     */
+    private $media_relation;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->media_relation = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -287,6 +293,36 @@ class Hebergement
     public function setDepartmentRelation(?Department $departmentRelation): self
     {
         $this->departmentRelation = $departmentRelation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Media>
+     */
+    public function getMediaRelation(): Collection
+    {
+        return $this->media_relation;
+    }
+
+    public function addMediaRelation(Media $mediaRelation): self
+    {
+        if (!$this->media_relation->contains($mediaRelation)) {
+            $this->media_relation[] = $mediaRelation;
+            $mediaRelation->setMediaRelation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMediaRelation(Media $mediaRelation): self
+    {
+        if ($this->media_relation->removeElement($mediaRelation)) {
+            // set the owning side to null (unless already changed)
+            if ($mediaRelation->getMediaRelation() === $this) {
+                $mediaRelation->setMediaRelation(null);
+            }
+        }
 
         return $this;
     }

@@ -6,7 +6,8 @@ use App\Entity\Categories;
 use App\Entity\Countries;
 use App\Entity\Department;
 use App\Entity\Hebergement;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use App\Entity\Media;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud; 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -49,6 +50,14 @@ class DashboardController extends AbstractDashboardController
             ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Afficher les hebergements', 'fas fa-eye', Hebergement::class)
         ]);
+
+        yield MenuItem::section('Gestion des médias');
+        yield MenuItem::subMenu('Actions' ,'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud( 'Ajouter une image ', 'fas fa-plus', Media::class)
+            ->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Afficher les médias', 'fas fa-eye', Media::class)
+        ]);
+
         
         yield MenuItem::section('Gestion catégories');
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([

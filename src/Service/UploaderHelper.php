@@ -9,6 +9,7 @@ class UploaderHelper
     
     const HEBERGEMENT_IMAGE = 'images/hebergements';
     const DEPARTEMENT_IMAGE = 'images/hebergements';
+    const MEDIA_IMAGE = 'images/hebergements';
 
     public function __construct(string $uploadsPath, RequestStackContext $requestStackContext)
     {
@@ -25,6 +26,12 @@ class UploaderHelper
     public function uploadDepartementImage(UploadedFile $uploadedFile){
         $destination = $this->uploadsPath.'/'.self::DEPARTEMENT_IMAGE;
     }
+
+        //Media image path
+        public function uploadMediaImage(UploadedFile $uploadedFile){
+            $destination = $this->uploadsPath.'/'.self::MEDIA_IMAGE;
+        }
+    
 
     public function getPublicPath(string $path): string {
         // return 'upload/'.$path;
