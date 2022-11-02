@@ -102,11 +102,17 @@ class Hebergement
      */
     private $relation_particularite;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Equipment::class, mappedBy="hebergement_equipment")
+     */
+    private $hebergement_equipment;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->media_relation = new ArrayCollection();
         $this->relation_particularite = new ArrayCollection();
+        $this->hebergement_equipment = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -355,6 +361,33 @@ class Hebergement
     {
         if ($this->relation_particularite->removeElement($relationParticularite)) {
             $relationParticularite->removeRelationHebergement($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Equipment>
+     */
+    public function getHebergementEquipment(): Collection
+    {
+        return $this->hebergement_equipment;
+    }
+
+    public function addHebergementEquipment(Equipment $hebergementEquipment): self
+    {
+        if (!$this->hebergement_equipment->contains($hebergementEquipment)) {
+            $this->hebergement_equipment[] = $hebergementEquipment;
+            $hebergementEquipment->addHebergementEquipment($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHebergementEquipment(Equipment $hebergementEquipment): self
+    {
+        if ($this->hebergement_equipment->removeElement($hebergementEquipment)) {
+            $hebergementEquipment->removeHebergementEquipment($this);
         }
 
         return $this;

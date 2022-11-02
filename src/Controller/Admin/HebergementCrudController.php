@@ -110,6 +110,13 @@ class HebergementCrudController extends AbstractCrudController
             ->formatValue(function($id, $entite){
                return join(' , ', $entite->getRelationParticularite()->map(fn($relationParticularite)=>$relationParticularite->getName())->toArray());                
             }),
+
+            AssociationField::new('hebergement_equipment', 'Equipements du logement')
+                ->setRequired(true)
+                ->setFormTypeOptions(['by_reference' => false])
+                ->formatValue(function($id, $entite){
+                    return join(' , ', $entite->getHebergementEquipment()->map(fn($hebergementEquipment)=>$hebergementEquipment->getName())->toArray());
+                }),
             
             BooleanField::new('isPromotional', 'Promotion'),
             TextField::new('promotion', 'Montant de la promotion'),

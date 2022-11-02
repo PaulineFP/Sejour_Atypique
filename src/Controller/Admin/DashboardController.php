@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Categories;
 use App\Entity\Countries;
 use App\Entity\Department;
+use App\Entity\Equipment;
 use App\Entity\Hebergement;
 use App\Entity\Media;
 use App\Entity\Peculiarity;
@@ -67,11 +68,18 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Afficher les categories', 'fas fa-eye', Categories::class)
         ]);
 
-        yield MenuItem::section('Gestion particularitées');
+        yield MenuItem::section('Gestion particularités');
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Ajouté une particularité', 'fas fa-plus', Peculiarity::class)
             ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Afficher les particularités', 'fas fa-eye', Peculiarity::class)
+        ]);
+
+        yield MenuItem::section('Gestion des équipements');
+        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Ajouter un équipement', 'fas fa-plus', Equipment::class)
+                ->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Afficher tout les équipements', 'fas fa-eye', Equipment::class)
         ]);
 
         yield MenuItem::section('Gestion régions');
