@@ -7,6 +7,7 @@ use App\Entity\Countries;
 use App\Entity\Department;
 use App\Entity\Hebergement;
 use App\Entity\Media;
+use App\Entity\Peculiarity;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud; 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -64,6 +65,13 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Crée une categorie', 'fas fa-plus', Categories::class)
             ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Afficher les categories', 'fas fa-eye', Categories::class)
+        ]);
+
+        yield MenuItem::section('Gestion particularitées');
+        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Ajouté une particularité', 'fas fa-plus', Peculiarity::class)
+            ->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Afficher les particularités', 'fas fa-eye', Peculiarity::class)
         ]);
 
         yield MenuItem::section('Gestion régions');

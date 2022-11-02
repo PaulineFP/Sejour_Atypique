@@ -103,6 +103,13 @@ class HebergementCrudController extends AbstractCrudController
                 return count($entite->getMediaRelation());
                 
             }),
+
+            AssociationField::new('relation_particularite', 'Particularité.s associé.s')
+            ->setRequired(true)                
+            ->setFormTypeOptions(['by_reference' => false])
+            ->formatValue(function($id, $entite){
+               return join(' , ', $entite->getRelationParticularite()->map(fn($relationParticularite)=>$relationParticularite->getName())->toArray());                
+            }),
             
             BooleanField::new('isPromotional', 'Promotion'),
             TextField::new('promotion', 'Montant de la promotion'),

@@ -97,10 +97,16 @@ class Hebergement
      */
     private $media_relation;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Peculiarity::class, mappedBy="relation_hebergement")
+     */
+    private $relation_particularite;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->media_relation = new ArrayCollection();
+        $this->relation_particularite = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -322,6 +328,33 @@ class Hebergement
             if ($mediaRelation->getMediaRelation() === $this) {
                 $mediaRelation->setMediaRelation(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Peculiarity>
+     */
+    public function getRelationParticularite(): Collection
+    {
+        return $this->relation_particularite;
+    }
+
+    public function addRelationParticularite(Peculiarity $relationParticularite): self
+    {
+        if (!$this->relation_particularite->contains($relationParticularite)) {
+            $this->relation_particularite[] = $relationParticularite;
+            $relationParticularite->addRelationHebergement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRelationParticularite(Peculiarity $relationParticularite): self
+    {
+        if ($this->relation_particularite->removeElement($relationParticularite)) {
+            $relationParticularite->removeRelationHebergement($this);
         }
 
         return $this;
