@@ -4,8 +4,8 @@
 
 <header class= "" >
     {# Faire un header spéciale pour recuperer l'imge de la bdd #}
-    {% set class_header = 'header_home text-rose-700 h-screen' %}
-    {% include 'models/header.html.twig'%}
+    {# {% set class_header = 'header_home text-rose-700 h-screen' %}
+    {% include 'models/header.html.twig'%} #}
 </header>
 <div>
     <div>
@@ -21,34 +21,22 @@
     <div>
         <div>
             <div>
-               <h2>{{hebergement.title}}</h2> 
+               <h1>{{hebergement.title}}</h1> 
                <p>{{hebergement.lieux}}</p> 
             </div>
             <div>{{hebergement.tarif}}</div>
         </div>
         <div>
-            {# Faire une condition twig en fonction du comtenue de la bdd avec {% hebergement_particularite %} #}
-            <div>
-                <div><img src="https://picsum.photos/40/40" alt=""></div>
-                <div>Cabane dans les arbres</div>
+            {% for  particularite in  hebergement.relationParticularite %}
+                <div>
+                <div><i class='{{particularite.icon}}'></i></div>
+                <div>{{particularite.name}}</div>
             </div>
-            <div>
-                <div><img src="https://picsum.photos/40/40" alt=""></div>
-                <div>2 personnes</div>
-            </div>
-            <div>
-                <div><img src="https://picsum.photos/40/40" alt=""></div>
-                <div>A partiir de 3 ans</div>
-            </div>
-            <div>
-                <div><img src="https://picsum.photos/40/40" alt=""></div>
-                <div>Petit-déjeuner inclus</div>
-            </div>
-            <div>
-                <div><img src="https://picsum.photos/40/40" alt=""></div>
-                <div>Animaux acceptés</div>                
-            </div>
-            {# ect #}           
+            {% endfor %}
+            
+            
+        
+                 
         </div>
         <div>
         <div>
@@ -57,7 +45,7 @@
                     <div>surface du logement: {{hebergement.surface}} m²</div>
                 </div>
                 <p>
-                    {{hebergement.description}}
+                    {{hebergement.description | raw}}
                 </p>
         </div>
         <div>
@@ -81,92 +69,39 @@
         </div>
     </div>
 </section>
+
 <section id="equipement">
     <div>Equipement</div>
     <div>
-    {# Faire une condition en fonction de la bdd #}
+    {% for equipment in hebergement.hebergementEquipment %}
         <div>
-            <div><img src="https://picsum.photos/40/40" alt=""></div>
-            {# <p>{% hebergement_equipement %}</p> #}
-            <p>nom de l'équipement</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/40/40" alt=""></div>
-            {# <p>{% hebergement_equipement %}</p> #}
-            <p>nom de l'équipement</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/40/40" alt=""></div>
-            {# <p>{% hebergement_equipement %}</p> #}
-            <p>nom de l'équipement</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/40/40" alt=""></div>
-            {# <p>{% hebergement_equipement %}</p> #}
-            <p>nom de l'équipement</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/40/40" alt=""></div>
-            {# <p>{% hebergement_equipement %}</p> #}
-            <p>nom de l'équipement</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/40/40" alt=""></div>
-            {# <p>{% hebergement_equipement %}</p> #}
-            <p>nom de l'équipement</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/40/40" alt=""></div>
-            {# <p>{% hebergement_equipement %}</p> #}
-            <p>nom de l'équipement</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/40/40" alt=""></div>
-            {# <p>{% hebergement_equipement %}</p> #}
-            <p>nom de l'équipement</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/40/40" alt=""></div>
-            {# <p>{% hebergement_equipement %}</p> #}
-            <p>nom de l'équipement</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/40/40" alt=""></div>
-            {# <p>{% hebergement_equipement %}</p> #}
-            <p>nom de l'équipement</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/40/40" alt=""></div>
-            {# <p>{% hebergement_equipement %}</p> #}
-            <p>nom de l'équipement</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/40/40" alt=""></div>
-            {# <p>{% hebergement_equipement %}</p> #}
-            <p>nom de l'équipement</p>
-        </div>
+            <div><img src="{{ uploaded_asset(equipment.imagePath) }}" alt="{{equipment.name}}"></div>
+            <p>{{equipment.name}}</p>
+        </div>  
+    {% endfor %}
     </div>
 </section>
+
 <section>
     <div>
         <div>Informations pratiques </div>
         <div>
             <div>
-                <div><img src="https://picsum.photos/640/360" alt=""></div>
+                <div><i class="fa-regular fa-clock"></i></div>
                 <div>
                     <p>Horraire d'arrivée :</p>
                     <p>lroem ipsum</p>
                 </div>
             </div>
             <div>
-                <div><img src="https://picsum.photos/640/360" alt=""></div>
+                <div><i class="fa-solid fa-mug-hot"></i></div>
                 <div>
                     <p>Petit déjeuner</p>
                     {# <p>{% info_petitdej %}</p> #}
                 </div>
             </div>
             <div>
-                <div><img src="https://picsum.photos/640/360" alt=""></div>
+                <div><i class="fa-solid fa-utensils"></i></div>
                 <div>
                     <p>Restauration</p>
                     <p>Panier repas sur réservation</p>
@@ -216,15 +151,15 @@
 </section>
 <section>
 <div id="arrow-left" class="arrow"></div>
-    <div class="slide slide1">
-        <img src="https://picsum.photos/640/360" alt="">
-    </div>
-    <div class="slide slide2">
-        <img src="https://picsum.photos/640/360" alt="">
-    </div>
-    <div class="slide slide3">
-        <img src="https://picsum.photos/640/360" alt="">
-    </div>
+    {% for media in hebergement.mediaRelation %}
+     {% if media.active == true %}
+        <div class="slide slide{{media.id}}">
+            <img src="{{uploaded_asset(media.mediaPath)}}" alt="{{media.MediaAlt}}">
+        </div>
+     {% endif %}    
+    {% endfor %}
+   
+    
 <div id="arrow-right" class="arrow"></div>
 
 </section>
