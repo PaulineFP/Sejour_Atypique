@@ -9,6 +9,107 @@
 <section class="mt-20 mb-28 mx-auto w-11/12">
     <h2 class="text-center text-3xl">Voici le détail de vos commandes :</h2>
 
+<div class="flex flex-col mt-8">
+    <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+            <table class="min-w-full">
+                <thead>
+                    <tr>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Produit.s :</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">prix :</th>
+                        {# Pas en production pour le moment #}
+                        {# <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Nombre de nuit.s :</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Nombre de personnes : </th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Date de réservation</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Service.s : </th>
+                        #}
+                        {# ------------------- #}
+                        {# Uniniquement en production #}
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Quantité</th>
+                        {# ----------- #}
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Total :</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Actions :</th>
+                    </tr>
+                    <tbody class="bg-white">
+                        {% for element in dataPanier %}
+                            <tr>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-10 h-10">
+                                             <img class="w-10 h-10 rounded-full" src="{{ uploaded_asset(element.hebergement.imagePath) }}" alt="{{element.hebergement.title}}" class="rounded-tr-3xl">
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium leading-5 text-gray-900">
+                                                {{element.hebergement.title}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                    <div class="text-sm leading-5 text-gray-700">
+                                        {{element.hebergement.tarif}} €
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                    <div class="pl-2 text-sm leading-5 text-gray-700">
+                                        {{element.quantite}}
+                                    </div>
+                                </td>
+                                 {# <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                    <div class="text-sm leading-5 text-gray-700">
+                                        {{element.hebergement.}}
+                                    </div>
+                                </td>
+                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                    <div class="text-sm leading-5 text-gray-700">
+                                        {{element.hebergement.}}
+                                    </div>
+                                </td>
+                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                    <div class="text-sm leading-5 text-gray-700">
+                                        {{element.hebergement.}}
+                                    </div>
+                                </td>
+                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                    <div class="text-sm leading-5 text-gray-700">
+                                        {{element.hebergement.}}
+                                    </div>
+                                </td> #}
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                    <div class="text-sm leading-5 font-medium  text-gray-700">
+                                        {# Ne pas oublier par la suite : nombre de personne; nombre de nuit, types de services et les promotions/réductions #}
+                                        {{element.quantite * element.hebergement.tarif}} €
+                                    </div>
+                                </td>
+                                <td class=" py-4 whitespace-no-wrap border-b border-gray-200">
+                                    <div class="text-sm leading-5 text-gray-700 flex">
+                                       <a href="{{path("cart_add", {id: element.hebergement.id})}}" class="flex items-center p-3 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full mx-2"><i class="fa-solid fa-plus"></i></a>
+                                       <a href="{{path("cart_remove", {id: element.hebergement.id})}}"" class="flex align-center p-3 text-xs font-semibold leading-5 text-red-600 bg-red-100 rounded-full mx-2"><i class="fa-solid fa-minus"></i></a>
+                                       <a href="{{path("cart_delete", {id: element.hebergement.id})}}"" class="py-2 text-red-600 mx-4"><i class="fa-solid fa-trash-can"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class"text-center">Votre panier est vide</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left text-gray-700 font-bold uppercase border-b border-gray-200 bg-gray-50" colspan="3">Total : </td>
+                            <td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left  text-gray-700 font-bold uppercase border-b border-gray-200 bg-gray-50" colspan="2">{{total}} €</td>
+                        </tr>
+                    </tfoot>
+                </thead>
+            </table>
+            {# {{dump()}} #}
+        </div>
+    </div>
+
+</div>
+
+    
 </section>
 
 

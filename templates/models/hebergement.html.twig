@@ -6,6 +6,8 @@
     {# Faire un header spéciale pour recuperer l'imge de la bdd #}
     {# {% set class_header = 'header_home text-rose-700 h-screen' %}
     {% include 'models/header.html.twig'%} #}
+    {% include 'partials/navbar.html.twig'%}    
+
 </header>
 <div>
     <div>
@@ -213,5 +215,5 @@
 </div>
 </section> #}
 
-<a href="">Choisir</a>
+<a href="{{path("cart_add", {id: hebergement.id})}}"" class="button">Je réserve</a>
 {% endblock %}
