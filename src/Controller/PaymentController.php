@@ -40,6 +40,8 @@ class PaymentController extends AbstractController
         return $this->render('payment/index.html.twig', compact("dataPanier", "total"));
     }
 
+    //Tuto panier : https://www.youtube.com/watch?v=__CdqAy1xMg&t=473s
+
     /**
      * @Route("/add/{id}", name="add")
      */
