@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mon panier{% endblock %}    
+{% block body %}
+
+    {% set class_header = 'header_list' %}
+    {% set title_h1 = 'Mes commandes' %}
+    {% include 'models/header.html.twig'%}
+
+<section class="mt-20 mb-28 mx-auto w-11/12">
+    <h2 class="text-center text-3xl">Voici le détail de vos commandes :</h2>
+
+</section>
+
+
+
+{% endblock %}
