@@ -25,7 +25,7 @@
                         #}
                         {# ------------------- #}
                         {# Uniniquement en production #}
-                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Quantité</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Nombre de nuit :</th>
                         {# ----------- #}
                         <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Total :</th>
                         <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Actions :</th>
@@ -84,21 +84,26 @@
                                 <td class=" py-4 whitespace-no-wrap border-b border-gray-200">
                                     <div class="text-sm leading-5 text-gray-700 flex">
                                        <a href="{{path("cart_add", {id: element.hebergement.id})}}" class="flex items-center p-3 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full mx-2"><i class="fa-solid fa-plus"></i></a>
-                                       <a href="{{path("cart_remove", {id: element.hebergement.id})}}"" class="flex align-center p-3 text-xs font-semibold leading-5 text-red-600 bg-red-100 rounded-full mx-2"><i class="fa-solid fa-minus"></i></a>
-                                       <a href="{{path("cart_delete", {id: element.hebergement.id})}}"" class="py-2 text-red-600 mx-4"><i class="fa-solid fa-trash-can"></i></a>
+                                       <a href="{{path("cart_remove", {id: element.hebergement.id})}}" class="flex align-center p-3 text-xs font-semibold leading-5 text-red-600 bg-red-100 rounded-full mx-2"><i class="fa-solid fa-minus"></i></a>
+                                       <a href="{{path("cart_delete", {id: element.hebergement.id})}}" class="py-2 text-red-600 mx-4"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                 </td>
                             </tr>
                         {% else %}
                             <tr>
-                                <td colspan="5" class"text-center">Votre panier est vide</td>
+                                <td colspan="5" class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                <div class="text-center text-lg">Votre panier est vide </div>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>
                     <tfoot>
                         <tr>
                             <td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left text-gray-700 font-bold uppercase border-b border-gray-200 bg-gray-50" colspan="3">Total : </td>
-                            <td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left  text-gray-700 font-bold uppercase border-b border-gray-200 bg-gray-50" colspan="2">{{total}} €</td>
+                            <td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left  text-gray-700 font-bold uppercase border-b border-gray-200 bg-gray-50">{{total}} €</td>
+                            <td class="px-6 py-3 font-medium leading-4 tracking-wider text-left  border-b border-gray-200 bg-gray-50">
+                                <a href="{{path("cart_delete_all")}}" class="py-2 text-red-600 mx-4 text-2xl"> <i class="fa-solid fa-dumpster-fire"></i></a>
+                            </td>
                         </tr>
                     </tfoot>
                 </thead>

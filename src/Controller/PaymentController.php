@@ -41,7 +41,7 @@ class PaymentController extends AbstractController
     }
 
     //Tuto panier : https://www.youtube.com/watch?v=__CdqAy1xMg&t=473s
-    //46:38
+   
 
     /**
      * @Route("/add/{id}", name="add")
@@ -100,6 +100,14 @@ class PaymentController extends AbstractController
         //On sauvegarde dans la session
         $session->set("panier", $panier);
         
+        return $this->redirectToRoute("cart_index");
+    }
+
+            /**
+     * @Route("/delete", name="delete_all")
+     */
+    public function deleteAll(SessionInterface $session){                
+        $session->remove("panier", []);        
         return $this->redirectToRoute("cart_index");
     }
 
