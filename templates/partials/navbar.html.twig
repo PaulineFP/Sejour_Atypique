@@ -9,7 +9,7 @@
             <a href="" class='text-2xl mr-4'><i class="fa-brands fa-facebook"></i></a>
             <a href="" class='text-2xl mr-4'><i class="fa-brands fa-instagram"></i></a>
             <a href="" class='text-2xl mr-4'><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="/reservations/mon-panier" class="mr-4">Ma réservation</a>
+            <a href="{{path("cart_index")}}" class="mr-4">Ma réservation</a>
             <a href="">Catre cadeau</a>
             </li>
             
@@ -20,7 +20,7 @@
 
 <div class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 navbar2">
   <div class=" flex flex-wrap justify-between items-center mx-auto w-11/12">
-    <a href="#" class="flex items-center">
+    <a href="{{path("home")}}" class="flex items-center">
     <i class="fa-solid fa-campground mr-3 h-6 sm:h-9"></i>
     </a>
     <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu" aria-expanded="false">
@@ -31,16 +31,16 @@
     <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
       <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
         <li>
-          <a href= "" class="" aria-current="page">
+          <a href= "{{path("home")}}" class="" aria-current="page">
           <i class="fa-solid fa-house-chimney"></i>
           </a>
         </li>
         <li>
           <select id="touchsplashmenu" onchange="window.open(this.value,'_self');">
             <option value="#">Trouver un hébergement</option>
-            <option value="#.html">Hébergements par régions</option>
-            <option value="/hebergements">Liste des établisements</option>
-            <option value="#.html">Hébergements par expériences</option>
+            <option value="{{path("home")}}#countries">Hébergements par régions</option>
+            <option value="{{path("herbergements")}}">Liste des établisements</option>
+            <option value="{{path("home")}}#home_category">Hébergements par expériences</option>
             <option value="#.html">Rechecher un hebergement</option>
           </select>        
         </li>

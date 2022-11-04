@@ -41,6 +41,7 @@ class PaymentController extends AbstractController
     }
 
     //Tuto panier : https://www.youtube.com/watch?v=__CdqAy1xMg&t=473s
+    //46:38
 
     /**
      * @Route("/add/{id}", name="add")
@@ -101,6 +102,8 @@ class PaymentController extends AbstractController
         
         return $this->redirectToRoute("cart_index");
     }
+
+    //Tuto Stripe : https://www.youtube.com/watch?v=oup745Pp-vA
 
     // /**
     //  * @Route("/payment", name="app_payment")
