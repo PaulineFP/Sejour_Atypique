@@ -155,6 +155,9 @@
             "./config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "stripe/stripe-php": {
+        "version": "v9.8.0"
+    },
     "symfony/amqp-messenger": {
         "version": "v5.4.5"
     },

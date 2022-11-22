@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Controller\StripeController;
 use App\Entity\Hebergement;
 use App\Repository\HebergementRepository;
 use PhpParser\Node\Stmt\If_;
@@ -111,7 +112,19 @@ class PaymentController extends AbstractController
         return $this->redirectToRoute("cart_index");
     }
 
-    //Tuto Stripe : https://www.youtube.com/watch?v=oup745Pp-vA
+
+     /**
+     * @Route("/payment", name="payment")
+     */
+    public function payment(SessionInterface $session, StripeController $payment){
+        require '../vendor/autoload.php';
+        //On récupère le panier actuel
+        $panier = $session->get("panier", []);
+        $payment = new StripeController();
+        return $this->redirectToRoute("stripe_start", $panier);
+        // return $this->render("");
+    }
+
 
     // /**
     //  * @Route("/payment", name="app_payment")
