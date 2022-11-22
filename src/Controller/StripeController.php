@@ -42,26 +42,31 @@ class StripeController extends AbstractController
   //J'instancie le contenue de mon panier
   foreach($panier as $hebergementId => $quantity) {
     $hebergement = $repo->findOneById($hebergementId);
-    $hebergements[]= $hebergement;
+    //je dissocie la quantité des hébergements pour mieux les identifier et les manipuler ensuite 
+    $panierItems[] = [
+      "quantity" => $quantity,
+      "hebergement" => $hebergement
+    ];
+    //$hebergements[]= $hebergement;
   }
-  dd($panier);
+ // dd($panierItems);
 
      $session = Session::create([
        'line_items'                  => [
-        //je map sur tout mes hebergements de mon panier
-         array_map(fn($hebergement) => [
-        
-             'quantity'   => $quantity,
+        //je map sur tout le contenu de mon panier
+         array_map(fn($panierItems) => [
+        // et je récupère ce qu il m'intéresse de façon inclusive
+             'quantity'   => $panierItems['quantity'],
              'price_data' => [
                  'currency'     => 'EUR',
                  'product_data' => [
-                     'name' => $hebergement->getTitle()
+                     'name' => $panierItems['hebergement']->getTitle()
                  ],
                  //stripe considère tout sous forme de centime
-                 'unit_amount'  => $hebergement->getTarif() * 100
+                 'unit_amount'  => $panierItems['hebergement']->getTarif() * 100
 
              ]
-         ], $hebergements)
+         ], $panierItems)
      ],
      'mode' => 'payment',
      'success_url' => 'http://127.0.0.1:8000/operation-payement/payement-reussi',
