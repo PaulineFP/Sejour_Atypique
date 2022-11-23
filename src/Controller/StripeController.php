@@ -100,6 +100,10 @@ class StripeController extends AbstractController
     $logger->critical(json_encode($info));
     return new Response ('BLALBLA');
     //pour récupérer les infos en bdd $info['ma donnee']
+
+
+
+    
    }
    
    //https://www.youtube.com/watch?v=k9ZA8BoNFik   
