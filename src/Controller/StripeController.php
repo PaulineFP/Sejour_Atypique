@@ -14,6 +14,8 @@ use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
+ //TUTO Stripe : https://www.youtube.com/watch?v=k9ZA8BoNFik   
+
  /**
   * @Route("/operation-payement", name="stripe_")
   */
@@ -34,7 +36,6 @@ class StripeController extends AbstractController
   public function success(){
     return $this->render('stripe/success.html.twig');
   }
-
 
   /**
   * @Route("/operation-payement", name="start")
@@ -87,11 +88,14 @@ class StripeController extends AbstractController
     
    }
 
+   //Je relie les informations de la commande via webhook 
+   // en local : https://dashboard.stripe.com/test/payments/pi_3M7KZBAWgD5DW0y41XXyavQS
+
     /**
   * @Route("/webhook2.php", name="webhook")
   */
    public function webhook (LoggerInterface $logger, Request $request){
-    //je surveille dans le terminal se que webhook envoie
+    //je surveille dans le terminal ce que webhook envoie
     //json_encode permet de transformer en chaine
     $logger->critical(json_encode($request));
     
@@ -99,13 +103,11 @@ class StripeController extends AbstractController
     $info = json_decode($request->getContent());
     $logger->critical(json_encode($info));
     return new Response ('BLALBLA');
+
     //pour récupérer les infos en bdd $info['ma donnee']
 
-
-
-    
    }
    
-   //https://www.youtube.com/watch?v=k9ZA8BoNFik   
+  
 
 }
