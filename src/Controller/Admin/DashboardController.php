@@ -9,6 +9,7 @@ use App\Entity\Equipment;
 use App\Entity\Hebergement;
 use App\Entity\Media;
 use App\Entity\Peculiarity;
+use App\Entity\Order;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud; 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -95,6 +96,8 @@ class DashboardController extends AbstractDashboardController
             ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Afficher les départements', 'fas fa-eye', Department::class)
         ]);
-       
+
+        yield MenuItem::section('Traitement des commandes');
+        yield MenuItem::linkToCrud('Afficher les commandes', 'fas fa-eye', Order::class);       ;
     }
 }

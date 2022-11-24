@@ -21,7 +21,7 @@ class Order
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -63,14 +63,14 @@ class Order
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getname(): ?string
     {
-        return $this->nom;
+        return $this->name;
     }
 
-    public function setNom(string $nom): self
+    public function setname(string $name): self
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }
