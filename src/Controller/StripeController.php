@@ -1,16 +1,21 @@
 <?php
 namespace App\Controller;
 
-
+use App\Entity\Order;
 use App\Entity\Hebergement;
 use Stripe\Stripe;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Repository\HebergementRepository;
+use App\Repository\OrderRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Egulias\EmailValidator\Result\InvalidEmail;
 use Stripe\Checkout\Session;
 use Stripe\Webhook;
 use Psr\Log\LoggerInterface;
+use Stripe\StripeClient;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -40,7 +45,7 @@ class StripeController extends AbstractController
   /**
   * @Route("/operation-payement", name="start")
   */
-  public function startPayment(SessionInterface $session, HebergementRepository $repo){
+  public function startPayment(SessionInterface $session, HebergementRepository $repo, EntityManagerInterface $entitymanager){
 
     //On récupère le panier actuel
     $panier = $session->get("panier", []);
@@ -55,6 +60,21 @@ class StripeController extends AbstractController
     ];
    
   }
+    // je prepare mes information a conserver
+    $order = new Order();
+    $order->setname('toto');
+    $order->setEmail('toto');
+    $order->setAdress('toto');
+    $order->setOrderInfo('toto');
+    $order->setPrice('555');
+    $order->setIdPanier('toto');
+    $order->setIdPayment('toto');
+   
+    $entitymanager->persist($order);
+    $entitymanager->flush($order);
+    //dd($order);
+
+
  // dd($panierItems);
 
      $session = Session::create([
@@ -70,10 +90,12 @@ class StripeController extends AbstractController
                  ],
                  //stripe considère tout sous forme de centime
                  'unit_amount'  => $panierItems['hebergement']->getTarif() * 100
-
              ]
          ], $panierItems)
      ],
+     //j'enregistre mes données
+     "metadata" => ["order_id" => $order->getId()],
+
      'mode' => 'payment',
      'success_url' => 'http://127.0.0.1:8000/operation-payement/payement-reussi',
      'cancel_url' => 'http://127.0.0.1:8000/', /* voir si je peux simplifier avec home de mon controller*/
@@ -94,18 +116,80 @@ class StripeController extends AbstractController
     /**
   * @Route("/webhook2.php", name="webhook")
   */
-   public function webhook (LoggerInterface $logger, Request $request){
+   public function webhook (LoggerInterface $logger, Request $request, OrderRepository $repo, EntityManagerInterface $entitymanager){
     //je surveille dans le terminal ce que webhook envoie
-    //json_encode permet de transformer en chaine
+    //json_encode permet de transformer en chaîne
     $logger->critical(json_encode($request));
     
     //Je decode le json pour que ce soit lisible
-    $info = json_decode($request->getContent());
+    $info = json_decode($request->getContent(), true);
     $logger->critical(json_encode($info));
+    $id = $info['id'];
+
+    $stripe_event = $info['type'];
+
+    if($stripe_event === 'checkout.session.completed'){
+
+      //je récupère l'id du payment dans ma session stripe
+      $order_id = $info['data']['object']['metadata']['order_id'];
+      
+     // $id_panier = a recup av de payer;
+
+      $client_name = $info['data']['object']['customer_details']['name'] ;
+      $client_mail = $info['data']['object']['customer_details']['email'];
+      
+      $client_street =  $info['data']['object']['customer_details']['address']['line1'] ;
+      $client_postal = $info['data']['object']['customer_details']['address']['postal_code'];
+      $client_city = $info['data']['object']['customer_details']['address']['city'] ;
+      //récupérer le $save_panier de payment controller
+      /*$order_info = $info[''] ;
+      $order_product = $info[''] ;
+      $order_product_quantity = $info[''] ;
+      $order_product_price = $info[''] ;*/
+      $order_price = $info['data']['object']['amount_total']  ;
+
+      $logger->critical($order_id);
+      //convertir la chaîne en entier si le json donne en chaîne   
+      $order = $repo->findOneById(intval($order_id));
+
+      $logger->critical(json_encode($order));
+      
+
+      //je relie mes infos stripe aux infos de mon entité
+      $order->setIdPayment($id);
+      //$order->setIdPanier($id_panier);
+
+      $order->setName($client_name);
+      $order->setEmail($client_mail);
+      $client_address = $client_street.", ". $client_postal." ". $client_city ;
+
+      $order->setAdress($client_address);
+
+      $order->setPrice(intval($order_price) / 100);
+
+       //je stock les infos en BDD
+      $entitymanager->persist($order);
+      $entitymanager->flush($order);
+    }
+    
+
+
+
+ 
+
+
+
+
+
+    //$test_order_content = $client_name;
+
+    // ajouter les données en BDD
+    // 1 condition pour session aboutis 
+    // 1 condition pour session fini
+
+    //dd($test_order_content);
+    
     return new Response ('BLALBLA');
-
-    //pour récupérer les infos en bdd $info['ma donnee']
-
    }
    
   

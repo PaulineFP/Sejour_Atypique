@@ -121,9 +121,15 @@ class PaymentController extends AbstractController
         //On récupère le panier actuel
         $panier = $session->get("panier", []);
         $payment = new StripeController();
+
+    //sinon tu peux mettres ton panier sous forme JSON, et enregistrer ca dans un champ de ton entité order
+        //$save_panier = $panier;
+
+
         return $this->redirectToRoute("stripe_start", $panier);
         // return $this->render("");
     }
+
 
 
     // /**
