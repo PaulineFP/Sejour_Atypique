@@ -40,6 +40,9 @@ class StripeController extends AbstractController
   */
   public function success(){
     return $this->render('stripe/success.html.twig');
+    //$session->clear();
+    //$session->remove("panier", []);        
+    return $this->redirectToRoute("cart_index");
   }
 
   /**
@@ -49,26 +52,35 @@ class StripeController extends AbstractController
 
     //On récupère le panier actuel
     $panier = $session->get("panier", []);
-
+    $panierId = $session->getId();
   //J'instancie le contenue de mon panier
   foreach($panier as $hebergementId => $quantity) {
     $hebergement = $repo->findOneById($hebergementId);
+
+    $hebergementName = $hebergement->getTitle();
+
     //je dissocie la quantité des hébergements pour mieux les identifier et les manipuler ensuite 
     $panierItems[] = [
       "quantity" => $quantity,
       "hebergement" => $hebergement
     ];
-   
+
+    //Je crée une syntaxe approprier pour pouvoir reprendre les informations pour les inscrire en BDD
+    $panierDetail = array($quantity,  $hebergementName, ';');
   }
+
+  $save_panier = implode(' ', $panierDetail);
+  // dd($save_panier);
+
     // je prepare mes information a conserver
     $order = new Order();
-    $order->setname('toto');
-    $order->setEmail('toto');
-    $order->setAdress('toto');
-    $order->setOrderInfo('toto');
-    $order->setPrice('555');
-    $order->setIdPanier('toto');
-    $order->setIdPayment('toto');
+    $order->setname(' ');
+    $order->setEmail(' ');
+    $order->setAdress(' ');
+    $order->setPrice(' ');
+    $order->setIdPanier($panierId);
+    $order->setOrderInfo($save_panier);
+    $order->setIdPayment(' ');
    
     $entitymanager->persist($order);
     $entitymanager->flush($order);
@@ -133,7 +145,6 @@ class StripeController extends AbstractController
       //je récupère l'id du payment dans ma session stripe
       $order_id = $info['data']['object']['metadata']['order_id'];
       
-     // $id_panier = a recup av de payer;
 
       $client_name = $info['data']['object']['customer_details']['name'] ;
       $client_mail = $info['data']['object']['customer_details']['email'];
@@ -142,6 +153,8 @@ class StripeController extends AbstractController
       $client_postal = $info['data']['object']['customer_details']['address']['postal_code'];
       $client_city = $info['data']['object']['customer_details']['address']['city'] ;
       //récupérer le $save_panier de payment controller
+     // $id_panier = a recup av de payer;
+
       /*$order_info = $info[''] ;
       $order_product = $info[''] ;
       $order_product_quantity = $info[''] ;
@@ -171,23 +184,6 @@ class StripeController extends AbstractController
       $entitymanager->persist($order);
       $entitymanager->flush($order);
     }
-    
-
-
-
- 
-
-
-
-
-
-    //$test_order_content = $client_name;
-
-    // ajouter les données en BDD
-    // 1 condition pour session aboutis 
-    // 1 condition pour session fini
-
-    //dd($test_order_content);
     
     return new Response ('BLALBLA');
    }

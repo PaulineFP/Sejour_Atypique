@@ -23,6 +23,8 @@ class PaymentController extends AbstractController
      */
     public function index(SessionInterface $session, HebergementRepository $hebergementRepository){
         $panier = $session->get("panier", []);
+     
+        // dd($panierId);
 
         //On "fabrique" les données
         $dataPanier = [];
