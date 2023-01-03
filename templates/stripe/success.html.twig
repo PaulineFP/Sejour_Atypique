@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %}Paiment réussi{% endblock %}    
+{% block body %}
+
+{% include 'partials/navbar.html.twig'%}  
+
+<section class="mt-20 mb-28 mx-auto w-11/12">
+<div class='text-center text-3xl text-green-600'>Payement Réussi</div>
+<div class='text-center text-xl'>
+Vous aller etre rediriger sur la page d'acceuil dans quelques secondes,<br>
+ sinon <a href="{{path("cart_index")}}">cliquer ici</a>
+ </div>
+
+</section>
+
+{% endblock %}

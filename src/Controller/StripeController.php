@@ -40,9 +40,10 @@ class StripeController extends AbstractController
   */
   public function success(){
     return $this->render('stripe/success.html.twig');
+
     //$session->clear();
     //$session->remove("panier", []);        
-    return $this->redirectToRoute("cart_index");
+    // return $this->redirectToRoute("cart_index");
   }
 
   /**
@@ -53,6 +54,7 @@ class StripeController extends AbstractController
     //On récupère le panier actuel
     $panier = $session->get("panier", []);
     $panierId = $session->getId();
+    $save_panier = [];
   //J'instancie le contenue de mon panier
   foreach($panier as $hebergementId => $quantity) {
     $hebergement = $repo->findOneById($hebergementId);
@@ -66,11 +68,12 @@ class StripeController extends AbstractController
     ];
 
     //Je crée une syntaxe approprier pour pouvoir reprendre les informations pour les inscrire en BDD
-    $panierDetail = array($quantity,  $hebergementName, ';');
+    $productDetail = $quantity. ' '. $hebergementName;
+    $save_panier[] = $productDetail ;
   }
+   $save_panier = implode('   , ', $save_panier);
+ 
 
-  $save_panier = implode(' ', $panierDetail);
-  // dd($save_panier);
 
     // je prepare mes information a conserver
     $order = new Order();
@@ -178,7 +181,7 @@ class StripeController extends AbstractController
 
       $order->setAdress($client_address);
 
-      $order->setPrice(intval($order_price) / 100);
+      $order->setPrice(intval($order_price));
 
        //je stock les infos en BDD
       $entitymanager->persist($order);
