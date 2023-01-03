@@ -38,11 +38,13 @@ class StripeController extends AbstractController
  /**
   * @Route("/payement-reussi", name="success")
   */
-  public function success(){
+  public function success(SessionInterface $session){
+    
+    //Pour éviter que les utilisateurs ne voient des données périmées, je reboot la session 
+    // Supprime tous les attribues de la session
+    $session->clear();
     return $this->render('stripe/success.html.twig');
-
-    //$session->clear();
-    //$session->remove("panier", []);        
+      
     // return $this->redirectToRoute("cart_index");
   }
 

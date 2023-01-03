@@ -129,10 +129,10 @@ class PaymentController extends AbstractController
 
 
         return $this->redirectToRoute("stripe_start", $panier);
-        // return $this->render("");
    
         //Pour éviter que les utilisateurs ne voient des données périmées, je détruit le cache du panier 
         //Voir pour clear la session
+       
     }
 
     // /**
