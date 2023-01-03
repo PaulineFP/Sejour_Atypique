@@ -16,14 +16,13 @@ use Stripe\Checkout\Session;
 use Stripe\Webhook;
 use Psr\Log\LoggerInterface;
 use Stripe\StripeClient;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use App\Controller\RedirectController;
 
  //TUTO Stripe : https://www.youtube.com/watch?v=k9ZA8BoNFik   
 
- /**
-  * @Route("/operation-payement", name="stripe_")
-  */
 class StripeController extends AbstractController
 {
   public function __construct()
@@ -36,20 +35,29 @@ class StripeController extends AbstractController
   }
 
  /**
-  * @Route("/payement-reussi", name="success")
+  * @Route("payementReussi", name="stripe_success")
   */
   public function success(SessionInterface $session){
     
     //Pour éviter que les utilisateurs ne voient des données périmées, je reboot la session 
     // Supprime tous les attribues de la session
     $session->clear();
-    return $this->render('stripe/success.html.twig');
-      
-    // return $this->redirectToRoute("cart_index");
+
+    $url = '/accueil';
+   
+    return $this->render(
+      //url de rediredtion
+      'stripe/success.html.twig', 
+      // je donne les parametre de l'url
+      ['url' => $url], 
+      // je donne la nouvelle url a recharger au bout de tant de secondes
+      RedirectController::getRedirectLater($url) 
+      );
   }
 
+
   /**
-  * @Route("/operation-payement", name="start")
+  * @Route("/operation-payement", name="stripe_start")
   */
   public function startPayment(SessionInterface $session, HebergementRepository $repo, EntityManagerInterface $entitymanager){
 
@@ -114,8 +122,8 @@ class StripeController extends AbstractController
      "metadata" => ["order_id" => $order->getId()],
 
      'mode' => 'payment',
-     'success_url' => 'http://127.0.0.1:8000/operation-payement/payement-reussi',
-     'cancel_url' => 'http://127.0.0.1:8000/', /* voir si je peux simplifier avec home de mon controller*/
+     'success_url' => 'http://127.0.0.1:8000/payementReussi',
+     'cancel_url' => 'http://127.0.0.1:8000/accueil', /* voir si je peux simplifier avec home de mon controller*/
      
      'billing_address_collection'  => 'required',
      'shipping_address_collection' => [

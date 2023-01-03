@@ -127,12 +127,8 @@ class PaymentController extends AbstractController
     //sinon tu peux mettres ton panier sous forme JSON, et enregistrer ca dans un champ de ton entité order
         //$save_panier = $panier;
 
-
         return $this->redirectToRoute("stripe_start", $panier);
-   
-        //Pour éviter que les utilisateurs ne voient des données périmées, je détruit le cache du panier 
-        //Voir pour clear la session
-       
+          
     }
 
     // /**

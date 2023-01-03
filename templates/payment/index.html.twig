@@ -109,8 +109,9 @@
             </table>
             {# {{dump()}} #}
         </div>
+        {% if dataPanier is not empty %}
             <a href="{{path("cart_payment")}}" class="button">Payer</a>
-
+         {% endif %}
     </div>
 
 </div>
