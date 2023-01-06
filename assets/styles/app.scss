@@ -10,11 +10,11 @@ body {
     li a, select, select option {font-size: 1rem;}    
     select {font-weight: 600;}
     option { font-weight: 200;}
-}
+} 
 
 //HEADER---------------
 .header_home {
-    background: url('../IMG/fond.jpg')no-repeat;
+    background: url('/public/IMG/fond.jpg')no-repeat;
     background-size: cover;
     background-position: center; 
 }
@@ -64,7 +64,7 @@ body {
 
 #home_category {
     min-height: 690px;
-    .fond-cat {background: url('../IMG/fond-cat.jpg')no-repeat; background-size: cover;background-position: center; }
+    .fond-cat {background: url('/public/IMG/fond-cat.jpg')no-repeat; background-size: cover;background-position: center; }
     .category_link {background: rgba(230, 250, 248, 0.5);}
 }
 

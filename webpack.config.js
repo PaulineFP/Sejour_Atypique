@@ -12,6 +12,7 @@ Encore
     .setOutputPath('public/build')
     // public path used by the web server to access the output path
     .setPublicPath('/build')
+
     .cleanupOutputBeforeBuild()
     // builder notre CSS avec PostCSS
     .enablePostCssLoader((options) => {

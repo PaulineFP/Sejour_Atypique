@@ -16,7 +16,7 @@ body {
 }
 
 .header_home {
-  background: url("../IMG/fond.jpg") no-repeat;
+  background: url("/public/IMG/fond.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -137,7 +137,7 @@ body {
   min-height: 690px;
 }
 #home_category .fond-cat {
-  background: url("../IMG/fond-cat.jpg") no-repeat;
+  background: url("/public/IMG/fond-cat.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }

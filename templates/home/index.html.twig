@@ -143,20 +143,20 @@
             </div>
         </section>
         <section class="w-11/12 mx-auto my-12 relative z-0 " id="countries">
-            <div class="flex align-center justify-center flex-col my-6 overflow-hidden relative h-60">
-                <img src="https://picsum.photos/2000/300" alt="" class="absolute -z-1">
-                <div class="relative z-1 text-3xl font-bold h-full flex justify-center items-center bg-opacity-40 bg-black text-white ">Titre hébergement régions</div>
+            <div class="flex align-center justify-center flex-col my-6 overflow-hidden relative h-96">
+                <img src="{{ asset('IMG/voyage_region_1.jpg') }}" alt="" class="absolute -z-1">
+                <div class="relative z-1 text-3xl font-bold h-full flex justify-center items-center bg-opacity-40 bg-black text-white ">Votre destination par régions</div>
             </div>
             <div class="grid grid-cols-3 gap-3">
             {% for country in countries %}
             <a href="/region/{{country.name}}">
                 <div class="relative overflow-hidden flex flex-col align-center justify-center h-52">
-                    <img src="https://picsum.photos/700/300" alt="" class="absolute -z-1">
+                    <img src="{{ asset('IMG/voyage_region_1.jpg') }}" alt="" class="absolute -z-1">
                     <div class="relative z-1 text-2xl h-full flex justify-center items-center bg-opacity-40 bg-black font-semibold text-white hover:bg-opacity-50 hover:bg-green-700">{{country.name}}</div> 
                                      
                 </div>
              </a> 
-            {% endfor %}
+            {% endfor %} 
        
            
             </div>
