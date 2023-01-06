@@ -139,7 +139,7 @@ class StripeController extends AbstractController
    // en local : https://dashboard.stripe.com/test/payments/pi_3M7KZBAWgD5DW0y41XXyavQS
 
     /**
-  * @Route("/webhook2.php", name="webhook")
+  * @Route("webhook2.php", name="webhook")
   */
    public function webhook (LoggerInterface $logger, Request $request, OrderRepository $repo, EntityManagerInterface $entitymanager){
     //je surveille dans le terminal ce que webhook envoie
