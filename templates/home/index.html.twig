@@ -22,7 +22,9 @@
         </section>
 
             <section id="home_category" class=" mb-16 w-screen object-contain overflow-hidden relative  ">    
+            
                 <img src="{{ asset('build/images/fond-cat.jpg') }}" alt="" class="z-1 absolute">
+            
             {# Cat_7 model #}
             <div class=" w-11/12 z-2 mx-auto relative top-12">
                 <div class="my-8 ml-32 w-3/5">
@@ -143,15 +145,17 @@
             </div>
         </section>
         <section class="w-11/12 mx-auto my-12 relative z-0 " id="countries">
-            <div class="flex align-center justify-center flex-col my-6 overflow-hidden relative h-96">
-                <img src="{{ asset('IMG/voyage_region_1.jpg') }}" alt="" class="absolute -z-1">
+            <div class="flex align-center justify-center flex-col my-6 overflow-hidden relative h-80">
+                <div class="absolute -z-1">
+                    <img src="{{ asset('IMG/voyage_region_1.jpg') }}" alt="" class=" object-cover object-center">
+                </div>
                 <div class="relative z-1 text-3xl font-bold h-full flex justify-center items-center bg-opacity-40 bg-black text-white ">Votre destination par régions</div>
             </div>
             <div class="grid grid-cols-3 gap-3">
             {% for country in countries %}
             <a href="/region/{{country.name}}">
                 <div class="relative overflow-hidden flex flex-col align-center justify-center h-52">
-                    <img src="{{ asset('IMG/voyage_region_1.jpg') }}" alt="" class="absolute -z-1">
+                    <img src="{{ uploaded_asset(country.imagePath) }}" alt="" class="absolute -z-1">
                     <div class="relative z-1 text-2xl h-full flex justify-center items-center bg-opacity-40 bg-black font-semibold text-white hover:bg-opacity-50 hover:bg-green-700">{{country.name}}</div> 
                                      
                 </div>

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CountriesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use App\Service\UploaderHelper;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,6 +29,11 @@ class Countries
      * @ORM\OneToMany(targetEntity=Hebergement::class, mappedBy="hebergementCountry", orphanRemoval=true)
      */
     private $country_accommodations;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $img;
 
     public function __construct()
     {
@@ -79,5 +85,22 @@ class Countries
         }
 
         return $this;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(?string $img): self
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    public function getImagePath()
+    {
+        return UploaderHelper::REGION_IMAGE.'/'.$this->getImg();
     }
 }

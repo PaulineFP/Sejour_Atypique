@@ -11,6 +11,7 @@ class UploaderHelper
     const DEPARTEMENT_IMAGE = 'images/hebergements';
     const MEDIA_IMAGE = 'images/hebergements';
     const EQUIPEMENT_IMAGE = "images/hebergements";
+    const REGION_IMAGE = "images/regions";
 
     public function __construct(string $uploadsPath, RequestStackContext $requestStackContext)
     {
@@ -37,6 +38,11 @@ class UploaderHelper
     //Equipement image path
     public function uploadEquipementImage(UploadedFile $uploadedFile){
         $destination =$this->uploadsPath.'/'.self::EQUIPEMENT_IMAGE;
+    }
+
+    //Région image path
+    public function uploadCountryImage(UploadedFile $uploadedFile){
+        $destination =$this->uploadsPath.'/'.self::REGION_IMAGE;
     }
 
     public function getPublicPath(string $path): string {
