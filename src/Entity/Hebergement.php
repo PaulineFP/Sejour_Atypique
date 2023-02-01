@@ -57,7 +57,7 @@ class Hebergement
     private $active;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $promotion;
 
@@ -106,6 +106,11 @@ class Hebergement
      * @ORM\ManyToMany(targetEntity=Equipment::class, mappedBy="hebergement_equipment")
      */
     private $hebergement_equipment;
+
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
+     */
+    private $PromoTotal;
 
     public function __construct()
     {
@@ -391,6 +396,19 @@ class Hebergement
         }
 
         return $this;
+    }
+
+    public function setPromoTotal(?string $PromoTotal): self
+    {
+        $this->PromoTotal = $PromoTotal;
+
+        return $this;
+    }
+
+    public function getPromoTotal() {
+        $promoMontant = $this->tarif * $this->promotion / 100;
+        $promoTotal = $this->tarif - $promoMontant;
+        return $promoTotal;
     }
 
 

@@ -119,7 +119,7 @@ class HebergementCrudController extends AbstractCrudController
                 }),
             
             BooleanField::new('isPromotional', 'Promotion'),
-            TextField::new('promotion', 'Montant de la promotion'),
+            TextField::new('promotion', 'Montant de la promotion (%)'),
             DateTimeField::new('lastUpdateDate')->hideOnForm(),
             DateTimeField::new('publicationDate')
         ];     

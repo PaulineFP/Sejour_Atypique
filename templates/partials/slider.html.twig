@@ -2,25 +2,32 @@
     <div class="slide-content">
         <div class="card_wrapper swiper-wrapper">
         {% for promotion in promotions %}
+        {# {% set promo_total = promotion.tarif * (promotion.promotion/100)  %}      #}
             <div class="card swiper-slide">
                 <div class="image_content ">
-                    <img src="{{img_card}}" alt="hébergements en promotion" class="card_img relative rounded-tl-3xl">
-                    <div class="promo  text-yellow-500 bg-gray-50 rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{promotion.promotion}}</div>
+                    <img src="{{ uploaded_asset(promotion.imagePath) }}" alt="{{promotion.title}}" class="card_img relative rounded-tl-3xl">
+                    <div class="promo  text-yellow-500 bg-gray-50 rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{promotion.promotion}}%</div>
                 </div>
                 <div class="card_content ">
                     <div class="card_height">
                         <div class="card_header">
-                            <div class="card_title font-semibold text-xl">{{promotion.title}}</div>
-                            <div class="card_price font-semibold text-xl w-1/4">
-                                {{promotion.tarif}}
-                                <i class="text-base fa-solid fa-euro-sign"></i>
+                            <div class="card_title font-semibold text-base">{{promotion.title}}</div>
+                            <div class="flex flex-col">
+                             <div class="card_price font-semibold text-lg w-1/4">
+                                {{promotion.promoTotal}}€
                             </div>
+                             <div class="card_price line-through text-red-600 text-lg w-1/4">
+                                {{promotion.tarif}}€
+                                
+                            </div>
+                            </div>
+                           
                         </div>
-                        <div>{{promotion.lieux}}</div>
-                        <div>{{promotion.description | raw}}</div>
+                        <div class="text-base">{{promotion.lieux}}</div>
+                        <div class="text-base">{{promotion.description | raw}}</div>
                     </div>
                     
-                    <button class="button"> Je fonce !</button>
+                    <button class="button" onclick="window.location.href = '/hebergement/{{promotion.id}}';"> Je fonce !</button>
                 </div>
             </div>
             {% endfor %}
