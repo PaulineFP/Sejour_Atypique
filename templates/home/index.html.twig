@@ -9,14 +9,13 @@
     <div class=" ">
         <section class='promotion  mt-20 mb-28 mx-auto w-11/12' id='promotion'>
         <div class="mb-6">
-            <div class="text-center font-bold text-2xl my-4">Section Promotion titre</div>
+            <div class="text-center font-bold text-2xl my-4">A ne pas manquer :</div>
             <div class="mx-auto w-3/4">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
                 Iusto et, adipisci laboriosam, nisi totam, doloremque quia dolores fuga maiores nobis quam molestiae expedita unde earum velit nam non perferendis? Sequi.
             </div>
         </div>  
         {#---------SLIDER------------------------------------#}
-        {% set img_card = 'https://picsum.photos/400/300' %}     
         {% include "partials/slider.html.twig" %}
         {# ---------------------------------------- #}
         </section>
@@ -72,15 +71,20 @@
                         </div>
                     </div>
                     <div class="flex justify-evenly pt-6">
-                        <a href="" class=" min-content border-4  border-green-700 p-5 text-xl font-bold mr-8 rounded-tr-lg rounded-bl-lg" >Mieux nous connaitre</a>
+                        <div class="flex flex-col w-2/5 justify-between ">
+                            <a href="" class=" min-content border-4 mb-5 border-green-700 p-5 text-xl font-bold mr-8 rounded-tr-lg rounded-bl-lg" >Mieux nous connaitre</a>
+                            <div class="w-11/12 ">
+                                <img src="{{ asset('IMG/about_2.jpg') }}" alt="">
+                            </div>
+                        </div>
                                                 
-                        <div class=""><img src="https://picsum.photos/600/320" alt=""></div>
+                        <div class="flex w-2/3"><img src="{{ asset('IMG/about_3.jpg') }}" alt=""></div>
                     </div>
                 </div>
                 
-                <div class='mb-6'>
-                    <div class="mb-8"><img src="https://picsum.photos/400/500" alt=""></div>
-                    <div class="flex justify-center"><a href="" class="bg-green-600 p-5 text-xl font-bold text-white mb-4 rounded-tl-lg rounded-br-lg">Besoin de plus d'informations ?</a></div>
+                <div class='mb-6  w-2/6 flex flex-col justify-around'>
+                    <div class=""><img src="{{ asset('IMG/about_1.jpg') }}" alt=""></div>
+                    <div class="flex justify-center"><a href="" class="bg-green-600 p-5 text-xl font-bold text-white rounded-tl-lg rounded-br-lg">Besoin de plus d'informations ?</a></div>
                     
                 </div>                
             </div>
@@ -169,11 +173,16 @@
             </div>
         </section>
             {# Séparation plantation arbres #}
-        <section id="plantations">
-        <div class="11/12 mx-auto p-10 flex justify-evenly items-center">
-            <div class="mr-4">
-                <img src="https://picsum.photos/200/200" alt="" class="rounded-full">
-            </div>
+        <section id="" >
+        <div class=" overflow-hidden relative z-0">
+        <div class="absolute -z-1 ">
+            <img src="{{ asset('IMG/arbre_fond.jpg') }}" alt="" class=" object-cover object-center opacity-25">
+        </div>
+        <div class="11/12 mx-auto p-10 relative h-full z-1 top-0 flex items-center">
+        <div class="flex justify-evenly items-center h-90">
+            <div class="mr-4 w-1/6">
+                <img src="{{ asset('IMG/arbre_logo.jpg') }}" alt="" class="rounded-full">
+            </div> 
             <div class="w-4/5">
                 <div class="text-2xl font-semibold">1 Réservation = 1 Arbre planté</div>
                 <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad id optio porro obcaecati quod architecto fuga necessitatibus possimus, dolore quaerat nulla deserunt ut minima quos est? Eligendi dolorem asperiores molestiae.</div>
@@ -182,6 +191,10 @@
                 </div>
             </div>
         </div>
+            
+        </div>
+        </div>
+        
             
         </section>    
     </div>

@@ -3,6 +3,7 @@
 @tailwind utilities;
 body {
   background-color: #efefef;
+  overflow-x: hidden;
 }
 
 .navbar1 li a, .navbar1 select, .navbar1 select option, .navbar2 li a, .navbar2 select, .navbar2 select option {
@@ -147,10 +148,4 @@ body {
 
 .countries_header {
   min-height: 300px;
-}
-
-#plantations {
-  background: url(https://picsum.photos/2000) no-repeat;
-  background-size: cover;
-  background-position: center;
 }/*# sourceMappingURL=app.css.map */

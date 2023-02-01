@@ -4,6 +4,7 @@
 
 body {  
     background-color: #efefef;
+    overflow-x: hidden;
 }
 
 .navbar1 , .navbar2 {
@@ -16,7 +17,7 @@ body {
 .header_home {
     background: url('/public/IMG/fond.jpg')no-repeat;
     background-size: cover;
-    background-position: center; 
+    background-position: center;
 }
 .header_list {background: url('https://picsum.photos/2000')no-repeat;
     background-size: cover;
@@ -70,6 +71,6 @@ body {
 
 .countries_header {min-height: 300px;} 
 
-#plantations {
-    background: url(https://picsum.photos/2000) no-repeat; background-size: cover;background-position: center;
-}
+// #plantations {
+//     background: url('/public/IMG/arbre_fond.jpg') no-repeat; background-size: cover;background-position: center;
+// } 
