@@ -26,7 +26,18 @@
                <h1>{{hebergement.title}}</h1> 
                <p>{{hebergement.lieux}}</p> 
             </div>
+            {% if hebergement.isPromotional == true %}
+            <div class="flex flex-col">
+                <div class=" font-semibold ">
+                {{hebergement.promoTotal}}€
+                </div>
+                <div class=" line-through text-red-600 ">
+                {{hebergement.tarif}}€
+                </div>
+            </div>
+            {% else %}                
             <div>{{hebergement.tarif}}</div>
+            {% endif %}
         </div>
         <div>
             {% for  particularite in  hebergement.relationParticularite %}

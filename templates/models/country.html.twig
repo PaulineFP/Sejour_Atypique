@@ -22,10 +22,21 @@
                         <div class=" p-6 h-52 ">
                             <div class="flex items-start justify-between mb-2 ">
                                 <div class="font-semibold text-xl">{{hebergement.title}}</div>
-                                <div class="font-semibold text-xl w-1/4">
-                                    {{hebergement.tarif}}
-                                    <i class="text-base fa-solid fa-euro-sign"></i>
+                                
+                                {% if hebergement.isPromotional == true %}
+                                <div class="flex flex-col">
+                                    <div class="font-semibold text-xl w-1/4 ">
+                                    {{hebergement.promoTotal}}€
+                                    </div>
+                                    <div class=" line-through text-red-600 text-xl w-1/4">
+                                    {{hebergement.tarif}}€
+                                    </div>
                                 </div>
+                                {% else %}                
+                                <div class="font-semibold text-xl w-1/4">
+                                    {{hebergement.tarif}}€                                    
+                                </div>
+                                {% endif %}
                             </div>
                             <div class="text-sm font-medium mb-2">{{hebergement.lieux}}</div>
                             <div class="text-justify text-base">{{hebergement.description | raw}}</div>                    

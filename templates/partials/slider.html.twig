@@ -2,7 +2,6 @@
     <div class="slide-content">
         <div class="card_wrapper swiper-wrapper">
         {% for promotion in promotions %}
-        {# {% set promo_total = promotion.tarif * (promotion.promotion/100)  %}      #}
             <div class="card swiper-slide">
                 <div class="image_content ">
                     <img src="{{ uploaded_asset(promotion.imagePath) }}" alt="{{promotion.title}}" class="card_img relative rounded-tl-3xl">
