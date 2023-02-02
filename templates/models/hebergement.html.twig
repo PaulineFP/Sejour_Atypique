@@ -7,8 +7,13 @@
     {# {% set class_header = 'header_home text-rose-700 h-screen' %}
     {% include 'models/header.html.twig'%} #}
     {% include 'partials/navbar.html.twig'%}    
-
 </header>
+<section class="">
+<div class="relative hebergement_presentation w-full overflow-hidden flex">
+    <img class="relative z-1 object-none object-center w-full " src="{{ uploaded_asset(hebergement.imagePath) }}" alt="{{hebergement.title}}">
+</div>
+</section>
+
 <div>
     <div>
     <a href="">Photos</a>
@@ -69,19 +74,39 @@
                 {# Intégration map avec leaflette #}
             </div>
         </div>               
-    </div>
-    <div>
-        <div>
-            <div>
-            réservation = <img src="https://picsum.photos/2000/500" alt=""> 1 arbre planté
-            </div> 
-        </div>
-        <div>
-            <i class="fa-regular fa-gift"></i>
-            <a href="">Offrir une carte cadeau</a>
-        </div>
-    </div>
+    </div>  
 </section>
+
+       {# Séparation plantation arbres #}
+        <section id="" >
+        <div class=" overflow-hidden relative z-2 h-96">
+        <div class="relative -z-1 flex w-full">
+            <img src="{{ asset('IMG/arbre_fond.jpg') }}" alt="" class=" relative z-1 object-none object-center w-full opacity-25">
+        </div>
+        <div class="11/12 mx-auto p-10 absolute h-full z-1 top-0 flex items-center">
+        <div class="flex justify-evenly items-center h-90">
+            <div class="mr-4 w-1/6">
+                <img src="{{ asset('IMG/arbre_logo.jpg') }}" alt="" class="rounded-full">
+            </div> 
+            <div class="w-4/5">
+                <div class="text-2xl font-semibold">1 Réservation = 1 Arbre planté</div>
+                <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad id optio porro obcaecati quod architecto fuga necessitatibus possimus, dolore quaerat nulla deserunt ut minima quos est? Eligendi dolorem asperiores molestiae.</div>
+                <div class="my-8">
+                    <a href="https://planete-urgence.org/" target="_blank" class=" border-4  border-green-700 p-5 text-xl font-bold rounded-tr-lg rounded-bl-lg" >En savoir plus</a>
+                </div>
+            </div>
+        </div>            
+        </div>
+        </div>    
+        </section>  
+          
+            <section id="present" class="relative top-4 flex justify-evenly items-center py-16 mx-auto w-11/12">
+            <div class=" w-2/5">
+                <div class=" text-4xl mb-8">Offrez une carte cadeau Monsite</div>
+                <a href="" class="text-xl p-4 bg-green-600 text-white font-bold border rounded-tl-lg rounded-br-lg">Je passe commande</a>
+            </div>
+            <div class="w-3/5"><img src="https://picsum.photos/900/400" alt=""></div>
+        </section>
 
 <section id="equipement">
     <div>Equipement</div>

@@ -3,7 +3,7 @@
         <div class="card_wrapper swiper-wrapper">
         {% for promotion in promotions %}
             <div class="card swiper-slide">
-                <div class="image_content ">
+                <div class="image_content h-52 ">
                     <img src="{{ uploaded_asset(promotion.imagePath) }}" alt="{{promotion.title}}" class="card_img relative rounded-tl-3xl">
                     <div class="promo  text-yellow-500 bg-gray-50 rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{promotion.promotion}}%</div>
                 </div>
