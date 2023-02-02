@@ -1,7 +1,25 @@
-<header  >
+{% if Home_page is defined%}
+<header class=" mb-12 flex flex-col  overflow-hidden h-screen" >
     {% include 'partials/navbar.html.twig'%}    
-    <div class ='{{ class_header }} flex justify-center items-center mb-12'>
-        <div class =" h-screen bg-black opacity-20 w-full order-2 relative"></div> 
-        <h1 class="font-bold text-white text-4xl opacity-1 order-1 absolute">{{ title_h1 }}</h1>       
+    <div class ='flex justify-center items-center relative  h-full'>
+        <div class="relative {{ class_header }} w-full">
+            <img src="{{header_scr}}" alt="{{title_h1}}" class="w-full object-none object-center relative  order-2 -z-2">
+            <div class =" h-full bg-black opacity-20 w-full relative order-1 -z-1"></div> 
+        </div>
+       
+        <h1 class="font-bold text-white text-4xl opacity-1 absolute z-1">{{ title_h1 }}</h1>       
     </div>   
 </header>
+{% else %}
+    <header class=" mb-12 flex flex-col  overflow-hidden" >
+    {% include 'partials/navbar.html.twig'%}    
+    <div class ='flex justify-center items-center relative  h-full'>
+        <div class="relative {{ class_header }} w-full">
+            <img src="{{header_scr}}" alt="{{title_h1}}" class="w-full object-none object-center relative  order-2 -z-2">
+            <div class =" h-full bg-black opacity-20 w-full relative order-1 -z-1"></div> 
+        </div>
+       
+        <h1 class="font-bold text-white text-4xl opacity-1 absolute z-1">{{ title_h1 }}</h1>       
+    </div>   
+</header>
+{% endif %}

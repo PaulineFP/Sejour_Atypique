@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 {% block title %}Acceuil{% endblock %}    
 {% block body %}
+{% set title_h1 = 'Ma page acceuil' %}
 
-    {% set class_header = 'header_home text-rose-700 h-screen' %}
-    {% set title_h1 = 'Ma page acceuil' %}
-    {% include 'models/header.html.twig'%}
+{% set Home_page = '' %}
+{% set class_header = ' h-full text-rose-700' %}
+{% set header_scr = "IMG/fond.jpg" %}
+ {% include 'models/header.html.twig'%}
 
     <div class=" ">
         <section class='promotion  mt-20 mb-28 mx-auto w-11/12' id='promotion'>
@@ -172,13 +174,13 @@
                 <a href="" class="text-center p-4 bg-green-600 text-white font-bold border rounded-tl-lg rounded-br-lg mx-auto">Toutes nos destinations</a>
             </div>
         </section>
-            {# Séparation plantation arbres #}
+      {# Séparation plantation arbres #}
         <section id="" >
-        <div class=" overflow-hidden relative z-0">
-        <div class="absolute -z-1 ">
-            <img src="{{ asset('IMG/arbre_fond.jpg') }}" alt="" class=" object-cover object-center opacity-25">
+        <div class=" overflow-hidden relative z-2 h-96">
+        <div class="relative -z-1 flex w-full">
+            <img src="{{ asset('IMG/arbre_fond.jpg') }}" alt="" class=" relative z-1 object-none object-center w-full opacity-25">
         </div>
-        <div class="11/12 mx-auto p-10 relative h-full z-1 top-0 flex items-center">
+        <div class="11/12 mx-auto p-10 absolute h-full z-1 top-0 flex items-center">
         <div class="flex justify-evenly items-center h-90">
             <div class="mr-4 w-1/6">
                 <img src="{{ asset('IMG/arbre_logo.jpg') }}" alt="" class="rounded-full">
@@ -190,12 +192,9 @@
                     <a href="https://planete-urgence.org/" target="_blank" class=" border-4  border-green-700 p-5 text-xl font-bold rounded-tr-lg rounded-bl-lg" >En savoir plus</a>
                 </div>
             </div>
+        </div>            
         </div>
-            
-        </div>
-        </div>
-        
-            
+        </div>    
         </section>    
     </div>
 {% endblock %}

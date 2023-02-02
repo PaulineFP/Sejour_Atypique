@@ -15,14 +15,18 @@ body {
 
 //HEADER---------------
 .header_home {
-    background: url('/public/IMG/fond.jpg')no-repeat;
-    background-size: cover;
-    background-position: center;
+    // background: url('/public/IMG/fond.jpg')no-repeat;
+    // background-size: cover;
+    // background-position: center;
+    height: 100%;
 }
-.header_list {background: url('https://picsum.photos/2000')no-repeat;
-    background-size: cover;
-    background-position: center; 
+.header_img {}
+.header_list {
+    // background: url('https://picsum.photos/2000')no-repeat;
+    // background-size: cover;
+    // background-position: center; 
 }
+.hebergement_presentation {height: 600px;}
 
  //SLIDER----------------
  .slide-container { width: 100%; height: 100%; padding: 40px 0 ;  }  
@@ -31,9 +35,9 @@ body {
  .card {  
      margin-right: 1rem;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; border-radius: 1.5rem 0 1.5rem 0;background: #FFF;
      .image_content{
-         width: 100%; height: auto; display: flex; justify-content: end;
+         width: 100%; display: flex; justify-content: end;
          .card_img{ width: 100%; object-fit: cover;} 
-     }
+     } 
      .card_content {
          padding: 1.5rem; display: flex; flex-direction: column;
          .card_header{display: flex; justify-content: space-between ; margin-bottom: 0.5rem;}

@@ -17,15 +17,11 @@ body {
 }
 
 .header_home {
-  background: url("/public/IMG/fond.jpg") no-repeat;
-  background-size: cover;
-  background-position: center;
+  height: 100%;
 }
 
-.header_list {
-  background: url("https://picsum.photos/2000") no-repeat;
-  background-size: cover;
-  background-position: center;
+.hebergement_presentation {
+  height: 600px;
 }
 
 .slide-container {
@@ -53,7 +49,6 @@ body {
 }
 .card .image_content {
   width: 100%;
-  height: auto;
   display: flex;
   justify-content: end;
 }

@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
 {% block title %}Nos herbergements de la région :{{countryName}}{% endblock %}    
 {% block body %}
-{% set class_header = 'header_list' %}
 {% set title_h1 = countryName %}
+
+{% set header_scr =  uploaded_asset(country.imagePath) %}
+{% set class_header = 'header_list' %}
 {% include 'models/header.html.twig'%}
+{# {% include 'template.html' with {'foo': 'bar'} %} #}
 
 
   <section id="categorie" class="mx-auto w-11/12">

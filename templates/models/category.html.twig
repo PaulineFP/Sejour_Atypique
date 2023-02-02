@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block title %}Tous nos hebergement {{category.name}}{% endblock %}    
 {% block body %}
-{% set class_header = 'header_list' %}
 {% set title_h1 = category.name %}
+{% set class_header = ' h-96' %}
+{% set header_scr = "https://picsum.photos/2000" %}
 {% include 'models/header.html.twig'%}
 
 
