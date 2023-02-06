@@ -112,6 +112,16 @@ class Hebergement
      */
     private $PromoTotal;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $codePostal;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $adress;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -409,6 +419,30 @@ class Hebergement
         $promoMontant = $this->tarif * $this->promotion / 100;
         $promoTotal = $this->tarif - $promoMontant;
         return $promoTotal;
+    }
+
+    public function getCodePostal(): ?int
+    {
+        return $this->codePostal;
+    }
+
+    public function setCodePostal(int $codePostal): self
+    {
+        $this->codePostal = $codePostal;
+
+        return $this;
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(string $adress): self
+    {
+        $this->adress = $adress;
+
+        return $this;
     }
 
 

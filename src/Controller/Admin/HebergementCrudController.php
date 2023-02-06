@@ -18,6 +18,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -51,7 +52,9 @@ class HebergementCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('title' , 'Titre'),
             TextEditorField::new('description', 'Description'),
-            TextField::new('lieux' , 'Lieu'),
+            TextField::new('lieux' , 'Ville'),
+            NumberField::new('codePostal' , 'Code Postal'),
+            TextField::new('adress' , 'adresse'),
             AssociationField::new('hebergementCountry' , 'Région')
                 ->setRequired(true)
                 //setFormTypeOptions Pour lui forcer le type pour une OneToMany
