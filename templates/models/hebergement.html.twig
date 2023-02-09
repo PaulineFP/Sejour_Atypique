@@ -1,255 +1,274 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{hebergement.title}}{% endblock %}    
+{% block title %}
+	{{hebergement.title}}
+{% endblock %}
 {% block body %}
 
-<header class= "" >
-    {# Faire un header spéciale pour recuperer l'imge de la bdd #}
-    {# {% set class_header = 'header_home text-rose-700 h-screen' %}
-    {% include 'models/header.html.twig'%} #}
-    {% include 'partials/navbar.html.twig'%}    
-</header>
-<section class="">
-<div class="relative hebergement_presentation w-full overflow-hidden flex">
-    <img class="relative z-1 object-none object-center w-full " src="{{ uploaded_asset(hebergement.imagePath) }}" alt="{{hebergement.title}}">
-</div>
-</section>
+	<header class="">
+		{# Faire un header spéciale pour recuperer l'imge de la bdd #}
+		{# {% set class_header = 'header_home text-rose-700 h-screen' %}
+		    {% include 'models/header.html.twig'%} #}
+	{% include 'partials/navbar.html.twig'%}
+	</header>
+		<section class=""> <div class="relative hebergement_presentation w-full overflow-hidden flex">
+			<img class="relative z-1 object-none object-center w-full " src="{{ uploaded_asset(hebergement.imagePath) }}" alt="{{hebergement.title}}">
+		</div>
+	</section>
 
-<div>
-    <div>
-    <a href="">Photos</a>
-    <a href="">Hebergement</a>
-    <a href="">Infos protiques</a>
-    <a href="">Conditions de réservation</a>
-    <a href="">Disponibilités</a>
-    <a href="">Services</a>
-    </div>
-</div>
-<section id="presentation">
-    <div>
-        <div>
-            <div>
-               <h1>{{hebergement.title}}</h1> 
-               <p>{{hebergement.lieux}}</p> 
-            </div>
-            {% if hebergement.isPromotional == true %}
+	<div class="w-full bg-green_pine mb-20">
+		<div class=" font-semibold flex justify-around align-center w-11/12 mx-auto  text-white text-base">
+			<a class=" p-4" href="">Photos</a>
+			<a class=" p-4" href="">Hebergement</a>
+			<a class=" p-4" href="">Infos protiques</a>
+			<a class=" p-4" href="">Conditions de réservation</a>
+			<a class=" p-4" href="">Disponibilités</a>
+			<a class=" p-4" href="">Services</a>
+		</div>
+	</div>
+	<section id="presentation" class="w-11/12 mx-auto">
+		<section class="flex justify-around">
+            <div class=" w-4/6">
+            <div class="flex justify-between items-center relative ">
+				<div class="mr-8 flex flex-col justify-around border-b-2 border-green-600 relative w-full">
+					<h2 class="text-2xl mb-3">{{hebergement.title}}</h2>
+					<p class="text-base mb-5">{{hebergement.lieux}}</p>
+				</div>
+				<div class="border-2 border-green-600 rounded-full absolute right-0 p-8 bg-white h-36 flex items-center text-center">
+					{% if hebergement.isPromotional == true %}
+						<div class="flex-col">
+							<div class=" font-semibold ">
+								{{hebergement.promoTotal}}
+								€
+							</div>
+
+							<div class=" line-through text-red-600 text-base ">
+								{{hebergement.tarif}}
+								€
+							</div>
+							<div class="text-red-600 text-lg font-semibold">
+								-
+								{{hebergement.promotion}}
+								%
+							</div>
+						</div>
+					{% else %}
+						<div class=''>{{hebergement.tarif}}</div>
+					{% endif %}
+				</div>
+
+			</div>
+            <div class="grid grid-rows-1 grid-flow-col gap-4 text-center mt-4">
+				{% for  particularite in  hebergement.relationParticularite %}
+					<div class ="flex flex-col items-center text-green-600 my-4">
+						<div class="mr-2 text-2xl ">
+							<i class='{{particularite.icon}}'></i>
+						</div>
+						<div>{{particularite.name}}</div>
+					</div>
+				{% endfor %}
+
+			</div>
             <div class="flex flex-col">
-                <div class=" font-semibold ">
-                {{hebergement.promoTotal}}€
+                <div class=" flex justify-between items-center mb-8s">
+                    <div class="text-lg font-semibold">Présentation</div>
+                    <div class="text-base font-semibold">
+                    surface du logement : {{hebergement.surface}}
+                    </div>
                 </div>
-                <div class=" line-through text-red-600 ">
-                {{hebergement.tarif}}€
-                </div>
-            </div>
-            {% else %}                
-            <div>{{hebergement.tarif}}</div>
-            {% endif %}
-        </div>
-        <div>
-            {% for  particularite in  hebergement.relationParticularite %}
-                <div>
-                <div><i class='{{particularite.icon}}'></i></div>
-                <div>{{particularite.name}}</div>
-            </div>
-            {% endfor %}
-            
-            
-        
-                 
-        </div>
-        <div>
-        <div>
-                <div>
-                    <div>Présentation</div>
-                    <div>surface du logement: {{hebergement.surface}} m²</div>
-                </div>
-                <p>
+                <div class="text-base">
                     {{hebergement.description | raw}}
-                </p>
-        </div>
-        <div>
-            <div>Localisation</div>
-            <div>{{hebergement.lieux}}</div>
-            <hr>
-            <div>
-                {# Intégration map avec leaflette #}
-            </div>
-        </div>               
-    </div>  
-</section>
-
-       {# Séparation plantation arbres #}
-        <section id="" >
-        <div class=" overflow-hidden relative z-2 h-96">
-        <div class="relative -z-1 flex w-full">
-            <img src="{{ asset('IMG/arbre_fond.jpg') }}" alt="" class=" relative z-1 object-none object-center w-full opacity-25">
-        </div>
-        <div class="11/12 mx-auto p-10 absolute h-full z-1 top-0 flex items-center">
-        <div class="flex justify-evenly items-center h-90">
-            <div class="mr-4 w-1/6">
-                <img src="{{ asset('IMG/arbre_logo.jpg') }}" alt="" class="rounded-full">
-            </div> 
-            <div class="w-4/5">
-                <div class="text-2xl font-semibold">1 Réservation = 1 Arbre planté</div>
-                <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad id optio porro obcaecati quod architecto fuga necessitatibus possimus, dolore quaerat nulla deserunt ut minima quos est? Eligendi dolorem asperiores molestiae.</div>
-                <div class="my-8">
-                    <a href="https://planete-urgence.org/" target="_blank" class=" border-4  border-green-700 p-5 text-xl font-bold rounded-tr-lg rounded-bl-lg" >En savoir plus</a>
+                </div>
+                <div class="text-lg flex items-center uppercase">
+                    1 réservation = 
+                    <img src="{{ asset('IMG/arbre.png') }}" alt="protection nature" class=" mx-2 w-16"> 
+                    1 arbre planté
                 </div>
             </div>
-        </div>            
-        </div>
-        </div>    
-        </section>  
-          
-            <section id="present" class="relative top-4 flex justify-evenly items-center py-16 mx-auto w-11/12">
-            <div class=" w-2/5">
-                <div class=" text-4xl mb-8">Offrez une carte cadeau Monsite</div>
-                <a href="" class="text-xl p-4 bg-green-600 text-white font-bold border rounded-tl-lg rounded-br-lg">Je passe commande</a>
-            </div>
-            <div class="w-3/5"><img src="https://picsum.photos/900/400" alt=""></div>
-        </section>
+			</div>
+			
+			<div class=" w-1/3 px-10">
+				
+				<div class="flex flex-col  bg-white border-2 border-green-600 text-center">
+					<div class="py-4 bg-brown_light text-green_pine font-semibold text-lg">Localisation</div>
+                    <div class="flex flex-col p-6 pt-4">
+                    <div class="font-semibold">{{hebergement.hebergementCountry.name}}</div> 
+					<div class="my-4">
+						{# Intégration map avec leaflette #}
+                        <iframe src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20Sarrebourg+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="300"></iframe>
 
-<section id="equipement">
-    <div>Equipement</div>
-    <div>
-    {% for equipment in hebergement.hebergementEquipment %}
-        <div>
-            <div><img src="{{ uploaded_asset(equipment.imagePath) }}" alt="{{equipment.name}}"></div>
-            <p>{{equipment.name}}</p>
-        </div>  
-    {% endfor %}
-    </div>
-</section>
+					</div>
+                    <div class="mb-4">
+                    {{hebergement.adress}}, <br>
+                    {{hebergement.codePostal}} {{hebergement.lieux}}
+                    </div>
+                    <div class=" items-center  font-semibold  flex  flex-col justify-between">
+                    <div class="p-4 rounded-lg bg-green-600 text-white flex items-center justify-center w-1/2 mb-4">
+                    <i class="fa-solid fa-cart-arrow-down pr-1"></i>
+                    <a href="">Réserver</a>
+                    </div>
+                    <div class="p-4 rounded-lg bg-brown_light text-green-600 broder-2 border-green-600 flex items-start justify-center w-1/2">
+                    <i class="fa-solid fa-gift pr-1 mt-1"></i>
+                    <a href="">Offrir une carte cadeau</a>
+                    </div>
+                    
+                    </div>
+                    
+                    </div>
+					
+				</div>
+			</div>
+		</section>
 
-<section>
-    <div>
-        <div>Informations pratiques </div>
-        <div>
-            <div>
-                <div><i class="fa-regular fa-clock"></i></div>
-                <div>
-                    <p>Horraire d'arrivée :</p>
-                    <p>lroem ipsum</p>
-                </div>
-            </div>
-            <div>
-                <div><i class="fa-solid fa-mug-hot"></i></div>
-                <div>
-                    <p>Petit déjeuner</p>
-                    {# <p>{% info_petitdej %}</p> #}
-                </div>
-            </div>
-            <div>
-                <div><i class="fa-solid fa-utensils"></i></div>
-                <div>
-                    <p>Restauration</p>
-                    <p>Panier repas sur réservation</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div>Option suplémentaires</div>
-        {# Meme options sur tout les sites #}
-        <div>
-            <div><img src="https://picsum.photos/640/360" alt=""></div>
-            <p>Nom option</p>
-            <p>tarif</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/640/360" alt=""></div>
-            <p>Nom option</p>
-            <p>tarif</p>
-        </div>
-        <div>
-            <div><img src="https://picsum.photos/640/360" alt=""></div>
-            <p>Nom option</p>
-            <p>tarif</p>
-        </div>
-    </div>
-</section>
-<section>
-    <div>Comment ça marche ?</div>
-    <div><img src="https://picsum.photos/2000/500" alt=""></div>
-    <div>
-     {# Chercher cb d'option mettre en détail #}
-    </div>
-</section>
-<section>
-    <div>
-        Disponibilités et réservations
-        {# Chercher une requette sql pour les dates #}
-        {# Rechercher solution pour afficher un calendrier dinamique :
-            https://diawdi.net/creer-un-calendrier-dynamique-en-php/
-            https://www.youtube.com/watch?v=t0s7ycR1Ib8 (grafikart)
-            https://fullcalendar.io/
-            https://scripts.toucharger.com/scripts/php/agenda-calendrier/
-         #}
-    </div>
-    <a href="">Réserver en ligne</a>
-</section>
-<section>
-<div id="arrow-left" class="arrow"></div>
-    {% for media in hebergement.mediaRelation %}
-     {% if media.active == true %}
-        <div class="slide slide{{media.id}}">
-            <img src="{{uploaded_asset(media.mediaPath)}}" alt="{{media.MediaAlt}}">
-        </div>
-     {% endif %}    
-    {% endfor %}
-   
-    
-<div id="arrow-right" class="arrow"></div>
+		<section id="equipement">
+			<div>Equipement</div>
+			<div>
+				{% for equipment in hebergement.hebergementEquipment %}
+					<div>
+						<div><img src="{{ uploaded_asset(equipment.imagePath) }}" alt="{{equipment.name}}"></div>
+						<p>{{equipment.name}}</p>
+					</div>
+				{% endfor %}
+			</div>
+		</section>
 
-</section>
-{# <section>
-<div>Dans la meme région :</div>
-<div>
-{# Faire un appel sql 
-    <div>
-        <div>
-            <div><img src="" alt=""></div>
-        <div>
-            <div>
-                <div>Titre d'hébergement</div>
-                <div>Tarif</div>
-            </div>
-            <div>
-                desc
-            </div>
-        </div>
-        </div>        
-    </div>
-    <a href="">Choisir</a>
-    <div>
-        <div>
-            <div><img src="" alt=""></div>
-        <div>
-            <div>
-                <div>Titre d'hébergement</div>
-                <div>Tarif</div>
-            </div>
-            <div>
-                desc
-            </div>
-        </div>
-        </div>        
-    </div>
-    <a href="">Choisir</a>
-    <div>
-        <div><img src="" alt=""></div>
-        <div>
-            <div>
-                <div>
-                <div>Titre d'hébergement</div>
-                <div>Tarif</div>
-            </div>
-            <div>
-                desc
-            </div>
-        </div>
-    </div>
-</div>
-</section> #}
+		<section>
+			<div>
+				<div>Informations pratiques
+				</div>
+				<div>
+					<div>
+						<div>
+							<i class="fa-regular fa-clock"></i>
+						</div>
+						<div>
+							<p>Horraire d'arrivée :</p>
+							<p>lroem ipsum</p>
+						</div>
+					</div>
+					<div>
+						<div>
+							<i class="fa-solid fa-mug-hot"></i>
+						</div>
+						<div>
+							<p>Petit déjeuner</p>
+							{# <p>{% info_petitdej %}</p> #}
+						</div>
+					</div>
+					<div>
+						<div>
+							<i class="fa-solid fa-utensils"></i>
+						</div>
+						<div>
+							<p>Restauration</p>
+							<p>Panier repas sur réservation</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div>Option suplémentaires</div>
+				{# Meme options sur tout les sites #}
+				<div>
+					<div><img src="https://picsum.photos/640/360" alt=""></div>
+					<p>Nom option</p>
+					<p>tarif</p>
+				</div>
+				<div>
+					<div><img src="https://picsum.photos/640/360" alt=""></div>
+					<p>Nom option</p>
+					<p>tarif</p>
+				</div>
+				<div>
+					<div><img src="https://picsum.photos/640/360" alt=""></div>
+					<p>Nom option</p>
+					<p>tarif</p>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div>Comment ça marche ?</div>
+			<div><img src="https://picsum.photos/2000/500" alt=""></div>
+			<div>
+				{# Chercher cb d'option mettre en détail #}
+			</div>
+		</section>
+		<section>
+			<div>
+				Disponibilités et réservations
+			{# Chercher une requette sql pour les dates #}
+				{# Rechercher solution pour afficher un calendrier dinamique :
+				            https://diawdi.net/creer-un-calendrier-dynamique-en-php/
+				            https://www.youtube.com/watch?v=t0s7ycR1Ib8 (grafikart)
+				            https://fullcalendar.io/
+				            https://scripts.toucharger.com/scripts/php/agenda-calendrier/
+				         #}
+			</div>
+			<a href="">Réserver en ligne</a>
+		</section>
+		<section>
+			<div id="arrow-left" class="arrow"></div>
+			{% for media in hebergement.mediaRelation %}
+				{% if media.active == true %}
+					<div class="slide slide{{media.id}}">
+						<img src="{{uploaded_asset(media.mediaPath)}}" alt="{{media.MediaAlt}}">
+					</div>
+				{% endif %}
+			{% endfor %}
 
-<a href="{{path("cart_add", {id: hebergement.id})}}"" class="button">Je réserve</a>
-{% endblock %}
+
+			<div id="arrow-right" class="arrow"></div>
+
+		</section>
+		{# <section>
+		<div>Dans la meme région :</div>
+		<div>
+		{# Faire un appel sql 
+		    <div>
+		        <div>
+		            <div><img src="" alt=""></div>
+		        <div>
+		            <div>
+		                <div>Titre d'hébergement</div>
+		                <div>Tarif</div>
+		            </div>
+		            <div>
+		                desc
+		            </div>
+		        </div>
+		        </div>        
+		    </div>
+		    <a href="">Choisir</a>
+		    <div>
+		        <div>
+		            <div><img src="" alt=""></div>
+		        <div>
+		            <div>
+		                <div>Titre d'hébergement</div>
+		                <div>Tarif</div>
+		            </div>
+		            <div>
+		                desc
+		            </div>
+		        </div>
+		        </div>        
+		    </div>
+		    <a href="">Choisir</a>
+		    <div>
+		        <div><img src="" alt=""></div>
+		        <div>
+		            <div>
+		                <div>
+		                <div>Titre d'hébergement</div>
+		                <div>Tarif</div>
+		            </div>
+		            <div>
+		                desc
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		</section> #}
+
+		<a href="{{path("cart_add", {id: hebergement.id})}}" " class=" button">Je réserve</a>
+	{% endblock %}
+

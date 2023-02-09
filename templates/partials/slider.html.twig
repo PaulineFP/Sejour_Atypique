@@ -8,7 +8,7 @@
                     <div class="promo  text-yellow-500 bg-gray-50 rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{promotion.promotion}}%</div>
                 </div>
                 <div class="card_content ">
-                    <div class="card_height">
+                    <div class="card_height flex flex-col">
                         <div class="card_header">
                             <div class="card_title font-semibold text-base">{{promotion.title}}</div>
                             <div class="flex flex-col">
@@ -23,7 +23,7 @@
                            
                         </div>
                         <div class="text-base">{{promotion.lieux}}</div>
-                        <div class="text-base">{{promotion.description | raw}}</div>
+                        <div class="text-base break-all max-h-full" >{{promotion.description|striptags|u.truncate(120, '...', false) }}</div>
                     </div>
                     
                     <button class="button" onclick="window.location.href = '/hebergement/{{promotion.id}}';"> Je fonce !</button>
