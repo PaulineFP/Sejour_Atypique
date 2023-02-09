@@ -45,7 +45,7 @@
                                 
                             </div>
                             <div class="text-sm font-medium mb-2">{{hebergement.lieux}}</div>
-                            <div class="text-justify text-base">{{hebergement.description | raw}}</div>                    
+                            <div class="text-justify text-base">{{hebergement.description |striptags|u.truncate(120, '...', false)}}</div>                    
                         </div>
                     </div>      
             
