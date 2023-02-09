@@ -20,7 +20,7 @@
                               <div class="flex justify-end">
                                 <img class="rounded-tr-3xl relative" src="{{ uploaded_asset(hebergement.imagePath) }}" alt="{{hebergement.title}}" class="rounded-tr-3xl">
                                 {% if hebergement.isPromotional == true %}
-                                <div class="promo  text-yellow-500 bg-gray-50 rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{hebergement.promotion}}%</div>
+                                <div class="promo  text-yellow-500 bg-white rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{hebergement.promotion}}%</div>
                                 {% endif %}
                             </div>   
                         {% if hebergement.departmentRelation.imagePath == true %}
