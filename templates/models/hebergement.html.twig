@@ -78,12 +78,26 @@
                 <div class="text-base">
                     {{hebergement.description | raw}}
                 </div>
-                <div class="text-lg flex items-center uppercase">
+                <div class="text-lg flex items-center uppercase text-green-600">
                     1 réservation = 
                     <img src="{{ asset('IMG/arbre.png') }}" alt="protection nature" class=" mx-2 w-16"> 
                     1 arbre planté
                 </div>
             </div>
+			<section id="equipement" class=" my-12 mx-auto flex flex-col justify-center items-center bg-brown_light w-max p-16">
+		<div class=" pb-16">
+			<div class=" text-lg font-semibold border-b-2 border-green_pine">Equipements du logement :</div>
+		</div>
+			
+			<div class="grid  grid-rows-2 grid-flow-col gap-8 bg-white p-8 mb-8 shadow-md">
+				{% for equipment in hebergement.hebergementEquipment %}
+					<div class="flex flex-col justify-center items-center ">
+						<div class=" w-32"><img src="{{ uploaded_asset(equipment.imagePath) }}" alt="{{equipment.name}}"></div>
+						<p>{{equipment.name}}</p>
+					</div>
+				{% endfor %}
+			</div>
+		</section>
 			</div>
 			
 			<div class=" w-1/3 px-10">
@@ -102,14 +116,19 @@
                     {{hebergement.codePostal}} {{hebergement.lieux}}
                     </div>
                     <div class=" items-center  font-semibold  flex  flex-col justify-between">
-                    <div class="p-4 rounded-lg bg-green-600 text-white flex items-center justify-center w-1/2 mb-4">
-                    <i class="fa-solid fa-cart-arrow-down pr-1"></i>
-                    <a href="">Réserver</a>
-                    </div>
-                    <div class="p-4 rounded-lg bg-brown_light text-green-600 broder-2 border-green-600 flex items-start justify-center w-1/2">
+					<p class="text-red-600">"Mettre le systheme de réservation par popup"</p>
+					
+					{# https://www.dropbox.com/s/utqf9airwwvlz2e/Capture8.PNG?dl=0 #}
+					
+                    <button class="p-4 rounded-lg bg-green-600 text-white flex items-center justify-center w-1/2 mb-4 modal_trigger">
+					
+						<i class="fa-solid fa-cart-arrow-down pr-1"></i>
+						<p>Réserver</p>
+                    </button>
+                    <button class="p-4 rounded-lg bg-brown_light text-green-600 broder-2 border-green-600 flex items-start justify-center w-1/2">
                     <i class="fa-solid fa-gift pr-1 mt-1"></i>
                     <a href="">Offrir une carte cadeau</a>
-                    </div>
+                    </button>
                     
                     </div>
                     
@@ -119,71 +138,100 @@
 			</div>
 		</section>
 
-		<section id="equipement">
-			<div>Equipement</div>
-			<div>
-				{% for equipment in hebergement.hebergementEquipment %}
-					<div>
-						<div><img src="{{ uploaded_asset(equipment.imagePath) }}" alt="{{equipment.name}}"></div>
-						<p>{{equipment.name}}</p>
-					</div>
-				{% endfor %}
-			</div>
-		</section>
 
-		<section>
-			<div>
-				<div>Informations pratiques
-				</div>
-				<div>
-					<div>
-						<div>
+		{# Tuto réservation : https://www.youtube.com/watch?v=rGTKBG7Y2ck #}
+		
+
+		<section class=''>
+			<div class='text-lg font-semibold'>Informations pratiques :</div>
+			<div class='flex justify-between my-8'>
+				<div class='flex flex-col justify-around w-2/5 justify-start'>
+					<div class="flex">
+						<div class="mr-4">
 							<i class="fa-regular fa-clock"></i>
 						</div>
 						<div>
-							<p>Horraire d'arrivée :</p>
-							<p>lroem ipsum</p>
+							<p class=' font-semibold'>Horraire d'arrivée :</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus quos delectus quaerat reprehenderit neque aspernatur natus incidunt commodi quis impedit quae, fuga esse, exercitationem nostrum quibusdam, cum ex debitis vero?</p>
 						</div>
 					</div>
-					<div>
+					<div class="flex">
+						<div class="mr-4">
+							<i class="fa-regular fa-clock"></i>
+						</div>
 						<div>
+							<p class=' font-semibold'>Départ :</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus quos delectus quaerat reprehenderit neque aspernatur natus incidunt commodi quis impedit quae, fuga esse, exercitationem nostrum quibusdam, cum ex debitis vero?</p>
+						</div>
+					</div>
+					<div class="flex mt-4">
+						<div class='mr-4'>
 							<i class="fa-solid fa-mug-hot"></i>
 						</div>
 						<div>
-							<p>Petit déjeuner</p>
-							{# <p>{% info_petitdej %}</p> #}
+							<p class=' font-semibold'>Petit déjeuner</p>
+							<p>
+							Petit-déjeuner inclus, servi dans le logement. Il est composé essentiellement de produits locaux.
+							</p>
 						</div>
 					</div>
-					<div>
-						<div>
+					<div class="flex mt-4">
+						<div class='mr-4'>
 							<i class="fa-solid fa-utensils"></i>
 						</div>
 						<div>
-							<p>Restauration</p>
+							<p class=' font-semibold'>Restauration</p>
 							<p>Panier repas sur réservation</p>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div>
-				<div>Option suplémentaires</div>
+			
+			<div class='w-1/2 mx-auto'>
+				<div class="font-semibold ">Les services en option sur réservation :</div>
+				<div class=" italic mb-8">(Hors tarif)</div>
 				{# Meme options sur tout les sites #}
-				<div>
-					<div><img src="https://picsum.photos/640/360" alt=""></div>
-					<p>Nom option</p>
-					<p>tarif</p>
+				
+				<form action="">
+				<div class="flex items-center justify-between">
+				
+				<div class="flex flex-col justify-center items-center">
+					<div><img src="https://picsum.photos/200/100" alt=""></div>
+					<p>Restauration journalière</p>
+					<p>20 € / personne</p>
+					<input type="radio" value="restauration">
 				</div>
-				<div>
-					<div><img src="https://picsum.photos/640/360" alt=""></div>
-					<p>Nom option</p>
-					<p>tarif</p>
+				<div class="flex flex-col justify-center items-center">
+					<div><img src="https://picsum.photos/200/100" alt=""></div>
+					<p>Massage shiatsu ou californien </p>
+					<p>65€ par séance (1h)</p>
+					<input type="radio" value="massage">
+
 				</div>
-				<div>
-					<div><img src="https://picsum.photos/640/360" alt=""></div>
-					<p>Nom option</p>
-					<p>tarif</p>
+				<div class="flex flex-col justify-center items-center">
+					<div><img src="https://picsum.photos/200/100" alt=""></div>
+					<p>Décoration romantique </p>
+					<p>15 €</p>
+					<input type="radio" value="">
 				</div>
-			</div>
+				
+			
+				</div>
+				{% for particularite in hebergement.relationParticularite  %}
+				{% if particularite.name == 'Animaux acceptés' %} 
+			
+
+				<div class="flex flex-col justify-center items-center">
+					<div><img src="https://picsum.photos/200/100" alt=""></div>
+					<p>Animaux domestiques </p>
+					<p>20€ à payer sur place</p>
+				</div>
+				
+				{% endif %}
+			{% endfor %}
+				</div>	
+				</form>
+			
+		</div>
 		</section>
 		<section>
 			<div>Comment ça marche ?</div>
@@ -270,5 +318,17 @@
 		</section> #}
 
 		<a href="{{path("cart_add", {id: hebergement.id})}}" " class=" button">Je réserve</a>
-	{% endblock %}
 
+	</section>
+		{# MODAL RESERVATION #}
+		{# https://www.youtube.com/watch?v=3MUmRP9013I #}
+		<div class="modal_container fixed top-0 w-screen h-screen invisible" role="dialog" aria-labelledby="modalTitle" aria-decribedby="dialogDesc">
+			<div class="overlay modal_trigger opacity-0 absolute w-full h-full bg-black bg-opacity-50"></div>
+			<div class="modal w-11/12 opacity-0 max-w-screen-sm p-12 bg-white rounded-lg absolute top-1/3 left-2/4">
+				<button class="close_modal modal_trigger px-3 py-1 rounded-md text-lg absolute top-3 right-3 cursor-pointer text-white bg-green_pine">x</button>
+				<h3 id="modalTitle">Formulaire de réservation</h3>
+				<p id="dialogDesc">Veyez remplir le formulaire affin de valider votre réservation. Vous la retrouverez ensuite, dans votre panier</p>
+			</div>
+		</div>
+			{% endblock %}
+			

@@ -124,7 +124,6 @@ body {
   }
 }
 .min-content {
-  height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
 }
@@ -143,4 +142,31 @@ body {
 
 .countries_header {
   min-height: 300px;
+}
+
+.modal_container {
+  transition: visibility 0.4s;
+}
+
+.overlay {
+  transition: opacity 0.4s 0.2s ease-out;
+}
+
+.modal {
+  transform: translate(-50%, calc(-50% - 50px));
+  transition: opacity 0.4s ease-out, transition 0.4s ease-out;
+}
+
+.modal_container.active {
+  visibility: visible;
+  transition: visibility 0s;
+}
+.modal_container.active .overlay {
+  opacity: 1;
+  transition: opacity 0.4s ease-out;
+}
+.modal_container.active .modal {
+  opacity: 1;
+  transform: translate(-50%, 50%);
+  transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
 }/*# sourceMappingURL=app.css.map */
