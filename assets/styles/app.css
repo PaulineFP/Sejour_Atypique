@@ -167,6 +167,62 @@ body {
 }
 .modal_container.active .modal {
   opacity: 1;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, 10%);
   transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
+}
+
+.formGroup {
+  position: relative;
+  display: flex;
+  margin-bottom: 10px;
+}
+.formGroup label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  transition: 0.4s ease-out;
+}
+.formGroup.top-0 {
+  top: 0 !important;
+}
+.formGroup .buttonSub {
+  display: block;
+  width: auto;
+  padding: 15px 60px;
+  border: 3px solid #1C6758;
+  border-radius: 999px;
+  background-image: linear-gradient(to right, transparent 50%, #1C6758 50%, #059669);
+  background-size: 200%;
+  color: #059669;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.formGroup:hover {
+  color: #FFF;
+  background-position: 100%;
+  border: 3px solid #fff;
+}
+
+.formGroup input {
+  display: block;
+  width: 100%;
+  padding: 5px 0;
+  border: none;
+  outline: none;
+  background: none;
+  border-bottom: 3px solid #aaa;
+  color: #666;
+  font-size: 16px;
+  transition: 0.4s ease-out;
+}
+
+.formGroup input.style_none {
+  width: 30%;
+  border-bottom: none;
+}
+
+.formBloc:last-child {
+  justify-content: center;
 }/*# sourceMappingURL=app.css.map */
