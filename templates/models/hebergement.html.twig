@@ -116,7 +116,7 @@
                     {{hebergement.codePostal}} {{hebergement.lieux}}
                     </div>
                     <div class=" items-center  font-semibold  flex  flex-col justify-between">
-					<p class="text-red-600">"Mettre le systheme de réservation par popup"</p>
+					<p class="text-red-600">"Faire fonctionner le systheme de réservation"</p>
 					
 					{# https://www.dropbox.com/s/utqf9airwwvlz2e/Capture8.PNG?dl=0 #}
 					
@@ -352,24 +352,42 @@
 								<input type="email" id="mail" >						
 							</div>
 
-							<div class=" flex justify-between">
-								<div >Nombre de personnes</div>
-								<input class="style_none w-1/3" type="number" id="personne_nb" require maxlenght="2">						
-							</div>
+		
 
 							<div class="flex  justify-between pt-4">
-								<div class="formGroup">
+							<div class="formGroup w-1/3">
+								<label for"date_d" class="top-0 pb-12" >Personne.s</label>
+									<input type="number" class="pt-4" id="person_nb" require >						
+								
+								
+							</div>
+								<div class="formGroup w-1/3">
+									<label for"date_d" class="top-0 pb-12" >nuit.s</label>
+									<input type="number" class="pt-4" id="night_nb" require >						
+								</div> 
+							</div>
+							<div class="flex  justify-between pt-4">
+							<div class="formGroup">
+							<label for"date_d" class="top-0 pb-12" >Enfant.s</label>
+							<input class="style_none " type="number" id="child_nb" require maxlenght="2">	
+							
+							</div>
+								
+							<div class="formGroup">
 									<label for"date_a" class="top-0 pb-12">arrivé le</label>
 									<input type="date" id="date_a" require class="" >						
 								</div>
-								<div class="formGroup">
-									<label for"date_d" class="top-0 pb-12" >départ le</label>
-									<input type="date" class="pt-4" id="date_d" require >						
-								</div> 
 							</div>
-							<div class=" formGroup"> 
 							
+							<div class=" flex justify-between"> 
+							<div class=" w-1/3">
+								<div class="font-semibold">Total :</div>
+								<div class="text-red font-semibold">{{hebergement.promoTotal}}	€</div>
+							</div>
+							<div class="formGroup w-3/5">
 							<button value="valider" class="buttonSub">valider</button>
+
+							</div>
 								
 							
 							</div>	
