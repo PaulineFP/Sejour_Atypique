@@ -122,12 +122,18 @@ class Hebergement
      */
     private $adress;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Reservations::class, mappedBy="hebergement_id")
+     */
+    private $reservation_reference;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->media_relation = new ArrayCollection();
         $this->relation_particularite = new ArrayCollection();
         $this->hebergement_equipment = new ArrayCollection();
+        $this->reservation_reference = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -441,6 +447,36 @@ class Hebergement
     public function setAdress(string $adress): self
     {
         $this->adress = $adress;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reservations>
+     */
+    public function getReservationReference(): Collection
+    {
+        return $this->reservation_reference;
+    }
+
+    public function addReservationReference(Reservations $reservationReference): self
+    {
+        if (!$this->reservation_reference->contains($reservationReference)) {
+            $this->reservation_reference[] = $reservationReference;
+            $reservationReference->setHebergementId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservationReference(Reservations $reservationReference): self
+    {
+        if ($this->reservation_reference->removeElement($reservationReference)) {
+            // set the owning side to null (unless already changed)
+            if ($reservationReference->getHebergementId() === $this) {
+                $reservationReference->setHebergementId(null);
+            }
+        }
 
         return $this;
     }
