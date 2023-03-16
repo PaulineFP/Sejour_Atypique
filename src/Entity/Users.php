@@ -40,14 +40,15 @@ class Users
     private $phone;
 
     /**
-     * @ORM\OneToMany(targetEntity=Reservations::class, mappedBy="reference", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Reservations::class, mappedBy="users")
      */
-    private $reservation_reference;
+    private $reservations;
 
     public function __construct()
     {
-        $this->reservation_reference = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -105,30 +106,32 @@ class Users
     /**
      * @return Collection<int, Reservations>
      */
-    public function getReservationReference(): Collection
+    public function getReservations(): Collection
     {
-        return $this->reservation_reference;
+        return $this->reservations;
     }
 
-    public function addReservationReference(Reservations $reservationReference): self
+    public function addReservation(Reservations $reservation): self
     {
-        if (!$this->reservation_reference->contains($reservationReference)) {
-            $this->reservation_reference[] = $reservationReference;
-            $reservationReference->setReference($this);
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setUsers($this);
         }
 
         return $this;
     }
 
-    public function removeReservationReference(Reservations $reservationReference): self
+    public function removeReservation(Reservations $reservation): self
     {
-        if ($this->reservation_reference->removeElement($reservationReference)) {
+        if ($this->reservations->removeElement($reservation)) {
             // set the owning side to null (unless already changed)
-            if ($reservationReference->getReference() === $this) {
-                $reservationReference->setReference(null);
+            if ($reservation->getUsers() === $this) {
+                $reservation->setUsers(null);
             }
         }
 
         return $this;
     }
+
+   
 }

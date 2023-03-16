@@ -10,6 +10,8 @@ use App\Entity\Hebergement;
 use App\Entity\Media;
 use App\Entity\Peculiarity;
 use App\Entity\Order;
+use App\Entity\Users;
+use App\Entity\Reservations;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud; 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -99,5 +101,22 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('Traitement des commandes');
         yield MenuItem::linkToCrud('Afficher les commandes', 'fas fa-eye', Order::class);       ;
+    
+
+    
+        yield MenuItem::section('Gestion client');  
+        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([ 
+            MenuItem::linkToCrud('Ajouter un client', 'fas fa-plus', Users::class)
+            ->setAction(Crud::PAGE_NEW),       
+             MenuItem::linkToCrud('Afficher les clients', 'fas fa-eye', Users::class)
+         ]);
+
+         
+        yield MenuItem::section('Gestion réservations');  
+        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([ 
+            MenuItem::linkToCrud('Ajouter une réservation', 'fas fa-plus', Reservations::class)
+            ->setAction(Crud::PAGE_NEW),       
+             MenuItem::linkToCrud('Afficher les réservations', 'fas fa-eye', Reservations::class)
+         ]);
     }
 }

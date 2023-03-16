@@ -18,72 +18,77 @@ class Reservations
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="reservation_reference")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     private $reference;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Hebergement::class, inversedBy="reservation_reference")
+     * @ORM\ManyToOne(targetEntity=Hebergement::class, inversedBy="reservations")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $hebergement_id;
+    private $hebergement;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $created_at;
 
     /**
-     * @ORM\Column(type="decimal", precision=4, scale=0)
+     * @ORM\Column(type="integer")
      */
     private $person_nb;
 
     /**
-     * @ORM\Column(type="decimal", precision=4, scale=0, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $child_nb;
 
     /**
-     * @ORM\Column(type="decimal", precision=4, scale=0)
+     * @ORM\Column(type="integer")
      */
     private $night_nb;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $arrived;
 
     /**
-     * @ORM\Column(type="decimal", precision=11, scale=2)
+     * @ORM\Column(type="decimal", precision=7, scale=2)
      */
     private $price;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="reservations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $users;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getReference(): ?Users
+    public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    public function setReference(?Users $reference): self
+    public function setReference(string $reference): self
     {
         $this->reference = $reference;
 
         return $this;
     }
 
-    public function getHebergementId(): ?Hebergement
+    public function getHebergement(): ?Hebergement
     {
-        return $this->hebergement_id;
+        return $this->hebergement;
     }
 
-    public function setHebergementId(?Hebergement $hebergement_id): self
+    public function setHebergement(?Hebergement $hebergement): self
     {
-        $this->hebergement_id = $hebergement_id;
+        $this->hebergement = $hebergement;
 
         return $this;
     }
@@ -100,36 +105,36 @@ class Reservations
         return $this;
     }
 
-    public function getPersonNb(): ?string
+    public function getPersonNb(): ?int
     {
         return $this->person_nb;
     }
 
-    public function setPersonNb(string $person_nb): self
+    public function setPersonNb(int $person_nb): self
     {
         $this->person_nb = $person_nb;
 
         return $this;
     }
 
-    public function getChildNb(): ?string
+    public function getChildNb(): ?int
     {
         return $this->child_nb;
     }
 
-    public function setChildNb(?string $child_nb): self
+    public function setChildNb(?int $child_nb): self
     {
         $this->child_nb = $child_nb;
 
         return $this;
     }
 
-    public function getNightNb(): ?string
+    public function getNightNb(): ?int
     {
         return $this->night_nb;
     }
 
-    public function setNightNb(string $night_nb): self
+    public function setNightNb(int $night_nb): self
     {
         $this->night_nb = $night_nb;
 
@@ -156,6 +161,18 @@ class Reservations
     public function setPrice(string $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getUsers(): ?Users
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?Users $users): self
+    {
+        $this->users = $users;
 
         return $this;
     }

@@ -23,7 +23,7 @@ class MediaCrudController extends AbstractCrudController{
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
+            IdField::new('id')->hideOnForm(),       
             AssociationField::new('media_relation', 'hébergement associé')
                 ->setRequired(true)
                 ->setFormTypeOption('choice_label', 'title')

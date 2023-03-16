@@ -123,9 +123,11 @@ class Hebergement
     private $adress;
 
     /**
-     * @ORM\OneToMany(targetEntity=Reservations::class, mappedBy="hebergement_id")
+     * @ORM\OneToMany(targetEntity=Reservations::class, mappedBy="hebergement")
      */
-    private $reservation_reference;
+    private $reservations;
+
+
 
     public function __construct()
     {
@@ -133,7 +135,8 @@ class Hebergement
         $this->media_relation = new ArrayCollection();
         $this->relation_particularite = new ArrayCollection();
         $this->hebergement_equipment = new ArrayCollection();
-        $this->reservation_reference = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
+       
     }
 
     public function getId(): ?int
@@ -454,32 +457,33 @@ class Hebergement
     /**
      * @return Collection<int, Reservations>
      */
-    public function getReservationReference(): Collection
+    public function getReservations(): Collection
     {
-        return $this->reservation_reference;
+        return $this->reservations;
     }
 
-    public function addReservationReference(Reservations $reservationReference): self
+    public function addReservation(Reservations $reservation): self
     {
-        if (!$this->reservation_reference->contains($reservationReference)) {
-            $this->reservation_reference[] = $reservationReference;
-            $reservationReference->setHebergementId($this);
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setHebergement($this);
         }
 
         return $this;
     }
 
-    public function removeReservationReference(Reservations $reservationReference): self
+    public function removeReservation(Reservations $reservation): self
     {
-        if ($this->reservation_reference->removeElement($reservationReference)) {
+        if ($this->reservations->removeElement($reservation)) {
             // set the owning side to null (unless already changed)
-            if ($reservationReference->getHebergementId() === $this) {
-                $reservationReference->setHebergementId(null);
+            if ($reservation->getHebergement() === $this) {
+                $reservation->setHebergement(null);
             }
         }
 
         return $this;
     }
+
 
 
 }
