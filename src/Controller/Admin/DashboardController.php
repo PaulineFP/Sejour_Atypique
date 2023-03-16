@@ -104,7 +104,7 @@ class DashboardController extends AbstractDashboardController
     
 
     
-        yield MenuItem::section('Gestion client');  
+        yield MenuItem::section('Gestion clients');  
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([ 
             MenuItem::linkToCrud('Ajouter un client', 'fas fa-plus', Users::class)
             ->setAction(Crud::PAGE_NEW),       
