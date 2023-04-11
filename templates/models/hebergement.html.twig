@@ -335,25 +335,30 @@
 						<p id="dialogDesc">Veillez remplir le formulaire affin de valider votre réservation. Vous la retrouverez ensuite, dans votre panier</p>
 					</div>
 					<div class="box">
-					<form action=""class="formBloc">
-							<div class="formGroup">
-							
-								<label for"nom">Nom</label>
-								<input type="text" id="nom" require maxlenght="16">						
+					
+					{{{{ form_start(form) }}}}
+							<div class="formGroup">	
+								{# Trouver un tuto #}
+								{# https://www.youtube.com/watch?v=eaodLB1zWdU #}
+								{# https://www.youtube.com/watch?v=f7tdb30evUk #}
+								<label for"nom">{{ form_label(form.Name) }}	</label>
+								{{ form_widget(form.Name) }}			
+
+								<input type="text" id="nom" class="form_name" require maxlenght="16">						
 							</div>
 
 							<div class="formGroup">
 								<label for"prenom">Prénom</label>
-								<input type="text" id="prenom" require maxlenght="16">						
+								<input type="text" id="prenom" class="form_username" require maxlenght="16">						
 							</div>
 
 							<div class="formGroup">
 								<label for"mail">Email</label>
-								<input type="email" id="mail" >						
+								<input type="email" id="mail"class="from_mail" >						
 							</div>
 							<div class="formGroup">
-								<label for"mail">Téléphone</label>
-								<input type="texte" id="mail" require maxlenght="10">						
+								<label for"phone">Téléphone</label>
+								<input type="texte" id="phone" class="form_phone" require maxlenght="10">						
 							</div>
 
 		
@@ -361,32 +366,33 @@
 							<div class="flex  justify-between pt-4">
 							<div class="formGroup w-1/3">
 								<label for"date_d" class="top-0 pb-12" >Personne.s</label>
-									<input type="number" class="pt-4" id="person_nb" require >						
+									<input type="number" class="pt-4" id="person_nb" class="from_person" require >						
 								
 								
 							</div>
 								<div class="formGroup w-1/3">
 									<label for"date_d" class="top-0 pb-12" >nuit.s</label>
-									<input type="number" class="pt-4" id="night_nb" require >						
+									<input type="number" class="pt-4" id="night_nb" class="from_night" require >						
 								</div> 
 							</div>
 							<div class="flex  justify-between pt-4">
 							<div class="formGroup">
 							<label for"date_d" class="top-0 pb-12" >Enfant.s</label>
-							<input class="style_none " type="number" id="child_nb" require maxlenght="2">	
+							<input class="style_none " type="number" id="child_nb" class="form_child" require maxlenght="2">	
 							
 							</div>
 								
 							<div class="formGroup">
 									<label for"date_a" class="top-0 pb-12">arrivé le</label>
-									<input type="date" id="date_a" require class="" >						
+									<input type="date" id="date_a" class="form_arrived" require class="" >	
+									<input type="hidden" id="ceated_at" class=" hidden from_date">					
 								</div>
 							</div>
 							
 							<div class=" flex justify-between"> 
 							<div class=" w-1/3">
 								<div class="font-semibold">Total :</div>
-								<div class="text-red font-semibold">{{hebergement.promoTotal}}	€</div>
+								<div class="text-red font-semibold" class="form_price">{{hebergement.promoTotal}}	€</div>
 							</div>
 							<div class="formGroup w-3/5">
 							<button value="valider" class="buttonSub">valider</button>
@@ -395,7 +401,7 @@
 								
 							
 							</div>	
-						</form>
+					{{{{ form_end(form) }}}}
 
 					</div>
 					
