@@ -336,13 +336,13 @@
 					</div>
 					<div class="box">
 					
-					{{{{ form_start(form) }}}}
+					{# {{ form_start(form) }} #}
 							<div class="formGroup">	
 								{# Trouver un tuto #}
 								{# https://www.youtube.com/watch?v=eaodLB1zWdU #}
 								{# https://www.youtube.com/watch?v=f7tdb30evUk #}
-								<label for"nom">{{ form_label(form.Name) }}	</label>
-								{{ form_widget(form.Name) }}			
+								<label for"nom">{#{{ form_label(form.Name) }}#}	Nom</label>
+								{# {{ form_widget(form.Name) }}			 #}
 
 								<input type="text" id="nom" class="form_name" require maxlenght="16">						
 							</div>
@@ -401,7 +401,7 @@
 								
 							
 							</div>	
-					{{{{ form_end(form) }}}}
+					{# {{ form_end(form) }} #}
 
 					</div>
 					

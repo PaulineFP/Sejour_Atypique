@@ -12,14 +12,12 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Cache\ItemInterface;
 
-    /**
-     *@Route("/reservations", name="cart_")
-     */
+   
 class PaymentController extends AbstractController
 {
 
-    /**
-     *@Route("/", name="index")
+   /**
+     *@Route("/reservations", name="cart_index")
      */
     public function index(SessionInterface $session, HebergementRepository $hebergementRepository){
         $panier = $session->get("panier", []);
@@ -47,7 +45,7 @@ class PaymentController extends AbstractController
    
 
     /**
-     * @Route("/add/{id}", name="add")
+     * @Route("/add/{id}", name="cart_add")
      */
     public function add(Hebergement $hebergement, SessionInterface $session){
         //On récupère le panier actuel
@@ -67,7 +65,7 @@ class PaymentController extends AbstractController
     }
 
     /**
-     * @Route("/remove/{id}", name="remove")
+     * @Route("/remove/{id}", name="cart_remove")
      */
     public function remove(Hebergement $hebergement, SessionInterface $session){
         //On récupère le panier actuel
@@ -89,7 +87,7 @@ class PaymentController extends AbstractController
     }
 
         /**
-     * @Route("/delete/{id}", name="delete")
+     * @Route("/delete/{id}", name="cart_delete")
      */
     public function delete(Hebergement $hebergement, SessionInterface $session){
         //On récupère le panier actuel
@@ -107,7 +105,7 @@ class PaymentController extends AbstractController
     }
 
             /**
-     * @Route("/delete", name="delete_all")
+     * @Route("/delete", name="cart_delete_all")
      */
     public function deleteAll(SessionInterface $session){                
         $session->remove("panier", []);        

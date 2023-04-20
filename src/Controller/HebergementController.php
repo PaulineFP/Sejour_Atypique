@@ -20,7 +20,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class HebergementController extends AbstractController
 {
     /**
-     * @Route("/accueil", name="home")
+     * @Route("/", name="home")
      */
     public function index(CategoriesRepository $repoCat, HebergementRepository $repoHeb, CountriesRepository $repoCount ): Response
     {                       
