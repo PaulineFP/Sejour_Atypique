@@ -24,7 +24,12 @@ class ReservationType extends AbstractType
             ->add('arrived')
             ->add('price')
             ->add('hebergement')
-            ->add('users')
+            ->add('users', EntityType::class, array(
+                'class' => Users::class,
+                'choice_value' => function (?Users $users) {
+                    return $users ? $users->getId() : '';
+                }        
+                ) )
             ->add('name', EntityType::class, array(
                 // Recherche les choix de l'entité 
                 'class' => Users::class,

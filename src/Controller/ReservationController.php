@@ -12,11 +12,11 @@ class ReservationController extends AbstractController
         /**
      * @Route("/hebergement/{id}", name="create_reserver_form")
      */
-    public function index(): Response
-    {
-       $form = $this->createForm(ReservationType::class);
-       return $this->render('models/hebergement.html.twig', [
-        'form' => $form->createView()
-       ]);
-    }
+    // public function index(): Response
+    // {
+    //    $form = $this->createForm(ReservationType::class);
+    //    return $this->render('models/hebergement.html.twig', [
+    //     'form' => $form->createView()
+    //    ]);
+    // }
 }

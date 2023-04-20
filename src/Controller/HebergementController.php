@@ -6,6 +6,7 @@ use App\Entity\Hebergement;
 use App\Entity\Categories;
 use App\Entity\Countries;
 use App\Entity\Department;
+use App\Form\ReservationType;
 use App\Repository\HebergementRepository;
 use App\Repository\CategoriesRepository;
 use App\Repository\CountriesRepository;
@@ -63,10 +64,12 @@ class HebergementController extends AbstractController
      * @Route("/hebergement/{id}", name="show_herbergement")
      */
     public function show(Hebergement $hebergement){         
+        $form = $this->createForm(ReservationType::class);
 
         return $this->render('models/hebergement.html.twig',
         [
-            'hebergement' => $hebergement            
+            'hebergement' => $hebergement ,
+            'form' => $form->createView()           
         ]);
     } 
       /**
