@@ -314,6 +314,7 @@
 		</div>
 		</section> #}
 
+		{# <a href="{{path("cart_add", {id: hebergement.id})}}" class=" button">Je réserve</a> #}
 		<a href="{{path("cart_add", {id: hebergement.id})}}" class=" button">Je réserve</a>
 
 	</section>
@@ -336,72 +337,89 @@
 					</div>
 					<div class="box">
 					
-					{{ form_start(form) }}
-							<div class="formGroup">	
+	    {# {{ form_start(form) }}
+    {{ form_rest(form) }}
+    <button type="submit">Enregistrer</button>
+    {{ form_end(form) }} #}
+					 {{ form_start(form) }} 
+							<div class="flex  justify-between pt-4">
+							<div class="formGroup w-2/5">	
 								{# Trouver un tuto #}
 								{# https://www.youtube.com/watch?v=eaodLB1zWdU #}
 								{# https://www.youtube.com/watch?v=f7tdb30evUk #}
-								<label for"nom">{{ form_label(form.Name) }}</label>
-								{{ form_widget(form.Name, 'Nom') }}			 
-
-								<input type="text" id="nom" class="form_name" require maxlenght="16">						
+								{{ form_label(form.users.name, 'Nom') }}
+								{{ form_widget(form.users.name) }}			 				
 							</div>
 
-							<div class="formGroup">
-								<label for"prenom">Prénom</label>
-								<input type="text" id="prenom" class="form_username" require maxlenght="16">						
+							<div class="formGroup w-2/5">
+								{{ form_label(form.users.username, 'Prénom') }}
+								{{ form_widget(form.users.username) }}						
 							</div>
+							</div>
+							
+							
 
 							<div class="formGroup">
-								<label for"mail">Email</label>
-								<input type="email" id="mail"class="from_mail" >						
+								{{ form_label(form.users.email, 'Email') }}
+								{{ form_widget(form.users.email) }}										
 							</div>
 							<div class="formGroup">
-								<label for"phone">Téléphone</label>
-								<input type="texte" id="phone" class="form_phone" require maxlenght="10">						
+								{{ form_label(form.users.phone, 'Téléphone') }}
+								{{ form_widget(form.users.phone) }}														
 							</div>
 
 		
 
-							<div class="flex  justify-between pt-4">
-							<div class="formGroup w-1/3">
-								<label for"date_d" class="top-0 pb-12" >Personne.s</label>
-									<input type="number" class="pt-4" id="person_nb" class="from_person" require >						
-								
-								
+							<div class="flex  justify-between ">
+							<div class="formGroup w-2/5">
+								{{ form_label(form.person_nb, 'Personne.s') }}
+								{{ form_widget(form.person_nb) }}	 
 							</div>
-								<div class="formGroup w-1/3">
-									<label for"date_d" class="top-0 pb-12" >nuit.s</label>
-									<input type="number" class="pt-4" id="night_nb" class="from_night" require >						
+								<div class="formGroup w-2/5">
+									{{ form_label(form.night_nb, 'nuit.s') }}
+									{{ form_widget(form.night_nb,) }}														
 								</div> 
 							</div>
-							<div class="flex  justify-between pt-4">
-							<div class="formGroup">
-							<label for"date_d" class="top-0 pb-12" >Enfant.s</label>
-							<input class="style_none " type="number" id="child_nb" class="form_child" require maxlenght="2">	
-							
-							</div>
+							<div class="flex  justify-between ">
+								<div class="formGroup w-16">
+									{{ form_label(form.child_nb, 'Enfant.s') }}
+									{{ form_widget(form.child_nb) }}		
+								</div>
 								
-							<div class="formGroup">
-									<label for"date_a" class="top-0 pb-12">arrivé le</label>
-									<input type="date" id="date_a" class="form_arrived" require class="" >	
-									<input type="hidden" id="ceated_at" class=" hidden from_date">					
+								<div class="formGroup ">
+									{{ form_label(form.arrived, 'arrivé le :') }}
+									{{ form_widget(form.arrived, {'attr': {'class': 'pt-4'}}) }}												
 								</div>
 							</div>
+							<div class="formGroup">					
+									{{ form_widget(form.created_at, {'attr': {'class': ''}}) }}					
+								</div>
 							
 							<div class=" flex justify-between"> 
 							<div class=" w-1/3">
-								<div class="font-semibold">Total :</div>
-								<div class="text-red font-semibold" class="form_price">{{hebergement.promoTotal}}	€</div>
-							</div>
-							<div class="formGroup w-3/5">
-							<button value="valider" class="buttonSub">valider</button>
+							*<div class="FormGroup">
+							{{ form_label(form.price, 'Total :') }}
+							{{ form_widget(form.price,{'attr': {'class': ''}}) }}		</div>
+							
+								{# <div class="font-semibold">Total :</div>
+								<div class="text-red font-semibold" class="form_price">{{hebergement.promoTotal}}	€</div> #}
+							
+							<div class="formGroup">
+									{{ form_label(form.reference, 'Ref :') }}
+									{{ form_widget(form.reference) }}					
+								</div>
+							</div> 
+							
 
+							<div class="formGroup w-3/5">
+   								 {{ form_rest(form) }}
+								<button type="submit" value="valider" class="buttonSub" >valider</button>
 							</div>
 								
 							
 							</div>	
-					{{ form_end(form) }}
+					{{ form_end(form) }}  
+
 
 					</div>
 					

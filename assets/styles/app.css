@@ -174,11 +174,10 @@ body {
 .formGroup {
   position: relative;
   display: flex;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .formGroup label {
   position: absolute;
-  top: 50%;
   transform: translateY(-50%);
   font-size: 16px;
   transition: 0.4s ease-out;
@@ -200,7 +199,7 @@ body {
   cursor: pointer;
 }
 .formGroup:hover {
-  color: #FFF;
+  color: transparent;
   background-position: 100%;
   border: 3px solid #fff;
 }

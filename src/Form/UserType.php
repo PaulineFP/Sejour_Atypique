@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Users;
-use Doctrine\DBAL\Types\TextType as TypesTextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
@@ -16,26 +15,10 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
-                "attr"=> [
-                    "class" => "form_name"
-                ]
-            ])
-            ->add('username', TypesTextType::class, [
-                "attr" => [
-                    "class" => "form_username"
-                ]
-            ])
-            ->add('email', EmailType::class, [
-                "attr" => [
-                   "class" => "form_mail" 
-                ]
-            ])
-            ->add('phone', TelType::class, [
-                "attr"=>[
-                   "class" => "form_phone" 
-                ]
-            ])
+            ->add('name', TextType::class)
+            ->add('username', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('phone', TelType::class)
         ;
     }
 

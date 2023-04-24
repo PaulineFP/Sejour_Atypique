@@ -105,14 +105,14 @@ body {
 .formGroup{
     position: relative;
     display: flex; 
-    margin-bottom: 10px;
+    margin-top: 10px;
     label{
         position: absolute;
-        top: 50%;
+        // top: 50%;
         transform: translateY(-50%);
         font-size: 16px;
-        transition: 0.4s ease-out;
-    }
+        transition: 0.4s ease-out; 
+    } 
     &.top-0{top: 0 !important;} 
     .buttonSub{
         display: block;
@@ -128,7 +128,7 @@ body {
         cursor: pointer;
     }
     &:hover{
-        color: #FFF;
+        color: transparent;
         background-position: 100%;
         border: 3px solid #fff;
     }
