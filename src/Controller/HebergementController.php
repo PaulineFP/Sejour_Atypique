@@ -72,6 +72,9 @@ class HebergementController extends AbstractController
         $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
 
+        
+               
+
 
         if ($form->isSubmitted() && $form->isValid()){
             //dump($hebergement);die;
@@ -81,9 +84,29 @@ class HebergementController extends AbstractController
             
             $reservation->setUsers($user);
             $reservation->setHebergement($hebergement);
+
+
+            //Calcul du prix :               
+                $promo_checked = $hebergement->getIsPromotional();
+                $night_nb = $form->getData()->getNightNb();
+
+                if($promo_checked == 1){
+                    $promo = $hebergement->getPromoTotal();
+                    $total = $promo*$night_nb;
+                }else{
+                    $price = $hebergement->getTarif();
+                    $total = $price*$night_nb;
+                }
+                //dd($total);
+            //---------------
+            $reservation->setPrice($total);
             
+
             $entityManager->persist($reservation);
             $entityManager->flush();
+
+         
+
         }    
 
         return $this->render('models/hebergement.html.twig',

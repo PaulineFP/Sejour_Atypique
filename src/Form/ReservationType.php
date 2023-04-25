@@ -26,7 +26,7 @@ class ReservationType extends AbstractType
             ->add('child_nb', NumberType::class)
             ->add('night_nb', NumberType::class)
             ->add('arrived', DateType::class)
-            ->add('price', MoneyType::class)
+            //->add('price', MoneyType::class)
           
             ->add('users', UserType::class, [
                 'data_class' => Users::class

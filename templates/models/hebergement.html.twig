@@ -390,12 +390,10 @@
 							
 							<div class=" flex justify-between"> 
 							<div class=" w-1/3">
-							*<div class="FormGroup">
-							{{ form_label(form.price, 'Total :') }}
-							{{ form_widget(form.price,{'attr': {'class': ''}}) }}		</div>
+							<div class="FormGroup">
 							
-								{# <div class="font-semibold">Total :</div>
-								<div class="text-red font-semibold" class="form_price">{{hebergement.promoTotal}}	€</div> #}
+								<div class="font-semibold">Prix d'une nuit :</div>
+								<div class="text-red font-semibold" class="form_price">{{hebergement.promoTotal}}	€</div>
 							
 							<div class="formGroup">
 									{{ form_label(form.reference, 'Ref :') }}
