@@ -20,7 +20,7 @@ class ReservationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('reference', TextType::class )
+            //->add('reference', TextType::class )
             ->add('created_at', DateType::class)
             ->add('person_nb', NumberType::class)
             ->add('child_nb', NumberType::class)

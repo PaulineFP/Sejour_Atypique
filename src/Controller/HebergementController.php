@@ -12,6 +12,7 @@ use App\Form\ReservationType;
 use App\Repository\HebergementRepository;
 use App\Repository\CategoriesRepository;
 use App\Repository\CountriesRepository;
+use Symfony\Component\String\ByteString;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -97,16 +98,15 @@ class HebergementController extends AbstractController
                     $price = $hebergement->getTarif();
                     $total = $price*$night_nb;
                 }
-                //dd($total);
             //---------------
             $reservation->setPrice($total);
             
+            //Générer une référence automatiquement
+            $ref = ByteString::fromRandom(8)->toString();
+            $reservation->setReference($ref);
 
             $entityManager->persist($reservation);
             $entityManager->flush();
-
-         
-
         }    
 
         return $this->render('models/hebergement.html.twig',
