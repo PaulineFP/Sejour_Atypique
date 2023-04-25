@@ -80,11 +80,13 @@ class HebergementController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()){
             //dump($hebergement);die;
             $user = $form->getData()->getUsers();
-            //dd($form->getData()->getUsers());
             $entityManager->persist($user);
             
             $reservation->setUsers($user);
             $reservation->setHebergement($hebergement);
+            //Récupérer la date du jour
+            $reservation->setCreatedAt(new \DateTime('now'));
+            
 
 
             //Calcul du prix :               
