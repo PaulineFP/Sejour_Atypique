@@ -6,10 +6,13 @@ use App\Entity\Hebergement;
 use App\Entity\Categories;
 use App\Entity\Countries;
 use App\Entity\Department;
+use App\Entity\Reservations;
+use App\Entity\Users;
 use App\Form\ReservationType;
 use App\Repository\HebergementRepository;
 use App\Repository\CategoriesRepository;
 use App\Repository\CountriesRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -62,12 +65,25 @@ class HebergementController extends AbstractController
       /**
      * @Route("/hebergement/{id}", name="show_herbergement")
      */
-    public function show(Hebergement $hebergement, Request $request){         
+    public function show(Hebergement $hebergement, Request $request, EntityManagerInterface $entityManager){         
         
-        $form = $this->createForm(ReservationType::class);
+        $reservation = new Reservations();
+        
+        $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
+
+
         if ($form->isSubmitted() && $form->isValid()){
-            dump($hebergement);die;
+            //dump($hebergement);die;
+            $user = $form->getData()->getUsers();
+            //dd($form->getData()->getUsers());
+            $entityManager->persist($user);
+            
+            $reservation->setUsers($user);
+            $reservation->setHebergement($hebergement);
+            
+            $entityManager->persist($reservation);
+            $entityManager->flush();
         }    
 
         return $this->render('models/hebergement.html.twig',

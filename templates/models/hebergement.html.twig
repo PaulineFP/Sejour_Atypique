@@ -343,21 +343,16 @@
     {{ form_end(form) }} #}
 					 {{ form_start(form) }} 
 							<div class="flex  justify-between pt-4">
-							<div class="formGroup w-2/5">	
-								{# Trouver un tuto #}
-								{# https://www.youtube.com/watch?v=eaodLB1zWdU #}
-								{# https://www.youtube.com/watch?v=f7tdb30evUk #}
-								{{ form_label(form.users.name, 'Nom') }}
-								{{ form_widget(form.users.name) }}			 				
-							</div>
+								<div class="formGroup w-2/5">	
+									{{ form_label(form.users.name, 'Nom') }}
+									{{ form_widget(form.users.name) }}			 				
+								</div>
 
-							<div class="formGroup w-2/5">
-								{{ form_label(form.users.username, 'Prénom') }}
-								{{ form_widget(form.users.username) }}						
+								<div class="formGroup w-2/5">
+									{{ form_label(form.users.username, 'Prénom') }}
+									{{ form_widget(form.users.username) }}						
+								</div>
 							</div>
-							</div>
-							
-							
 
 							<div class="formGroup">
 								{{ form_label(form.users.email, 'Email') }}
@@ -367,8 +362,6 @@
 								{{ form_label(form.users.phone, 'Téléphone') }}
 								{{ form_widget(form.users.phone) }}														
 							</div>
-
-		
 
 							<div class="flex  justify-between ">
 							<div class="formGroup w-2/5">
