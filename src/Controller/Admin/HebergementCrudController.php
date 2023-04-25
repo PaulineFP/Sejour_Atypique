@@ -87,7 +87,9 @@ class HebergementCrudController extends AbstractCrudController
                 }),
             BooleanField::new('active', 'Active'),
             TextField::new('surface', 'Surface'),
-            MoneyField::new('tarif', 'Prix')->setCurrency('EUR'),
+            MoneyField::new('tarif', 'Prix')
+                ->setCurrency('EUR')
+                ->setCustomOption('storedAsCents', false),
 
             ImageField::new('image', 'Image de présentation')
                 ->setBasePath(self::HEBERGEMENTS_BASE_PATH)

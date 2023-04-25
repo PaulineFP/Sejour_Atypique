@@ -64,7 +64,9 @@ class ReservationCrudController extends AbstractCrudController
             NumberField::new('child_nb', 'Nombre d\'enfant.s'),
             NumberField::new('night_nb', 'Nombre de nuit.s'),
             DateField::new('arrived', 'Date d\'arrivée'),
-            MoneyField::new('price', 'Montant de la réservation')->setCurrency('EUR')
+            MoneyField::new('price', 'Montant de la réservation')
+                ->setCurrency('EUR')
+                ->setCustomOption('storedAsCents', false)
         ];
     }
 }

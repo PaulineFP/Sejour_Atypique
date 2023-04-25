@@ -42,7 +42,9 @@ class OrderCrudController extends AbstractCrudController
             EmailField::new('email', 'E-mail'),
             TextField::new('adress', 'Adresse'),
             TextField::new('order_info', 'Informations de commande'),
-            MoneyField::new('price', 'Prix Total')->setCurrency('EUR'),
+            MoneyField::new('price', 'Prix Total')
+                ->setCurrency('EUR')
+                ->setCustomOption('storedAsCents', false),
             IdField::new('id_panier', 'Id du panier'),
             IdField::new('id_payment', 'Id de payement'),
             BooleanField::new('treated', 'Traitée')
