@@ -15,8 +15,9 @@ module.exports = {
           'green_pine' : '#1C6758',
           'brown_light' : '#EFFCEF'
         },
+       
       },
     },
-    plugins: [],
+    plugins: [ ],
   }
   

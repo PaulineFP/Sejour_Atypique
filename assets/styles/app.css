@@ -1,6 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+  @font-face {
+    font-family: Tan_Pearl;
+    src: url("./fonts/tan_pearl/TAN-PEARL.otf");
+    src: url(./fonts/tan_pearl/TAN-PEARL.woff) format("woff");
+  }
+  .TanPearl {
+    font-family: "Tan_Pearl";
+  }
+}
 body {
   background-color: #efefef;
   overflow-x: hidden;

@@ -73,10 +73,6 @@ class HebergementController extends AbstractController
         $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
 
-        
-               
-
-
         if ($form->isSubmitted() && $form->isValid()){
 
             $user = $form->getData()->getUsers();
@@ -99,7 +95,7 @@ class HebergementController extends AbstractController
                     $total = $price*$night_nb;
                 }
             //---------------
-            
+
             $reservation->setPrice($total);
             
             //Générer une référence automatiquement
@@ -114,7 +110,7 @@ class HebergementController extends AbstractController
         [
             'hebergement' => $hebergement ,
             'form' => $form->createView(),
-                
+            redirectToRoute("cart_add")
         ]);
     } 
       /**

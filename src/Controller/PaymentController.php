@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Controller\StripeController;
 use App\Entity\Hebergement;
+use App\Entity\Reservations;
 use App\Repository\HebergementRepository;
 use PhpParser\Node\Stmt\If_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -47,10 +48,10 @@ class PaymentController extends AbstractController
     /**
      * @Route("/add/{id}", name="cart_add")
      */
-    public function add(Hebergement $hebergement, SessionInterface $session){
+    public function add(Reservations $reservation, SessionInterface $session){
         //On récupère le panier actuel
         $panier = $session->get("panier", []);
-        $id = $hebergement->getId();
+        $id = $reservation->getHebergement();
 
         if(!empty($panier[$id])){
             $panier[$id]++;
