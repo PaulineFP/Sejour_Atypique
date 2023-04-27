@@ -3,43 +3,29 @@
 @tailwind utilities;
 @layer base {
   @font-face {
-    font-family: dancing_SB;
-    src: url("./fonts/dancing_script/DancingScript-SemiBold.ttf");
+    font-family: Tan_Pearl;
+    src: url("./fonts/tan_pearl/TAN-PEARL.otf");
+    src: url(./fonts/tan_pearl/TAN-PEARL.woff) format("woff");
   }
-  @font-face {
-    font-family: dancing_B;
-    src: url("./fonts/dancing_script/DancingScript-Bold.ttf");
-  }
-  @font-face {
-    font-family: dancing_R;
-    src: url("./fonts/dancing_script/DancingScript-Regular.ttf");
-  }
-  @font-face {
-    font-family: dancing_M;
-    src: url("./fonts/dancing_script/DancingScript-Medium.ttf");
-  }
-  body {
-    background-color: #efefef;
-    overflow-x: hidden;
-  }
-  .navbar1 li a, .navbar1 select, .navbar1 select option, .navbar2 li a, .navbar2 select, .navbar2 select option {
-    font-size: 1rem;
-  }
-  .navbar1 select, .navbar2 select {
-    font-weight: 600;
-  }
-  .navbar1 option, .navbar2 option {
-    font-weight: 200;
-  }
-  .TestFont, h2 {
-    font-family: "dancing_B";
-    font-size: 3rem;
-    color: #069669;
-  }
-  .logo {
-    width: 300px;
+  .TestFont {
+    font-family: "Tan_Pearl";
   }
 }
+body {
+  background-color: #efefef;
+  overflow-x: hidden;
+}
+
+.navbar1 li a, .navbar1 select, .navbar1 select option, .navbar2 li a, .navbar2 select, .navbar2 select option {
+  font-size: 1rem;
+}
+.navbar1 select, .navbar2 select {
+  font-weight: 600;
+}
+.navbar1 option, .navbar2 option {
+  font-weight: 200;
+}
+
 .header_home {
   height: 100%;
 }
