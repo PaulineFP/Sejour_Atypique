@@ -110,7 +110,7 @@ class HebergementController extends AbstractController
         [
             'hebergement' => $hebergement ,
             'form' => $form->createView(),
-            redirectToRoute("cart_add")
+            // redirectToRoute("cart_add")
         ]);
     } 
       /**

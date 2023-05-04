@@ -138,15 +138,16 @@ body {
   height: min-content;
 }
 
-#home_category {
+/* #home_category {
   min-height: 690px;
-}
-#home_category .fond-cat {
+} */  
+/* #home_category .fond-cat {
   background: url("/public/IMG/fond-cat.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-}
-#home_category .category_link {
+} */  
+ 
+.category_link {
   background: rgba(230, 250, 248, 0.5);
 }
 

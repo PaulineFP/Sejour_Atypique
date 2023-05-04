@@ -21,6 +21,7 @@
   body {
     background-color: #efefef;
     overflow-x: hidden;
+    font-family: "Noto Sans JP", sans-serif;
   }
   .navbar1 li a, .navbar1 select, .navbar1 select option, .navbar2 li a, .navbar2 select, .navbar2 select option {
     font-size: 1rem;
@@ -31,13 +32,19 @@
   .navbar1 option, .navbar2 option {
     font-weight: 200;
   }
+  .rubic {
+    font-family: rubic;
+  }
   .TestFont, h2 {
     font-family: "dancing_B";
     font-size: 3rem;
     color: #069669;
   }
-  .logo {
-    width: 300px;
+  .dancing {
+    font-family: "dancing_B";
+  }
+  .logo_150 {
+    width: 150px;
   }
 }
 .header_home {
@@ -248,4 +255,9 @@
 
 .formBloc:last-child {
   justify-content: center;
+}
+
+footer {
+  color: #FFF;
+  background-color: #444941;
 }/*# sourceMappingURL=app.css.map */
