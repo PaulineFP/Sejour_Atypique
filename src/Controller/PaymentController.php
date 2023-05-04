@@ -6,6 +6,7 @@ use App\Controller\StripeController;
 use App\Entity\Hebergement;
 use App\Entity\Reservations;
 use App\Repository\HebergementRepository;
+use App\Repository\PanierRepository;
 use PhpParser\Node\Stmt\If_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,8 +21,8 @@ class PaymentController extends AbstractController
    /**
      *@Route("/reservations", name="cart_index")
      */
-    public function index(SessionInterface $session, HebergementRepository $hebergementRepository){
-        $panier = $session->get("panier", []);
+    public function index(PanierRepository $panierRepo, HebergementRepository $hebergementRepository){
+        $panier = $panierRepo;
      
         // dd($panierId);
 

@@ -1,10 +1,16 @@
 {% if Home_page is defined%}
 <header class=" mb-12 flex flex-col  overflow-hidden h-screen" >
     {% include 'partials/navbar.html.twig'%}    
-    <div class ='flex justify-center items-center relative  h-full'>
-        <div class="relative {{ class_header }} w-full">
-            <img src="{{header_scr}}" alt="{{title_h1}}" class="w-full object-none object-center relative  order-2 -z-2">
-            <div class =" h-full bg-black opacity-20 w-full relative order-1 -z-1"></div> 
+    <div class ='relative h-full '>
+        <div class="relative {{ class_header }} w-full flex ">
+            <div class="h-full flex order-2 w-full relative z-0">
+                {# <div class="h-full bg-black opacity-50 order-1 w-full absolute z-10"></div> #}
+                <img src="{{header_scr}}" alt="{{title_h1}}" class="w-full object-none object-center relative order-2 z-0">
+            </div>
+       
+            {# <div class="h-full order-1 w-full flex justify-center absolute items-center z-10">
+                <img src="{{ asset('IMG/logo-transpa.png') }}" class="" alt="">
+            </div> #}
         </div>
        
         {# <h1 class="font-bold text-white text-4xl opacity-1 absolute z-1">{{ title_h1 }}</h1>        #}
