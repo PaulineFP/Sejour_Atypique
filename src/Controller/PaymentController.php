@@ -43,27 +43,7 @@ class PaymentController extends AbstractController
     }
 
     //Tuto panier : https://www.youtube.com/watch?v=__CdqAy1xMg&t=473s
-   
 
-    /**
-     * @Route("/add/{id}", name="cart_add")
-     */
-    public function add(Reservations $reservation, SessionInterface $session){
-        //On récupère le panier actuel
-        $panier = $session->get("panier", []);
-        $id = $reservation->getHebergement();
-
-        if(!empty($panier[$id])){
-            $panier[$id]++;
-        }else{
-            $panier[$id] = 1;
-        }
-
-        //On sauvegarde dans la session
-        $session->set("panier", $panier);
-        
-        return $this->redirectToRoute("cart_index");
-    }
 
     /**
      * @Route("/remove/{id}", name="cart_remove")

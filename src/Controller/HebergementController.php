@@ -6,6 +6,7 @@ use App\Entity\Hebergement;
 use App\Entity\Categories;
 use App\Entity\Countries;
 use App\Entity\Department;
+use App\Entity\Panier;
 use App\Entity\Reservations;
 use App\Entity\Users;
 use App\Form\ReservationType;
@@ -20,6 +21,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class HebergementController extends AbstractController
 {
@@ -66,7 +68,7 @@ class HebergementController extends AbstractController
       /**
      * @Route("/hebergement/{id}", name="show_herbergement")
      */
-    public function show(Hebergement $hebergement, Request $request, EntityManagerInterface $entityManager){         
+    public function show(Hebergement $hebergement, Request $request, EntityManagerInterface $entityManager, SessionInterface $session){         
         
         $reservation = new Reservations();
         
@@ -103,14 +105,32 @@ class HebergementController extends AbstractController
             $reservation->setReference($ref);
 
             $entityManager->persist($reservation);
+
+            $panier = new Panier();
+            $panier->addReservation($reservation);
+
+            //Je stock la session en guise de référence de panier
+            $panier_ref = $session->get("panier_ref", []);
+ 
+            if(empty($panier_ref)){
+                $panier_ref[] = uniqid();
+            }
+    
+            //On sauvegarde la session de référence dans la BDD
+            $panier->setRefPanier($panier_ref);
+
+
+            $entityManager->persist($panier);
+
             $entityManager->flush();
+            $this->redirectToRoute("cart_add");
+
         }    
 
         return $this->render('models/hebergement.html.twig',
         [
             'hebergement' => $hebergement ,
             'form' => $form->createView(),
-            // redirectToRoute("cart_add")
         ]);
     } 
       /**

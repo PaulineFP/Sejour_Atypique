@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ReservationsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -63,6 +65,11 @@ class Reservations
      * @ORM\JoinColumn(nullable=false)
      */
     private $users;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Panier::class, inversedBy="reservations")
+     */
+    private $panier;
 
     public function getId(): ?int
     {
@@ -176,4 +183,18 @@ class Reservations
 
         return $this;
     }
+
+    public function getPanier(): ?Panier
+    {
+        return $this->panier;
+    }
+
+    public function setPanier(?Panier $panier): self
+    {
+        $this->panier = $panier;
+
+        return $this;
+    }
+
+    
 }
