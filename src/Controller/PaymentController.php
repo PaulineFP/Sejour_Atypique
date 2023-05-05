@@ -23,64 +23,13 @@ class PaymentController extends AbstractController
      */
     public function index(PanierRepository $panierRepo, HebergementRepository $hebergementRepository, SessionInterface $session){
         
-        //je dois recuperer tout les paniers le ref de la session $panier_ref
+       
         $panier_ref = $session->get("panier_ref", '');
         $paniers = $panierRepo->findBy(['RefPanier' => $panier_ref]);
-        // dd($paniers);
-           //On "fabrique" les données      
-         //  $dataPanier = [];
-   
-        //    //puis parcourir le tableau pour chaque panier ($panierRepo) avec une boucle
-        //    foreach($paniers as $panier){
-        //        //dans dataPanier faire un findBy avec les meme paramettre que pour findoneby
-        //        //une fois que j'ai un panier je fait un get reservation
-        //        $liste = $panier->getReservations();
-        //        foreach($liste as $reservation){
-        //         $reservation->getHebergement()->getTitle();
-        //         $reservation->getPrice();
-        //         $reservation->getNightNb();
-        //        }
-            
-        //      } 
-
-        // foreach($panier as $id => $quantite){
-        //     $hebergement = $hebergementRepository->find($id);
-        //     $dataPanier[] = [
-        //         "hebergement" => $hebergement,
-        //         "quantite" => $quantite
-        //     ];
-        //     //Ne pas oublier par la suite : nombre de personne; nombre de nuit, types de services et les promotions/réductions
-        //     $total += $hebergement->getTarif() * $quantite;
-        // }
         
         return $this->render('payment/index.html.twig', [
             "paniers" => $paniers
         ]);
-    }
-
-    //Tuto panier : https://www.youtube.com/watch?v=__CdqAy1xMg&t=473s
-
-
-    /**
-     * @Route("/remove/{id}", name="cart_remove")
-     */
-    public function remove(Hebergement $hebergement, SessionInterface $session){
-        //On récupère le panier actuel
-        $panier = $session->get("panier", []);
-        $id = $hebergement->getId();
-
-        if(!empty($panier[$id])){
-            if($panier[$id] > 1){
-                $panier[$id]--;
-            }else{
-                unset($panier[$id]);
-            }
-        }
-
-        //On sauvegarde dans la session
-        $session->set("panier", $panier);
-        
-        return $this->redirectToRoute("cart_index");
     }
 
         /**
