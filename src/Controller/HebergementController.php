@@ -13,6 +13,7 @@ use App\Form\ReservationType;
 use App\Repository\HebergementRepository;
 use App\Repository\CategoriesRepository;
 use App\Repository\CountriesRepository;
+use App\Repository\PanierRepository;
 use Symfony\Component\String\ByteString;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
@@ -68,7 +69,7 @@ class HebergementController extends AbstractController
       /**
      * @Route("/hebergement/{id}", name="show_herbergement")
      */
-    public function show(Hebergement $hebergement, Request $request, EntityManagerInterface $entityManager, SessionInterface $session){         
+    public function show(Hebergement $hebergement, Request $request, EntityManagerInterface $entityManager, SessionInterface $session, PanierRepository $panierRepo){         
         
         $reservation = new Reservations();
         
@@ -106,24 +107,27 @@ class HebergementController extends AbstractController
 
             $entityManager->persist($reservation);
 
-            $panier = new Panier();
-            $panier->addReservation($reservation);
-
             //Je stock la session en guise de référence de panier
-            $panier_ref = $session->get("panier_ref", []);
- 
+            $panier_ref = $session->get("panier_ref", '');
+            // dd($panier_ref);
+            
             if(empty($panier_ref)){
-                $panier_ref[] = uniqid();
-            }
+                $panier_ref = uniqid();
+                $session->set("panier_ref", $panier_ref);
+            }else{
+                $panier = $panierRepo->findOneBy(["RefPanier" => $panier_ref]);
+                $panier_ref = $panier->getRefPanier();
+            }  
+
+            $panier = new Panier();
+            $panier->addReservation($reservation);          
     
             //On sauvegarde la session de référence dans la BDD
             $panier->setRefPanier($panier_ref);
-
-
             $entityManager->persist($panier);
-
             $entityManager->flush();
-            $this->redirectToRoute("cart_add");
+
+            return $this->redirectToRoute("cart_index");
 
         }    
 

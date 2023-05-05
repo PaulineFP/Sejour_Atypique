@@ -23,10 +23,14 @@ class PaymentController extends AbstractController
      */
     public function index(PanierRepository $panierRepo, HebergementRepository $hebergementRepository){
         $panier = $panierRepo;
-     
-        // dd($panierId);
-
+        //je dois recuperer tout les paniers le ref de la session $panier_ref
+        //dans dataPanier faire un findBy avec les meme paramettre que pour findoneby
+        //boucle
+        //puis parcourir le tableau pour chaque panier ($panierRepo)
+        //une fois que j'ai un panier je fait un get reservation
+       
         //On "fabrique" les données
+        
         $dataPanier = [];
         $total = 0;
 
