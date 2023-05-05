@@ -21,30 +21,41 @@ class PaymentController extends AbstractController
    /**
      *@Route("/reservations", name="cart_index")
      */
-    public function index(PanierRepository $panierRepo, HebergementRepository $hebergementRepository){
-        $panier = $panierRepo;
+    public function index(PanierRepository $panierRepo, HebergementRepository $hebergementRepository, SessionInterface $session){
+        
         //je dois recuperer tout les paniers le ref de la session $panier_ref
-        //dans dataPanier faire un findBy avec les meme paramettre que pour findoneby
-        //boucle
-        //puis parcourir le tableau pour chaque panier ($panierRepo)
-        //une fois que j'ai un panier je fait un get reservation
-       
-        //On "fabrique" les données
-        
-        $dataPanier = [];
-        $total = 0;
+        $panier_ref = $session->get("panier_ref", '');
+        $paniers = $panierRepo->findBy(['RefPanier' => $panier_ref]);
+        // dd($paniers);
+           //On "fabrique" les données      
+         //  $dataPanier = [];
+   
+        //    //puis parcourir le tableau pour chaque panier ($panierRepo) avec une boucle
+        //    foreach($paniers as $panier){
+        //        //dans dataPanier faire un findBy avec les meme paramettre que pour findoneby
+        //        //une fois que j'ai un panier je fait un get reservation
+        //        $liste = $panier->getReservations();
+        //        foreach($liste as $reservation){
+        //         $reservation->getHebergement()->getTitle();
+        //         $reservation->getPrice();
+        //         $reservation->getNightNb();
+        //        }
+            
+        //      } 
 
-        foreach($panier as $id => $quantite){
-            $hebergement = $hebergementRepository->find($id);
-            $dataPanier[] = [
-                "hebergement" => $hebergement,
-                "quantite" => $quantite
-            ];
-            //Ne pas oublier par la suite : nombre de personne; nombre de nuit, types de services et les promotions/réductions
-            $total += $hebergement->getTarif() * $quantite;
-        }
+        // foreach($panier as $id => $quantite){
+        //     $hebergement = $hebergementRepository->find($id);
+        //     $dataPanier[] = [
+        //         "hebergement" => $hebergement,
+        //         "quantite" => $quantite
+        //     ];
+        //     //Ne pas oublier par la suite : nombre de personne; nombre de nuit, types de services et les promotions/réductions
+        //     $total += $hebergement->getTarif() * $quantite;
+        // }
         
-        return $this->render('payment/index.html.twig', compact("dataPanier", "total"));
+        return $this->render('payment/index.html.twig', [
+            "paniers" => $paniers
+        ]);
     }
 
     //Tuto panier : https://www.youtube.com/watch?v=__CdqAy1xMg&t=473s
