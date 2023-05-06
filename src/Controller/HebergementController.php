@@ -110,14 +110,16 @@ class HebergementController extends AbstractController
             //Je stock la session en guise de référence de panier
             $panier_ref = $session->get("panier_ref", '');
             // dd($panier_ref);
-            
-            if(empty($panier_ref)){
+            //Ne fonctionne pas si pannier est vide car il trouve pas le numero de session dans la bdd. donc pour un article ca beug
+             if(empty($panier_ref)){
                 $panier_ref = uniqid();
                 $session->set("panier_ref", $panier_ref);
             }else{
                 $panier = $panierRepo->findOneBy(["RefPanier" => $panier_ref]);
                 $panier_ref = $panier->getRefPanier();
-            }  
+            } 
+
+          
 
             $panier = new Panier();
             $panier->addReservation($reservation);          

@@ -26,7 +26,7 @@ class PaymentController extends AbstractController
        
         $panier_ref = $session->get("panier_ref", '');
         $paniers = $panierRepo->findBy(['RefPanier' => $panier_ref]);
-        
+        // dd($paniers);
         return $this->render('payment/index.html.twig', [
             "paniers" => $paniers
         ]);
