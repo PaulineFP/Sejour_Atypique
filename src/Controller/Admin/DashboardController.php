@@ -10,9 +10,10 @@ use App\Entity\Hebergement;
 use App\Entity\Media;
 use App\Entity\Peculiarity;
 use App\Entity\Order;
+use App\Entity\Panier;
 use App\Entity\Users;
 use App\Entity\Reservations;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Crud; 
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -29,16 +30,16 @@ class DashboardController extends AbstractDashboardController
         $this->adminUrlGenerator = $adminUrlGenerator;
     }
 
-     /**
+    /**
      * @Route("/_ad-.", name="admin")
      */
     public function index(): Response
     {
-        $url = $this->adminUrlGenerator 
-        ->setController(HebergementCrudController::class)
-        ->generateUrl();
+        $url = $this->adminUrlGenerator
+            ->setController(HebergementCrudController::class)
+            ->generateUrl();
 
-    return $this->redirect($url);
+        return $this->redirect($url);
     }
 
     public function configureDashboard(): Dashboard
@@ -51,30 +52,30 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::section('Gestion hébergements');
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud( 'Ajouter un hebergement', 'fas fa-plus', Hebergement::class)
-            ->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Ajouter un hebergement', 'fas fa-plus', Hebergement::class)
+                ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Afficher les hebergements', 'fas fa-eye', Hebergement::class)
         ]);
 
         yield MenuItem::section('Gestion des médias');
-        yield MenuItem::subMenu('Actions' ,'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud( 'Ajouter une image ', 'fas fa-plus', Media::class)
-            ->setAction(Crud::PAGE_NEW),
+        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Ajouter une image ', 'fas fa-plus', Media::class)
+                ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Afficher les médias', 'fas fa-eye', Media::class)
         ]);
 
-        
+
         yield MenuItem::section('Gestion catégories');
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Crée une categorie', 'fas fa-plus', Categories::class)
-            ->setAction(Crud::PAGE_NEW),
+                ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Afficher les categories', 'fas fa-eye', Categories::class)
         ]);
 
         yield MenuItem::section('Gestion particularités');
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Ajouté une particularité', 'fas fa-plus', Peculiarity::class)
-            ->setAction(Crud::PAGE_NEW),
+                ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Afficher les particularités', 'fas fa-eye', Peculiarity::class)
         ]);
 
@@ -88,35 +89,40 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Gestion régions');
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Ajouter une région', 'fas fa-plus', Countries::class)
-            ->setAction(Crud::PAGE_NEW),
+                ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Afficher les régions', 'fas fa-eye', Countries::class)
         ]);
 
         yield MenuItem::section('Gestion départements');
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Ajouter un département', 'fas fa-plus', Department::class)
-            ->setAction(Crud::PAGE_NEW),
+                ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Afficher les départements', 'fas fa-eye', Department::class)
         ]);
 
         yield MenuItem::section('Traitement des commandes');
-        yield MenuItem::linkToCrud('Afficher les commandes', 'fas fa-eye', Order::class);       ;
-    
+        yield MenuItem::linkToCrud('Afficher les commandes', 'fas fa-eye', Order::class);;
 
-    
-        yield MenuItem::section('Gestion clients');  
-        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([ 
+
+
+        yield MenuItem::section('Gestion clients');
+        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Ajouter un client', 'fas fa-plus', Users::class)
-            ->setAction(Crud::PAGE_NEW),       
-             MenuItem::linkToCrud('Afficher les clients', 'fas fa-eye', Users::class)
-         ]);
+                ->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Afficher les clients', 'fas fa-eye', Users::class)
+        ]);
 
-         
-        yield MenuItem::section('Gestion réservations');  
-        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([ 
+
+        yield MenuItem::section('Gestion réservations');
+        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Ajouter une réservation', 'fas fa-plus', Reservations::class)
-            ->setAction(Crud::PAGE_NEW),       
-             MenuItem::linkToCrud('Afficher les réservations', 'fas fa-eye', Reservations::class)
-         ]);
+                ->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Afficher les réservations', 'fas fa-eye', Reservations::class)
+        ]);
+
+        yield MenuItem::section('Gestion paniers');
+        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Afficher les paniers', 'fas fa-eye', Panier::class)
+        ]);
     }
 }
