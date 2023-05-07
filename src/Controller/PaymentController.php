@@ -3,27 +3,27 @@
 namespace App\Controller;
 
 use App\Controller\StripeController;
-use App\Entity\Hebergement;
 use App\Entity\Reservations;
 use App\Repository\HebergementRepository;
 use App\Repository\PanierRepository;
-use PhpParser\Node\Stmt\If_;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
-   
+
+
 class PaymentController extends AbstractController
 {
 
-   /**
+    /**
      *@Route("/reservations", name="cart_index")
      */
-    public function index(PanierRepository $panierRepo, HebergementRepository $hebergementRepository, SessionInterface $session){
-        
-       
+    public function index(PanierRepository $panierRepo, HebergementRepository $hebergementRepository, SessionInterface $session)
+    {
         $panier_ref = $session->get("panier_ref", '');
         $paniers = $panierRepo->findBy(['RefPanier' => $panier_ref]);
         // dd($paniers);
@@ -32,47 +32,52 @@ class PaymentController extends AbstractController
         ]);
     }
 
-        /**
-     * @Route("/delete/{id}", name="cart_delete")
+    /**
+     * @Route("delete/{id}", name="cart_delete")
+     * @param Reservations $reservations
+     * @return RedirectResponse
      */
-    public function delete(Hebergement $hebergement, SessionInterface $session){
-        //On récupère le panier actuel
-        $panier = $session->get("panier", []);
-        $id = $hebergement->getId();
+    public function delete(Reservations $reservations, ManagerRegistry $doctrine): RedirectResponse
+    {
+        $em = $this->$doctrine->getManager();
+        $em->remove($reservations);
+        $em->flush();
 
-        if(!empty($panier[$id])){
-          unset($panier[$id]);          
-        }
 
-        //On sauvegarde dans la session
-        $session->set("panier", $panier);
-        
         return $this->redirectToRoute("cart_index");
     }
 
-            /**
+    /**
      * @Route("/delete", name="cart_delete_all")
      */
-    public function deleteAll(SessionInterface $session){                
-        $session->remove("panier", []);        
+    public function deleteAll(SessionInterface $session)
+    {
+        $session->remove("panier", []);
         return $this->redirectToRoute("cart_index");
     }
 
 
-     /**
-     * @Route("/payment", name="payment")
+    /**
+     * @Route("/payment", name="cart_payment")
      */
-    public function payment(SessionInterface $session, StripeController $payment){
+    public function payment(SessionInterface $session, StripeController $payment, PanierRepository $panierRepo)
+    {
         require '../vendor/autoload.php';
-        //On récupère le panier actuel
-        $panier = $session->get("panier", []);
+        //TEST  
+        // Je récupère les informations du panier en BDD de la session en cours
+        // $panier_ref = $session->get("panier_ref", '');
+        // $paniers = $panierRepo->findBy(['RefPanier' => $panier_ref]);
+        //J'initialise Stripe
         $payment = new StripeController();
 
-    //sinon tu peux mettres ton panier sous forme JSON, et enregistrer ca dans un champ de ton entité order
-        //$save_panier = $panier;
 
-        return $this->redirectToRoute("stripe_start", $panier);
-          
+        //calculer le total de chaque reservation
+
+        return $this->redirectToRoute("stripe_start");
+        // return $this->render('/operation-payement', [
+        //     "paniers" => $paniers,
+        //     "payment" => $payment
+        // ]);
     }
 
     // /**
