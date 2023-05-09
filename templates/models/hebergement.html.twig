@@ -7,7 +7,7 @@
 	<header class="">
 		{# Faire un header spéciale pour recuperer l'imge de la bdd #}
 		{# {% set class_header = 'header_home text-rose-700 h-screen' %}
-		    {% include 'models/header.html.twig'%} #}
+																																						    {% include 'models/header.html.twig'%} #}
 	{% include 'partials/navbar.html.twig'%}
 	</header>
 		<section class=""> <div class="relative hebergement_presentation w-full overflow-hidden flex">
@@ -27,120 +27,126 @@
 	</div>
 	<section id="presentation" class="w-11/12 mx-auto">
 		<section class="flex justify-around">
-            <div class=" w-4/6">
-            <div class="flex justify-between items-center relative ">
-				<div class="mr-8 flex flex-col justify-around border-b-2 border-green-600 relative w-full">
-					<h2 class=" text-5xl mb-3">{{hebergement.title}}</h2>
-					<p class="text-base mb-5">{{hebergement.lieux}}</p>
-				</div>
-				<div class="border-2 border-green-600 rounded-full absolute right-0 p-8 bg-white h-36 flex items-center text-center">
-					{% if hebergement.isPromotional == true %}
-						<div class="flex-col">
-							<div class=" font-semibold ">
-								{{hebergement.promoTotal}}
-								€
-							</div>
-
-							<div class=" line-through text-red-600 text-base ">
-								{{hebergement.tarif}}
-								€
-							</div>
-							<div class="text-red-600 text-lg font-semibold">
-								-
-								{{hebergement.promotion}}
-								%
-							</div>
-						</div>
-					{% else %}
-						<div class=''>{{hebergement.tarif}}</div>
-					{% endif %}
-				</div>
-
-			</div>
-            <div class="grid grid-rows-1 grid-flow-col gap-4 text-center mt-4">
-				{% for  particularite in  hebergement.relationParticularite %}
-					<div class ="flex flex-col items-center text-green-600 my-4">
-						<div class="mr-2 text-2xl ">
-							<i class='{{particularite.icon}}'></i>
-						</div>
-						<div>{{particularite.name}}</div>
+			<div class=" w-4/6">
+				<div class="flex justify-between items-center relative ">
+					<div class="mr-8 flex flex-col justify-around border-b-2 border-green-600 relative w-full">
+						<h2 class=" text-5xl mb-3">{{hebergement.title}}</h2>
+						<p class="text-base mb-5">{{hebergement.lieux}}</p>
 					</div>
-				{% endfor %}
+					<div class="border-2 border-green-600 rounded-full absolute right-0 p-8 bg-white h-36 flex items-center text-center">
+						{% if hebergement.isPromotional == true %}
+							<div class="flex-col">
+								<div class=" font-semibold ">
+									{{hebergement.promoTotal}}
+									€
+								</div>
 
-			</div>
-            <div class="flex flex-col">
-                <div class=" flex justify-between items-center mb-8s">
-                    <div class="text-3xl dancing font-semibold">Présentation</div>
-                    <div class="text-base font-semibold">
-                    surface du logement : {{hebergement.surface}}
-                    </div>
-                </div>
-                <div class="text-base">
-                    {{hebergement.description | raw}}
-                </div>
-                <div class="text-lg flex items-center uppercase text-green-600">
-                    1 réservation = 
-                    <img src="{{ asset('IMG/arbre.png') }}" alt="protection nature" class=" mx-2 w-16"> 
-                    1 arbre planté
-                </div>
-            </div>
-			<section id="equipement" class=" my-12 mx-auto flex flex-col justify-center items-center bg-brown_light w-max p-16">
-		<div class=" pb-16">
-			<div class=" text-3xl dancing font-semibold border-b-2 border-green_pine">Equipements du logement :</div>
-		</div>
-			
-			<div class="grid  grid-rows-2 grid-flow-col gap-8 bg-white p-8 mb-8 shadow-md">
-				{% for equipment in hebergement.hebergementEquipment %}
-					<div class="flex flex-col justify-center items-center ">
-						<div class=" w-32"><img src="{{ uploaded_asset(equipment.imagePath) }}" alt="{{equipment.name}}"></div>
-						<p>{{equipment.name}}</p>
+								<div class=" line-through text-red-600 text-base ">
+									{{hebergement.tarif}}
+									€
+								</div>
+								<div class="text-red-600 text-lg font-semibold">
+									-
+									{{hebergement.promotion}}
+									%
+								</div>
+							</div>
+						{% else %}
+							<div class=''>{{hebergement.tarif}}
+								€</div>
+						{% endif %}
 					</div>
-				{% endfor %}
+
+				</div>
+				<div class="grid grid-rows-1 grid-flow-col gap-4 text-center mt-4">
+					{% for  particularite in  hebergement.relationParticularite %}
+						<div class="flex flex-col items-center text-green-600 my-4">
+							<div class="mr-2 text-2xl ">
+								<i class='{{particularite.icon}}'></i>
+							</div>
+							<div>{{particularite.name}}</div>
+						</div>
+					{% endfor %}
+
+				</div>
+				<div class="flex flex-col">
+					<div class=" flex justify-between items-center mb-8s">
+						<div class="text-3xl dancing font-semibold">Présentation</div>
+						<div class="text-base font-semibold">
+							surface du logement :
+							{{hebergement.surface}}
+						</div>
+					</div>
+					<div class="text-base">
+						{{hebergement.description | raw}}
+					</div>
+					<div class="text-lg flex items-center uppercase text-green-600">
+						1 réservation =
+						<img src="{{ asset('IMG/arbre.png') }}" alt="protection nature" class=" mx-2 w-16">
+						1 arbre planté
+					</div>
+				</div>
+				<section id="equipement" class=" my-12 mx-auto flex flex-col justify-center items-center bg-brown_light w-max p-16">
+					<div class=" pb-16">
+						<div class=" text-3xl dancing font-semibold border-b-2 border-green_pine">Equipements du logement :</div>
+					</div>
+
+					<div class="grid  grid-rows-2 grid-flow-col gap-8 bg-white p-8 mb-8 shadow-md">
+						{% for equipment in hebergement.hebergementEquipment %}
+							<div class="flex flex-col justify-center items-center ">
+								<div class=" w-32"><img src="{{ uploaded_asset(equipment.imagePath) }}" alt="{{equipment.name}}"></div>
+								<p>{{equipment.name}}</p>
+							</div>
+						{% endfor %}
+					</div>
+				</section>
 			</div>
-		</section>
-			</div>
-			
+
 			<div class=" w-1/3 px-10">
-				
+
 				<div class="flex flex-col  bg-white border-2 border-green-600 text-center">
 					<div class="py-4 bg-brown_light text-green_pine font-semibold text-3xl dancing">Localisation</div>
-                    <div class="flex flex-col p-6 pt-4">
-                    <div class="font-semibold">{{hebergement.hebergementCountry.name}}</div> 
-					<div class="my-4">
-						{# Intégration map avec leaflette #}
-                        <iframe src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20Sarrebourg+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="300"></iframe>
+					<div class="flex flex-col p-6 pt-4">
+						<div class="font-semibold">{{hebergement.hebergementCountry.name}}</div>
+						<div
+							class="my-4">
+							{# Intégration map avec leaflette #}
+							<iframe src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20Sarrebourg+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="300"></iframe>
+
+						</div>
+						<div class="mb-4">
+							{{hebergement.adress}},
+							<br>
+							{{hebergement.codePostal}}
+							{{hebergement.lieux}}
+						</div>
+						<div
+							class=" items-center  font-semibold  flex  flex-col justify-between">
+
+
+							{# https://www.dropbox.com/s/utqf9airwwvlz2e/Capture8.PNG?dl=0 #}
+
+							<button class="p-4 rounded-lg bg-green-600 text-white flex items-center justify-center w-1/2 mb-4 modal_trigger">
+
+								<i class="fa-solid fa-cart-arrow-down pr-1"></i>
+								<p>Réserver</p>
+							</button>
+							<button class="p-4 rounded-lg bg-brown_light text-green-600 broder-2 border-green-600 flex items-start justify-center w-1/2">
+								<i class="fa-solid fa-gift pr-1 mt-1"></i>
+								<a href="">Offrir une carte cadeau</a>
+							</button>
+
+						</div>
 
 					</div>
-                    <div class="mb-4">
-                    {{hebergement.adress}}, <br>
-                    {{hebergement.codePostal}} {{hebergement.lieux}}
-                    </div>
-                    <div class=" items-center  font-semibold  flex  flex-col justify-between">
-					<p class="text-red-600">"Faire fonctionner le systheme de réservation"</p>
-					
-					{# https://www.dropbox.com/s/utqf9airwwvlz2e/Capture8.PNG?dl=0 #}
-					
-                    <button class="p-4 rounded-lg bg-green-600 text-white flex items-center justify-center w-1/2 mb-4 modal_trigger">
-					
-						<i class="fa-solid fa-cart-arrow-down pr-1"></i>
-						<p>Réserver</p>
-                    </button>
-                    <button class="p-4 rounded-lg bg-brown_light text-green-600 broder-2 border-green-600 flex items-start justify-center w-1/2">
-                    <i class="fa-solid fa-gift pr-1 mt-1"></i>
-                    <a href="">Offrir une carte cadeau</a>
-                    </button>
-                    
-                    </div>
-                    
-                    </div>
-					
+
 				</div>
 			</div>
 		</section>
 
 
 		{# Tuto réservation : https://www.youtube.com/watch?v=rGTKBG7Y2ck #}
-		
+
 
 		<section class=''>
 			<div class='text-3xl dancing font-semibold'>Informations pratiques :</div>
@@ -153,11 +159,11 @@
 						<div class="text-justify">
 							<p class=' font-semibold text-green-600'>Horraire d'arrivée :</p>
 							<p>
-							Nous vous prions de bien vouloir respecter l'heure d'arrivée indiquée dans votre confirmation de réservation. Afin de garantir un accueil personnalisé et de vous offrir une expérience de qualité, nous vous demandons d'arriver à votre lieu de vacances avant l'heure limite fixée. Cette heure d'arrivée est généralement comprise entre 14h et 16h, selon les disponibilités du logement et les horaires de notre équipe d'accueil. Si vous prévoyez d'arriver en dehors de ces horaires, merci de nous en informer à l'avance afin que nous puissions nous organiser pour vous accueillir dans les meilleures conditions.
+								Nous vous prions de bien vouloir respecter l'heure d'arrivée indiquée dans votre confirmation de réservation. Afin de garantir un accueil personnalisé et de vous offrir une expérience de qualité, nous vous demandons d'arriver à votre lieu de vacances avant l'heure limite fixée. Cette heure d'arrivée est généralement comprise entre 14h et 16h, selon les disponibilités du logement et les horaires de notre équipe d'accueil. Si vous prévoyez d'arriver en dehors de ces horaires, merci de nous en informer à l'avance afin que nous puissions nous organiser pour vous accueillir dans les meilleures conditions.
 							</p>
 							<br/>
 							<p>
-							En cas de retard, nous vous prions de nous prévenir au plus tôt afin que nous puissions réorganiser votre accueil et vous remettre les clés de votre logement.
+								En cas de retard, nous vous prions de nous prévenir au plus tôt afin que nous puissions réorganiser votre accueil et vous remettre les clés de votre logement.
 							</p>
 						</div>
 					</div>
@@ -168,21 +174,21 @@
 						<div class="text-justify">
 							<p class=' font-semibold  text-green-600'>Départ :</p>
 							<p>
-							Afin de faciliter votre départ, nous vous prions de bien vouloir prendre note des consignes suivantes :
+								Afin de faciliter votre départ, nous vous prions de bien vouloir prendre note des consignes suivantes :
 							</p>
 							<ul>
-							<li>
-							- Veuillez vérifier que vous avez bien rassemblé toutes vos affaires et que vous n'avez rien oublié dans votre chambre.
-							</li>
-							<li>
-							- Assurez-vous que la cuisine est propre et que tous les appareils électroménagers ont été éteints.							
-							</li>
-							<li>
-							- Veuillez déposer les clés de votre chambre à la réception avant de quitter l'établissement.
-							</li>
-							<li>
-							- Si vous avez des commentaires ou des suggestions à nous faire, n'hésitez pas à nous en faire part.
-							</li>
+								<li>
+									- Veuillez vérifier que vous avez bien rassemblé toutes vos affaires et que vous n'avez rien oublié dans votre chambre.
+								</li>
+								<li>
+									- Assurez-vous que la cuisine est propre et que tous les appareils électroménagers ont été éteints.
+								</li>
+								<li>
+									- Veuillez déposer les clés de votre chambre à la réception avant de quitter l'établissement.
+								</li>
+								<li>
+									- Si vous avez des commentaires ou des suggestions à nous faire, n'hésitez pas à nous en faire part.
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -193,7 +199,7 @@
 						<div class="text-justify">
 							<p class=' font-semibold  text-green-600'>Petit déjeuner</p>
 							<p>
-							Petit-déjeuner inclus, servi dans le logement. Il est composé essentiellement de produits locaux.
+								Petit-déjeuner inclus, servi dans le logement. Il est composé essentiellement de produits locaux.
 							</p>
 						</div>
 					</div>
@@ -207,73 +213,75 @@
 						</div>
 					</div>
 				</div>
-			
-			<div class='mx-auto w-2/5'>
-				<div class="font-semibold dancing text-2xl ">Les services en option sur réservation :</div>
-				<div class=" italic mb-8">(Hors tarif, payer à la réception)</div>
-				{# Meme options sur tout les sites #}
-				
-				<form action="">
-				<div class="grid gap-4 grid-cols-3 grid-rows-3">
-				
-				<div class="flex flex-col text-center items-center">
-					<div><img src="{{ asset('IMG/option_restauration.webp') }}" alt=""></div>
-					<p>Restauration journalière</p>
-					<p>20 € / personne</p>
-				</div>
-				<div class="flex flex-col text-center items-center">
-					<div><img src="{{ asset('IMG/option_spa.webp') }}" alt=""></div>
-					<p>Massage shiatsu ou californien </p>
-					<p>65€ par séance (1h)</p>
 
-				</div>
-				<div class="flex flex-col texte-center items-center">
-					<div><img src="{{ asset('IMG/option_romantique.webp') }}" alt=""></div>
-					<p>Décoration romantique </p>
-					<p>15 €</p>
-				</div>
-				
-			{% for particularite in hebergement.relationParticularite  %}
-				{% if particularite.name == 'Animaux acceptés' %} 
-			
+				<div class='mx-auto w-2/5'>
+					<div class="font-semibold dancing text-2xl ">Les services en option sur réservation :</div>
+					<div class=" italic mb-8">(Hors tarif, payer à la réception)</div>
+					{# Meme options sur tout les sites #}
 
-				<div class="flex flex-col text-center items-center ">
-					<div class="w-ful"><img src="{{ asset('IMG/option_animaux.webp') }}" alt=""></div>
-					<p>Animaux domestiques </p>
-					<p>20€ / animal</p>
-				</div>
-				
-				{% endif %}
-			{% endfor %}
-				</div>
-				
-				</div>	
+					<form action="">
+						<div class="grid gap-4 grid-cols-3 grid-rows-3">
+
+							<div class="flex flex-col text-center items-center">
+								<div><img src="{{ asset('IMG/option_restauration.webp') }}" alt=""></div>
+								<p>Restauration journalière</p>
+								<p>20 € / personne</p>
+							</div>
+							<div class="flex flex-col text-center items-center">
+								<div><img src="{{ asset('IMG/option_spa.webp') }}" alt=""></div>
+								<p>Massage shiatsu ou californien
+								</p>
+								<p>65€ par séance (1h)</p>
+
+							</div>
+							<div class="flex flex-col texte-center items-center">
+								<div><img src="{{ asset('IMG/option_romantique.webp') }}" alt=""></div>
+								<p>Décoration romantique
+								</p>
+								<p>15 €</p>
+							</div>
+
+							{% for particularite in hebergement.relationParticularite  %}
+								{% if particularite.name == 'Animaux acceptés' %}
+
+
+									<div class="flex flex-col text-center items-center ">
+										<div class="w-ful"><img src="{{ asset('IMG/option_animaux.webp') }}" alt=""></div>
+										<p>Animaux domestiques
+										</p>
+										<p>20€ / animal</p>
+									</div>
+
+								{% endif %}
+							{% endfor %}
+						</div>
+
+					</div>
 				</form>
-			
-		</div>
+
+			</div>
 		</section>
 		{# <section>
-			<div>Comment ça marche ?</div>
-			<div><img src="https://picsum.photos/2000/500" alt=""></div>
-			<div>
-				{# Chercher cb d'option mettre en détail 
-			</div>
-		</section> #}
+																																							<div>Comment ça marche ?</div>
+																																							<div><img src="https://picsum.photos/2000/500" alt=""></div>
+																																							<div>
+																																								{# Chercher cb d'option mettre en détail 
+																																							</div>
+																																						</section> #}
 		{# <section>
-			<div>
-				Disponibilités et réservations
-			{# Chercher une requette sql pour les dates #}
-				{# Rechercher solution pour afficher un calendrier dinamique :
-				            https://diawdi.net/creer-un-calendrier-dynamique-en-php/
-				            https://www.youtube.com/watch?v=t0s7ycR1Ib8 (grafikart)
-				            https://fullcalendar.io/
-				            https://scripts.toucharger.com/scripts/php/agenda-calendrier/
-				         
-			</div>
-			<a href="">Réserver en ligne</a>
-		</section> #}
-		<section>
-			<div id="arrow-left" class="arrow"></div>
+																																							<div>
+																																								Disponibilités et réservations
+																																							{# Chercher une requette sql pour les dates #}
+		{# Rechercher solution pour afficher un calendrier dinamique :
+																																								            https://diawdi.net/creer-un-calendrier-dynamique-en-php/
+																																								            https://www.youtube.com/watch?v=t0s7ycR1Ib8 (grafikart)
+																																								            https://fullcalendar.io/
+																																								            https://scripts.toucharger.com/scripts/php/agenda-calendrier/
+																																								         
+																																							</div>
+																																							<a href="">Réserver en ligne</a>
+																																						</section> #}
+			<section><div id="arrow-left" class="arrow"> </div>
 			{% for media in hebergement.mediaRelation %}
 				{% if media.active == true %}
 					<div class="slide slide{{media.id}}">
@@ -287,148 +295,143 @@
 
 		</section>
 		{# <section>
-		<div>Dans la meme région :</div>
-		<div>
-		{# Faire un appel sql 
-		    <div>
-		        <div>
-		            <div><img src="" alt=""></div>
-		        <div>
-		            <div>
-		                <div>Titre d'hébergement</div>
-		                <div>Tarif</div>
-		            </div>
-		            <div>
-		                desc
-		            </div>
-		        </div>
-		        </div>        
-		    </div>
-		    <a href="">Choisir</a>
-		    <div>
-		        <div>
-		            <div><img src="" alt=""></div>
-		        <div>
-		            <div>
-		                <div>Titre d'hébergement</div>
-		                <div>Tarif</div>
-		            </div>
-		            <div>
-		                desc
-		            </div>
-		        </div>
-		        </div>        
-		    </div>
-		    <a href="">Choisir</a>
-		    <div>
-		        <div><img src="" alt=""></div>
-		        <div>
-		            <div>
-		                <div>
-		                <div>Titre d'hébergement</div>
-		                <div>Tarif</div>
-		            </div>
-		            <div>
-		                desc
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		</section> #}
+																																						<div>Dans la meme région :</div>
+																																						<div>
+																																						{# Faire un appel sql 
+																																						    <div>
+																																						        <div>
+																																						            <div><img src="" alt=""></div>
+																																						        <div>
+																																						            <div>
+																																						                <div>Titre d'hébergement</div>
+																																						                <div>Tarif</div>
+																																						            </div>
+																																						            <div>
+																																						                desc
+																																						            </div>
+																																						        </div>
+																																						        </div>        
+																																						    </div>
+																																						    <a href="">Choisir</a>
+																																						    <div>
+																																						        <div>
+																																						            <div><img src="" alt=""></div>
+																																						        <div>
+																																						            <div>
+																																						                <div>Titre d'hébergement</div>
+																																						                <div>Tarif</div>
+																																						            </div>
+																																						            <div>
+																																						                desc
+																																						            </div>
+																																						        </div>
+																																						        </div>        
+																																						    </div>
+																																						    <a href="">Choisir</a>
+																																						    <div>
+																																						        <div><img src="" alt=""></div>
+																																						        <div>
+																																						            <div>
+																																						                <div>
+																																						                <div>Titre d'hébergement</div>
+																																						                <div>Tarif</div>
+																																						            </div>
+																																						            <div>
+																																						                desc
+																																						            </div>
+																																						        </div>
+																																						    </div>
+																																						</div>
+																																						</section> #}
 
 		{# <a href="{{path("cart_add", {id: hebergement.id})}}" class=" button">Je réserve</a> #}
 
 	</section>
-		{# MODAL RESERVATION #}
-		{# https://www.youtube.com/watch?v=3MUmRP9013I #}
-		<div class="modal_container fixed top-0 w-screen h-screen invisible" role="dialog" aria-labelledby="modalTitle" aria-decribedby="dialogDesc">
-			<div class="overlay modal_trigger opacity-0 absolute w-full h-full bg-black bg-opacity-50"></div>
-			<div class="modal w-11/12 h-auto opacity-0 max-w-screen-md p-12 bg-white rounded-lg absolute  left-2/4">
-				<button class="close_modal modal_trigger px-3 py-1 rounded-md text-lg absolute top-3 right-3 cursor-pointer text-white bg-green_pine">x</button>
-				<div class="flex w-full">
+	{# MODAL RESERVATION #}
+	{# https://www.youtube.com/watch?v=3MUmRP9013I #}
+	<div class="modal_container fixed top-0 w-screen h-screen invisible" role="dialog" aria-labelledby="modalTitle" aria-decribedby="dialogDesc">
+		<div class="overlay modal_trigger opacity-0 absolute w-full h-full bg-black bg-opacity-50"></div>
+		<div class="modal w-11/12 h-auto opacity-0 max-w-5xl p-12 bg-white rounded-lg absolute  left-2/4">
+			<button class="close_modal modal_trigger px-3 py-1 rounded-md text-lg absolute top-3 right-3 cursor-pointer text-white bg-green_pine">x</button>
+			<div class="flex w-full">
 				<div class="w-1/2">
 					<div class="text-base text-center mb-4 font-semibold">Disponibilités :</div>
-						<img src="https://loremflickr.com/300/300" class="" alt="">
-						
+					<img src="{{ asset('IMG/calendrier.jpg') }}" class="" alt="">
+
 				</div>
 				<div class="ml-4 w-1/2">
 					<div class="mb-4">
 						<h3 id="modalTitle" class="mb-4 font-semibold">Formulaire de réservation :</h3>
-						<p id="dialogDesc">Veillez remplir le formulaire affin de valider votre réservation. Vous la retrouverez ensuite, dans votre panier</p>
+						<p id="dialogDesc">Veillez remplir le formulaire afin de valider votre réservation.</p>
 					</div>
 					<div class="box">
-					
-					 {{ form_start(form) }} 
-							<div class="flex  justify-between pt-4">
-								<div class="formGroup w-2/5">	
-									{{ form_label(form.users.name, 'Nom') }}
-									{{ form_widget(form.users.name) }}			 				
-								</div>
 
-								<div class="formGroup w-2/5">
-									{{ form_label(form.users.username, 'Prénom') }}
-									{{ form_widget(form.users.username) }}						
-								</div>
+						{{ form_start(form) }}
+						<div class="flex  justify-between pt-4">
+							<div class="formGroup w-2/5">
+								{{ form_label(form.users.name, 'Nom') }}
+								{{ form_widget(form.users.name) }}
 							</div>
 
-							<div class="formGroup">
-								{{ form_label(form.users.email, 'Email') }}
-								{{ form_widget(form.users.email) }}										
+							<div class="formGroup w-2/5">
+								{{ form_label(form.users.username, 'Prénom') }}
+								{{ form_widget(form.users.username) }}
 							</div>
-							<div class="formGroup">
-								{{ form_label(form.users.phone, 'Téléphone') }}
-								{{ form_widget(form.users.phone) }}														
-							</div>
+						</div>
 
-							<div class="flex  justify-between ">
+						<div class="formGroup">
+							{{ form_label(form.users.email, 'Email') }}
+							{{ form_widget(form.users.email) }}
+						</div>
+						<div class="formGroup">
+							{{ form_label(form.users.phone, 'Téléphone') }}
+							{{ form_widget(form.users.phone) }}
+						</div>
+
+						<div class="flex  justify-between ">
 							<div class="formGroup w-2/5">
 								{{ form_label(form.person_nb, 'Personne.s') }}
-								{{ form_widget(form.person_nb) }}	 
+								{{ form_widget(form.person_nb) }}
 							</div>
-								<div class="formGroup w-2/5">
-									{{ form_label(form.night_nb, 'nuit.s') }}
-									{{ form_widget(form.night_nb,) }}														
-								</div> 
+							<div class="formGroup w-2/5">
+								{{ form_label(form.night_nb, 'nuit.s') }}
+								{{ form_widget(form.night_nb,) }}
 							</div>
-							<div class="flex  justify-between ">
-								<div class="formGroup w-16">
-									{{ form_label(form.child_nb, 'Enfant.s') }}
-									{{ form_widget(form.child_nb) }}		
-								</div>
-								
-								<div class="formGroup ">
-									{{ form_label(form.arrived, 'arrivé le :') }}
-									{{ form_widget(form.arrived, {'attr': {'class': 'pt-4'}}) }}												
-								</div>
+						</div>
+						<div class="flex  justify-between ">
+							<div class="formGroup w-16">
+								{{ form_label(form.child_nb, 'Enfant.s') }}
+								{{ form_widget(form.child_nb) }}
 							</div>
-							<div class=" flex justify-between"> 
-							<div class=" w-1/3">
-							<div class="FormGroup">
-							
-								<div class="font-semibold">Prix d'une nuit :</div>
-								<div class="text-red font-semibold" class="form_price">{{hebergement.promoTotal}}	€</div>
-							
-							</div>  
-							
 
-							<div class="formGroup w-3/5">
-   								 {{ form_rest(form) }}
+							<div class="w-2/5 leading-3">
+								{{ form_label(form.arrived, 'arrivé le :') }}
+								{{ form_widget(form.arrived, {'attr': {'class': 'pt-4'}}) }}
+							</div>
+						</div>
+						<div class=" flex justify-between items-start">
+							<div class=" w-3/5">
+								<div class="FormGroup">
+
+									<div class="font-semibold">Prix d'une nuit :</div>
+									<div class="text-red font-semibold" class="form_price">{{hebergement.promoTotal}}
+										€</div>
+
+								</div>
+							</div>
+							<div class="formGroup w-2/5">
+								{{ form_rest(form) }}
 								<button type="submit" value="valider" class="buttonSub">valider</button>
-								{# <a href="{{path("cart_add", {id: hebergement.id})}}" class=" button">Je réserve</a> #}
-
 							</div>
-								
-							
-							</div>	
-					{{ form_end(form) }}  
+						</div>
+
+						{{ form_end(form) }}
 
 
 					</div>
-					
 				</div>
-				</div>
-				
+
 			</div>
 		</div>
-			{% endblock %}
-			
+	</div>
+{% endblock %}

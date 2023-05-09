@@ -20,7 +20,7 @@ class ReservationCrudController extends AbstractCrudController
 {
     public const ACTION_DUPLICATE = 'diplicate';
 
-    public static function getEntityFqcn(): string 
+    public static function getEntityFqcn(): string
     {
         return reservations::class;
     }
@@ -28,45 +28,47 @@ class ReservationCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         $duplicate = Action::new(self::ACTION_DUPLICATE)
-        ->linkToCrudAction('duplicateOrder')
-        ->setCssClass('btn btn-info');
+            ->linkToCrudAction('duplicateOrder')
+            ->setCssClass('btn btn-info');
 
         return $actions
-        ->add(Crud::PAGE_EDIT, $duplicate)
-        ->reorder(Crud::PAGE_EDIT, [self::ACTION_DUPLICATE, Action::SAVE_AND_RETURN]);
+            ->add(Crud::PAGE_EDIT, $duplicate)
+            ->reorder(Crud::PAGE_EDIT, [self::ACTION_DUPLICATE, Action::SAVE_AND_RETURN]);
     }
 
     public function configureFields(string $pageName): iterable
     {
-        return[
+        return [
             IdField::new('id')->hideOnForm(),
             AssociationField::new('users', 'nom')
-            ->setRequired(true)
+                ->setRequired(true)
                 ->setFormTypeOption('choice_label', 'id')
-                ->formatValue(function($id, $entite){
-                    if($entite->getUsers() == null){
+                ->formatValue(function ($id, $entite) {
+                    if ($entite->getUsers() == null) {
                         return '';
                     }
-                    return $entite -> getUsers()->getname();
+                    return $entite->getUsers()->getname();
                 }),
             DateField::new('created_at', 'Réserver le'),
             TextField::new('reference', 'Référence'),
             AssociationField::new('hebergement', 'Hébergement associé')
-            ->setRequired(true)
-            ->setFormTypeOption('choice_label', 'title')
-            ->formatValue(function($id, $entite){
-                if($entite->getHebergement() == null){
-                    return '';
-                }
-                return $entite -> getHebergement()->getTitle();
-            }),
+                ->setRequired(true)
+                ->setFormTypeOption('choice_label', 'title')
+                ->formatValue(function ($id, $entite) {
+                    if ($entite->getHebergement() == null) {
+                        return '';
+                    }
+                    return $entite->getHebergement()->getTitle();
+                }),
             NumberField::new('person_nb', 'Nombre de personne.s'),
             NumberField::new('child_nb', 'Nombre d\'enfant.s'),
             NumberField::new('night_nb', 'Nombre de nuit.s'),
             DateField::new('arrived', 'Date d\'arrivée'),
             MoneyField::new('price', 'Montant de la réservation')
                 ->setCurrency('EUR')
-                ->setCustomOption('storedAsCents', false)
+                ->setCustomOption('storedAsCents', false),
+            IdField::new('panier_id', 'ID panier')
+
         ];
     }
 }

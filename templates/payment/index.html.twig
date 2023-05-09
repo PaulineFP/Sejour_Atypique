@@ -14,22 +14,15 @@
 			<div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
 				<div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
 					<table class="min-w-full">
-						<thead>
+						<thead class=" bg-gray text-white text-sm font-medium uppercase">
 							<tr>
-								<th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Produit.s :</th>
-								<th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">prix unitaire :</th>
-								{# Pas en production pour le moment #}
-								{# <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Nombre de nuit.s :</th>
-																																																								                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Nombre de personnes : </th>
-																																																								                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Date de réservation</th>
-																																																								                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Service.s : </th>
-																																																								                        #}
-								{# ------------------- #}
-								{# Uniniquement en production #}
-									<th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50"> Nombre de nuit :</th>
-								{# ----------- #}
-								<th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Total :</th>
-								<th class="px-6 py-3 text-xs text-center font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Actions :</th>
+								<th class="px-6 py-3 leading-4 tracking-wider text-left ">Produit.s :</th>
+								<th class="px-6 py-3 leading-4 tracking-wider text-left  ">prix unitaire :</th>
+
+								<th class="px-6 py-3  leading-4 tracking-wider text-left ">
+									Nombre de nuit :</th>
+								<th class="px-6 py-3   leading-4 tracking-wider text-left  ">Total :</th>
+								<th class="px-6 py-3  text-center leading-4 tracking-wider ">Actions :</th>
 							</tr>
 						</thead>
 						<tbody class="bg-white">
@@ -45,9 +38,9 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left text-gray-700 font-bold uppercase border-b border-gray-200 bg-gray-50" colspan="3">Total :
+								<td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left text-gray-700 font-bold uppercase  bg-gray text-white" colspan="3">Total :
 								</td>
-								<td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left  text-gray-700 font-bold uppercase border-b border-gray-200 bg-gray-50">{{total}}
+								<td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left  text-gray-700 font-bold uppercase  bg-gray text-white">{{total}}
 									€</td>
 
 							</tr>
@@ -61,7 +54,7 @@
 							{% for element in panier.reservations %}
 
 								<tr>
-									<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+									<td class="px-6 py-4 whitespace-no-wrap bg-green-600 text-white">
 										<div class="flex items-center">
 											<div class="flex-shrink-0 w-10 h-10">
 												<img class="w-10 h-10 rounded-full" src="{{ uploaded_asset(element.hebergement.imagePath) }}" alt="{{element.hebergement.title}}" class="rounded-tr-3xl">
@@ -121,21 +114,23 @@
 							{% endfor %}
 						{% endfor %}
 					</tbody>
-					<tfoot>
-						<tr>
-							<td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left text-gray-700 font-bold uppercase border-b border-gray-200 bg-gray-50" colspan="3">Total :
+					<tfoot class=" bg-gray text-white">
+						<tr class"">
+							<td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left font-bold uppercase" colspan="3">Total :
 							</td>
-							<td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left  text-gray-700 font-bold uppercase border-b border-gray-200 bg-gray-50">{{total}}
+							<td class="px-6 py-3 text-sm font-medium leading-4 tracking-wider text-left  font-bold uppercase ">{{total}}
 								€</td>
-							<td class="px-6 py-3 font-medium leading-4 tracking-wider text-left  border-b border-gray-200 bg-gray-50">
+							<td class="px-6 py-3 font-medium leading-4 tracking-wider text-center">
+								<a href="{{path("cart_payment" )}}" class="button">Payer</a>
+
 								<a href="{{path("cart_delete_all")}}" class="py-2 text-red-600 mx-4 text-2xl">
 									<i class="fa-solid fa-dumpster-fire"></i>
 								</a>
+
 							</td>
-							<td>
-								<a href="{{path("cart_payment" )}}" class="button">Payer</a>
-							</td>
+
 						</tr>
+
 					</tfoot>
 				{% endif %}
 

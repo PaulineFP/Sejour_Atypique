@@ -48,7 +48,7 @@ class StripeController extends AbstractController
     // Supprime tous les attribues de la session
     $session->clear();
 
-    $url = '/accueil';
+    $url = '/';
 
     return $this->render(
       //url de rediredtion
@@ -79,7 +79,6 @@ class StripeController extends AbstractController
       $reservation = $reservationsRepo->findOneById($ReservationId);
 
       $panierId = $reservation->getPanier()->getId();
-
 
       $hebergement = $reservation->getHebergement()->getTitle();
       $nuits = $reservation->getNightNb();
