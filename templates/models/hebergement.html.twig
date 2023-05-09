@@ -7,7 +7,7 @@
 	<header class="">
 		{# Faire un header spéciale pour recuperer l'imge de la bdd #}
 		{# {% set class_header = 'header_home text-rose-700 h-screen' %}
-																																						    {% include 'models/header.html.twig'%} #}
+																																												    {% include 'models/header.html.twig'%} #}
 	{% include 'partials/navbar.html.twig'%}
 	</header>
 		<section class=""> <div class="relative hebergement_presentation w-full overflow-hidden flex">
@@ -261,177 +261,108 @@
 
 			</div>
 		</section>
-		{# <section>
-																																							<div>Comment ça marche ?</div>
-																																							<div><img src="https://picsum.photos/2000/500" alt=""></div>
-																																							<div>
-																																								{# Chercher cb d'option mettre en détail 
-																																							</div>
-																																						</section> #}
-		{# <section>
-																																							<div>
-																																								Disponibilités et réservations
-																																							{# Chercher une requette sql pour les dates #}
-		{# Rechercher solution pour afficher un calendrier dinamique :
-																																								            https://diawdi.net/creer-un-calendrier-dynamique-en-php/
-																																								            https://www.youtube.com/watch?v=t0s7ycR1Ib8 (grafikart)
-																																								            https://fullcalendar.io/
-																																								            https://scripts.toucharger.com/scripts/php/agenda-calendrier/
-																																								         
-																																							</div>
-																																							<a href="">Réserver en ligne</a>
-																																						</section> #}
-			<section><div id="arrow-left" class="arrow"> </div>
-			{% for media in hebergement.mediaRelation %}
-				{% if media.active == true %}
-					<div class="slide slide{{media.id}}">
-						<img src="{{uploaded_asset(media.mediaPath)}}" alt="{{media.MediaAlt}}">
-					</div>
-				{% endif %}
-			{% endfor %}
-
-
-			<div id="arrow-right" class="arrow"></div>
-
-		</section>
-		{# <section>
-																																						<div>Dans la meme région :</div>
-																																						<div>
-																																						{# Faire un appel sql 
-																																						    <div>
-																																						        <div>
-																																						            <div><img src="" alt=""></div>
-																																						        <div>
-																																						            <div>
-																																						                <div>Titre d'hébergement</div>
-																																						                <div>Tarif</div>
-																																						            </div>
-																																						            <div>
-																																						                desc
-																																						            </div>
-																																						        </div>
-																																						        </div>        
-																																						    </div>
-																																						    <a href="">Choisir</a>
-																																						    <div>
-																																						        <div>
-																																						            <div><img src="" alt=""></div>
-																																						        <div>
-																																						            <div>
-																																						                <div>Titre d'hébergement</div>
-																																						                <div>Tarif</div>
-																																						            </div>
-																																						            <div>
-																																						                desc
-																																						            </div>
-																																						        </div>
-																																						        </div>        
-																																						    </div>
-																																						    <a href="">Choisir</a>
-																																						    <div>
-																																						        <div><img src="" alt=""></div>
-																																						        <div>
-																																						            <div>
-																																						                <div>
-																																						                <div>Titre d'hébergement</div>
-																																						                <div>Tarif</div>
-																																						            </div>
-																																						            <div>
-																																						                desc
-																																						            </div>
-																																						        </div>
-																																						    </div>
-																																						</div>
-																																						</section> #}
-
-		{# <a href="{{path("cart_add", {id: hebergement.id})}}" class=" button">Je réserve</a> #}
-
-	</section>
-	{# MODAL RESERVATION #}
-	{# https://www.youtube.com/watch?v=3MUmRP9013I #}
-	<div class="modal_container fixed top-0 w-screen h-screen invisible" role="dialog" aria-labelledby="modalTitle" aria-decribedby="dialogDesc">
-		<div class="overlay modal_trigger opacity-0 absolute w-full h-full bg-black bg-opacity-50"></div>
-		<div class="modal w-11/12 h-auto opacity-0 max-w-5xl p-12 bg-white rounded-lg absolute  left-2/4">
-			<button class="close_modal modal_trigger px-3 py-1 rounded-md text-lg absolute top-3 right-3 cursor-pointer text-white bg-green_pine">x</button>
-			<div class="flex w-full">
-				<div class="w-1/2">
-					<div class="text-base text-center mb-4 font-semibold">Disponibilités :</div>
-					<img src="{{ asset('IMG/calendrier.jpg') }}" class="" alt="">
-
-				</div>
-				<div class="ml-4 w-1/2">
-					<div class="mb-4">
-						<h3 id="modalTitle" class="mb-4 font-semibold">Formulaire de réservation :</h3>
-						<p id="dialogDesc">Veillez remplir le formulaire afin de valider votre réservation.</p>
-					</div>
-					<div class="box">
-
-						{{ form_start(form) }}
-						<div class="flex  justify-between pt-4">
-							<div class="formGroup w-2/5">
-								{{ form_label(form.users.name, 'Nom') }}
-								{{ form_widget(form.users.name) }}
-							</div>
-
-							<div class="formGroup w-2/5">
-								{{ form_label(form.users.username, 'Prénom') }}
-								{{ form_widget(form.users.username) }}
-							</div>
+		<div>
+			Disponibilités et réservations
+			{# Chercher une requette sql pour les dates #}
+			{# Rechercher solution pour afficher un calendrier dinamique :																																						            https://diawdi.net/creer-un-calendrier-dynamique-en-php/																																							</section> #}
+				<section><div id="arrow-left" class="arrow"> </div>
+				{% for media in hebergement.mediaRelation %}
+					{% if media.active == true %}
+						<div class="slide slide{{media.id}}">
+							<img src="{{uploaded_asset(media.mediaPath)}}" alt="{{media.MediaAlt}}">
 						</div>
+					{% endif %}
+				{% endfor %}
 
-						<div class="formGroup">
-							{{ form_label(form.users.email, 'Email') }}
-							{{ form_widget(form.users.email) }}
+
+				<div id="arrow-right" class="arrow"></div>
+
+			</section>
+			{# MODAL RESERVATION #}
+			{# https://www.youtube.com/watch?v=3MUmRP9013I #}
+			<div class="modal_container fixed top-0 w-screen h-screen invisible" role="dialog" aria-labelledby="modalTitle" aria-decribedby="dialogDesc">
+				<div class="overlay modal_trigger opacity-0 absolute w-full h-full bg-black bg-opacity-50"></div>
+				<div class="modal w-11/12 h-auto opacity-0 max-w-5xl p-12 bg-white rounded-lg absolute  left-2/4">
+					<button class="close_modal modal_trigger px-3 py-1 rounded-md text-lg absolute top-3 right-3 cursor-pointer text-white bg-green_pine">x</button>
+					<div class="flex w-full">
+						<div class="w-1/2">
+							<div class="text-base text-center mb-4 font-semibold">Disponibilités :</div>
+							<img src="{{ asset('IMG/calendrier.jpg') }}" class="" alt="">
+
 						</div>
-						<div class="formGroup">
-							{{ form_label(form.users.phone, 'Téléphone') }}
-							{{ form_widget(form.users.phone) }}
-						</div>
-
-						<div class="flex  justify-between ">
-							<div class="formGroup w-2/5">
-								{{ form_label(form.person_nb, 'Personne.s') }}
-								{{ form_widget(form.person_nb) }}
+						<div class="ml-4 w-1/2">
+							<div class="mb-4">
+								<h3 id="modalTitle" class="mb-4 font-semibold">Formulaire de réservation :</h3>
+								<p id="dialogDesc">Veillez remplir le formulaire afin de valider votre réservation.</p>
 							</div>
-							<div class="formGroup w-2/5">
-								{{ form_label(form.night_nb, 'nuit.s') }}
-								{{ form_widget(form.night_nb,) }}
-							</div>
-						</div>
-						<div class="flex  justify-between ">
-							<div class="formGroup w-16">
-								{{ form_label(form.child_nb, 'Enfant.s') }}
-								{{ form_widget(form.child_nb) }}
-							</div>
+							<div class="box">
 
-							<div class="w-2/5 leading-3">
-								{{ form_label(form.arrived, 'arrivé le :') }}
-								{{ form_widget(form.arrived, {'attr': {'class': 'pt-4'}}) }}
-							</div>
-						</div>
-						<div class=" flex justify-between items-start">
-							<div class=" w-3/5">
-								<div class="FormGroup">
+								{{ form_start(form) }}
+								<div class="flex  justify-between pt-4">
+									<div class="formGroup w-2/5">
+										{{ form_label(form.users.name, 'Nom') }}
+										{{ form_widget(form.users.name) }}
+									</div>
 
-									<div class="font-semibold">Prix d'une nuit :</div>
-									<div class="text-red font-semibold" class="form_price">{{hebergement.promoTotal}}
-										€</div>
-
+									<div class="formGroup w-2/5">
+										{{ form_label(form.users.username, 'Prénom') }}
+										{{ form_widget(form.users.username) }}
+									</div>
 								</div>
-							</div>
-							<div class="formGroup w-2/5">
-								{{ form_rest(form) }}
-								<button type="submit" value="valider" class="buttonSub">valider</button>
+
+								<div class="formGroup">
+									{{ form_label(form.users.email, 'Email') }}
+									{{ form_widget(form.users.email) }}
+								</div>
+								<div class="formGroup">
+									{{ form_label(form.users.phone, 'Téléphone') }}
+									{{ form_widget(form.users.phone) }}
+								</div>
+
+								<div class="flex  justify-between ">
+									<div class="formGroup w-2/5">
+										{{ form_label(form.person_nb, 'Personne.s') }}
+										{{ form_widget(form.person_nb) }}
+									</div>
+									<div class="formGroup w-2/5">
+										{{ form_label(form.night_nb, 'nuit.s') }}
+										{{ form_widget(form.night_nb,) }}
+									</div>
+								</div>
+								<div class="flex  justify-between ">
+									<div class="formGroup w-16">
+										{{ form_label(form.child_nb, 'Enfant.s') }}
+										{{ form_widget(form.child_nb) }}
+									</div>
+
+									<div class="w-2/5 leading-3">
+										{{ form_label(form.arrived, 'arrivé le :') }}
+										{{ form_widget(form.arrived, {'attr': {'class': 'pt-4'}}) }}
+									</div>
+								</div>
+								<div class=" flex justify-between items-start">
+									<div class=" w-3/5">
+										<div class="FormGroup">
+
+											<div class="font-semibold">Prix d'une nuit :</div>
+											<div class="text-red font-semibold" class="form_price">{{hebergement.promoTotal}}
+												€</div>
+
+										</div>
+									</div>
+									<div class="formGroup w-2/5">
+										{{ form_rest(form) }}
+										<button type="submit" value="valider" class="buttonSub">valider</button>
+									</div>
+								</div>
+
+								{{ form_end(form) }}
+
+
 							</div>
 						</div>
 
-						{{ form_end(form) }}
-
-
 					</div>
 				</div>
-
 			</div>
-		</div>
-	</div>
-{% endblock %}
+		{% endblock %}
