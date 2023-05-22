@@ -69,7 +69,7 @@ class StripeController extends AbstractController
 
     //Je vérifie la session pour identifier le contenu du panier
     $panier_ref = $session->get("panier_ref", '');
-    //On récupère  panier actuel de la session
+    //On récupère le panier actuel de la session
     $paniers = $panierRepo->findBy(['RefPanier' => $panier_ref]);
     //On récupère les réservations associées
     $reservations = $reservationsRepo->findBy(['panier' => $paniers]);
@@ -147,7 +147,7 @@ class StripeController extends AbstractController
 
       'mode' => 'payment',
       'success_url' => 'http://127.0.0.1:8000/payementReussi',
-      'cancel_url' => 'http://127.0.0.1:8000/accueil', /* voir si je peux simplifier avec home de mon controller*/
+      'cancel_url' => 'http://127.0.0.1:8000/',
 
       'billing_address_collection'  => 'required',
       'shipping_address_collection' => [

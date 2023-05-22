@@ -1,212 +1,217 @@
 {% extends 'base.html.twig' %}
 {% set title_h1 = 'Refuge Insolite' %}
 
-{% block title %}{{ title_h1 }}{% endblock %}    
+{% block title %}
+	{{ title_h1 }}
+{% endblock %}
 {% block body %}
 
-{% set Home_page = '' %}
-{% set class_header = ' h-full text-rose-700' %}
-{% set header_scr = "IMG/fond.jpg" %}
- {% include 'models/header.html.twig'%}
+	{% set Home_page = '' %}
+	{% set class_header = ' h-full text-rose-700' %}
+	{% set header_scr = "IMG/fond.jpg" %}
+	{% include 'models/header.html.twig'%}
 
-    <div class=" ">
-        <section class='promotion  mt-20 mb-28 mx-auto w-11/12' id='promotion'>
-        <div class="mb-6">
-            <div class="text-center my-4 TestFont font">Ne laissez pas filer vos vacances de rêve !</div>
-            <div class="mx-auto w-3/4 text-center text-lg">
-                 Profitez dès maintenant de nos offres promotionnelles exceptionnelles sur les locations de vacances les plus prisées.<br>Réservez vite avant qu'il ne soit trop tard !
-            </div>
-        </div>  
-        {#---------SLIDER------------------------------------#}
-        {% include "partials/slider.html.twig" %}
-        {# ---------------------------------------- #}
-        </section>
+	<div class=" ">
+		<section class='promotion  mt-20 mb-28 mx-auto w-11/12' id='promotion'>
+			<div class="mb-6">
+				<div class="text-center my-4 TestFont font">Ne laissez pas filer vos vacances de rêve !</div>
+				<div class="mx-auto w-3/4 text-center text-lg">
+					Profitez dès maintenant de nos offres promotionnelles exceptionnelles sur les locations de vacances les plus prisées.<br>Réservez vite avant qu'il ne soit trop tard !
+				</div>
+			</div>
+			{#---------SLIDER------------------------------------#}
+			{% include "partials/slider.html.twig" %}
+			{# ---------------------------------------- #}
+		</section>
 
-            <section id="" class=" mb-16 w-screen object-contain overflow-hidden relative shadow-md border-t-2 border-green-600 h-min">    
-            
-                {# <img src="{{ asset('build/images/fond-cat.jpg') }}" alt="" class="z-1 absolute"> #}
-                <img src="{{ asset('IMG/fond_3.webp') }}" alt="" class="z-1 absolute opacity-30 ">
-            
-            {# Cat_7 model #}
-            <div class=" w-11/12 z-2 mx-auto relative my-12">
-                <div class="my-8 mx-auto w-3/5">
-                    <h2 class=" mb-6 text-center">Trouvez l'hébergment qui VOUS coresponde !</h2>
-                    <p class=" mb-2 text-center text-2xl">Peut importe votre destination, nous mettons toutes nos compétances au service de votre confort.</p>
-                   
-                </div>
-            
-            
-                <div class="inline-grid grid-cols-7 gap-5 mx-auto mt-8">
-                {% for category in categories %}
-                    {% if category.active == true %}
-                    
-                    <div class=' border-green-600 border-2 flex items-center category_link justify-center'>
-                    {# <div>{{category.id}}</div> #}
-                    <a class="p-2 flex items-center  " href="/categorie/{{category.name}}">
-                        
-                        {% if category.icon %}
-                            <i class=" mr-2 {{category.icon}}"></i>
-                        {% endif %} 
-                        <div class=" text-[#0f120a] font-semibold text-center">{{category.name}}</div>  
-                      
-                    </a>
-                    {% endif %}            
-                </div>              
-                {% endfor %}
-            </div>           
-            </div>
-            
-        </section>
-        <section id="about" class="mx-auto w-11/12">
-          
-            <div class="flex ">
-                <div class=" mb-6 w-2/3 mr-8">
-                    <div class="mb-6">
-                        <h2 class="mb-4 ">Qui sommes nous ?</h2>
-                        <div class="mb-4 text-4xl dancing">
-                         Bienvenue sur notre site de réservation de logements touristiques ! 
-                        </div>
-                        <div class="mb-4 text-base">
-                            Nous sommes une équipe passionnée par le voyage et la découverte de nouveaux horizons. Notre objectif est de faciliter l'accès à des logements de qualité pour les voyageurs du monde entier.
+		<section
+			id="home_category" class=" mb-16 w-screen object-contain overflow-hidden relative shadow-md border-t-2 border-green-600 h-min">
 
-                        </div>
-                        <div class="mb-4 text-base">
-                            Nous avons créé cette plateforme de réservation pour offrir une alternative pratique et économique aux hôtels traditionnels. Nous croyons
-                            que chaque voyageur mérite un logement confortable, spacieux et bien équipé pour profiter pleinement de son séjour. C'est pourquoi nous avons sélectionné avec soin des logements de qualité dans les villes les plus populaires et les destinations les plus prisées.
-                        </div>
-                        <div class="mb-4 text-base">
-                            Notre équipe est composée de professionnels expérimentés dans le domaine du tourisme et de l'hospitalité. Nous travaillons en étroite collaboration avec les propriétaires de logements pour vous offrir des hébergements de qualité, répondant à vos besoins et à vos attentes, que ce soit pour un court séjour ou pour des vacances prolongées.
-                        </div>
-                        <div class="mb-4 text-base">
-                            Nous sommes convaincus que le voyage est une source d'enrichissement personnel et nous souhaitons vous accompagner dans cette aventure en vous offrant une expérience de réservation simple, rapide et sécurisée. Notre plateforme de réservation en ligne vous permet de trouver facilement le logement qui correspond à vos critères et de réserver en quelques clics seulement.
-                        </div>
+			{# <img src="{{ asset('build/images/fond-cat.jpg') }}" alt="" class="z-1 absolute"> #}
+			<img
+			src="{{ asset('IMG/fond_3.webp') }}" alt="" class="z-1 absolute opacity-30 ">
 
-                        
-                    </div>
-                    <div class="flex justify-evenly w-full">
-                        <div class="flex flex-col  justify-between w-1/2">
-                            <a href="" class=" min-content border-4 mb-5 border-green-700 p-5 text-xl font-bold mr-8 rounded-tr-lg rounded-bl-lg" >Mieux nous connaitre</a>
-                            <div class="w-11/12 ">
-                                <img src="{{ asset('IMG/about_2.jpg') }}" alt="">
-                            </div>
-                        </div>                  
-                        <div class="flex w-full"><img src="{{ asset('IMG/about_3.jpg') }}" alt=""></div>
-                    </div>
-                </div>
-                
-                <div class='mb-6  w-2/6 flex flex-col'>
-                    <div class=""><img src="{{ asset('IMG/about_1.jpg') }}" alt=""></div>
-                    <div class="flex h-full justify-center items-center">
-                        <div class="flex justify-center">
-                            <a href="" class="bg-green-600 p-5 text-xl font-bold text-white rounded-tl-lg rounded-br-lg">Besoin de plus d'informations ?</a>
-                        </div>
+			{# Cat_7 model #}
+			<div class=" w-11/12 z-2 mx-auto relative my-12">
+				<div class="my-8 mx-auto w-3/5">
+					<h2 class=" mb-6 text-center">Trouvez l'hébergment qui VOUS coresponde !</h2>
+					<p class=" mb-2 text-center text-2xl">Peut importe votre destination, nous mettons toutes nos compétances au service de votre confort.</p>
 
-                    </div>
-                    
-                </div>                
-            </div>
-            
-        </section>
+				</div>
 
-        <section id="present" class="relative top-4 flex justify-evenly items-center py-16 mx-auto w-11/12">
-            <div class=" w-2/5 flex flex-col justify-center">
-                <h2 class="mb-8 text-black text-center">Offrez le cadeau parfait avec notre carte cadeau !</h2>
-                <a href="" class="text-xl p-4 bg-green-600 text-white font-bold border rounded-tl-lg rounded-br-lg mx-auto">Je passe commande</a>
 
-            </div>
-            <div class="w-3/5"><img src="{{ asset('IMG/cartes_cadeaux.png') }}" alt=""></div>
-        </section> 
-        <section>
-            {# Séparation #}
-        </section>
-        <section class="relative">
-            <h2 class="text-center mt-10">Vivez une expérience inoubliable !</h2>
-            <div  class="grid grid-rows-2 grid-flow-col gap-6 mx-auto w-11/12 my-10">
-                <div class="flex justify-center">
-                    <div class="mr-6 w-1/5"><img src="{{ asset('IMG/dimmention_insolite.webp') }}" alt="" class="rounded-full"></div>
-                    <div class=" w-3/5">
-                        <div class="text-3xl text-green-600 dancing">Dimmention insolite</div>
-                        <div >
-                            Nous vous proposons une expérience de vacances unique en son genre. Découvrez des hébergements atypiques tels que des cabanes dans les arbres, des bulles transparentes ou des yourtes traditionnelles. Offrez-vous un séjour inoubliable dans des lieux insolites sélectionnés avec soin pour vous.
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="mr-6"><img src="{{ asset('IMG/environement_privilidie.webp') }}" alt="" class="rounded-full"></div>
-                    <div class=" w-3/5">
-                        <div class=" text-3xl text-green-600 dancing">Environement privilégié</div>
-                        <div>
-                           Notre sélection d'hébergements vous offre un environnement privilégié pour des vacances en toute sérénité. Profitez de la beauté naturelle des paysages environnants, de la tranquillité des lieux et de la proximité avec la nature. Réservez dès maintenant pour vivre une expérience de vacances en harmonie avec l'environnement.
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="mr-6 w-1/5"><img src="{{ asset('IMG/tarif_attractif.webp') }}" alt="" class="rounded-full"></div>
-    
-                    <div class=" w-3/4">
-                        <div class="text-3xl text-green-600 dancing">Offre et tarif alléchants</div>
-                        <div>
-                          Notre site de réservation de vacances propose une multitude d'offres alléchantes pour tous les goûts et tous les budgets. Que vous cherchiez un chalet rustique en montagne, une villa de luxe en bord de mer ou un appartement en ville, nous avons ce qu'il vous faut. De plus, nos tarifs compétitifs vous permettent de profiter au maximum de vos vacances sans vous ruiner.
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="mr-6 w-1/5"><img src="{{ asset('IMG/qualite_hebergement.webp') }}" alt="" class="rounded-full"></div>
-    
-                    <div class=" w-3/4">
-                        <div class="text-3xl text-green-600 dancing">Qualité d'hebergement</div>
-                        <div>
-                            Nous avons soigneusement sélectionné les hébergements proposés sur notre site pour vous offrir une qualité de séjour exceptionnelle. Que vous optiez pour une chambre chez l'habitant, un appartement ou une villa de luxe, vous pouvez être assuré de bénéficier d'un hébergement confortable, propre et bien équipé. Nous nous engageons à vous offrir une expérience de vacances inoubliable dans des hébergements de qualité supérieure.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="w-11/12 mx-auto my-12 relative z-0 " id="countries">
-            <div class="flex align-center justify-center flex-col my-6 overflow-hidden relative h-80">
-                <div class="absolute -z-1">
-                    <img src="{{ asset('IMG/voyage_region_1.jpg') }}" alt="" class=" object-cover object-center">
-                </div>
-                <h2 class="relative z-1 h-full flex justify-center items-center bg-opacity-40 bg-black text-white ">Votre destination par régions</h2>
-            </div>
-            <div class="grid grid-cols-3 gap-3">
-            {% for country in countries %}
-            <a href="/region/{{country.name}}">
-                <div class="relative overflow-hidden flex flex-col align-center justify-center h-52">
-                    <img src="{{ uploaded_asset(country.imagePath) }}" alt="" class="absolute -z-1">
-                    <div class="relative z-1 text-2xl h-full flex justify-center items-center bg-opacity-40 bg-black text-white hover:bg-opacity-50 hover:bg-green-700">{{country.name}}</div> 
-                                     
-                </div>
-             </a> 
-            {% endfor %} 
-       
-           
-            </div>
-            <div class="flex justify-center">
-                <a href="" class="text-center p-4 bg-green-600 text-white font-bold border rounded-tl-lg rounded-br-lg mx-auto">Toutes nos destinations</a>
-            </div>
-        </section>
-      {# Séparation plantation arbres #}
-        <section id="" >
-        <div class=" overflow-hidden relative z-2 h-96">
-        <div class="relative -z-1 flex w-full">
-            <img src="{{ asset('IMG/arbre_fond.jpg') }}" alt="" class=" relative z-1 object-none object-center w-full opacity-25">
-        </div>
-        <div class="11/12 mx-auto p-10 absolute h-full z-1 top-0 flex items-center">
-        <div class="flex justify-evenly items-center h-90">
-            <div class="mr-4 w-1/6">
-                <img src="{{ asset('IMG/arbre_logo.jpg') }}" alt="" class="rounded-full">
-            </div> 
-            <div class="w-4/5">
-                <div class="text-2xl font-semibold">1 Réservation = 1 Arbre planté</div>
-                <div>Voyagez en toute conscience avec notre offre de réservation qui plante un arbre à chaque achat, pour préserver notre environnement ensemble.</div>
-                <div class="my-8">
-                    <a href="https://planete-urgence.org/" target="_blank" class=" border-4  border-green-700 p-5 text-xl font-bold rounded-tr-lg rounded-bl-lg" >En savoir plus</a>
-                </div>
-            </div>
-        </div>            
-        </div>
-        </div>    
-        </section>    
-    </div>
+				<div class="inline-grid grid-cols-7 gap-5 mx-auto mt-8">
+					{% for category in categories %}
+						{% if category.active == true %}
+
+							<div
+								class=' border-green-600 border-2 flex items-center category_link justify-center'>
+								{# <div>{{category.id}}</div> #}
+								<a class="p-2 flex items-center  " href="/categorie/{{category.name}}">
+
+									{% if category.icon %}
+										<i class=" mr-2 {{category.icon}}"></i>
+									{% endif %}
+									<div class=" text-[#0f120a] font-semibold text-center">{{category.name}}</div>
+
+								</a>
+							{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+		</section>
+		<section id="about" class="mx-auto w-11/12">
+
+			<div class="flex ">
+				<div class=" mb-6 w-2/3 mr-8">
+					<div class="mb-6">
+						<h2 class="mb-4 ">Qui sommes nous ?</h2>
+						<div class="mb-4 text-4xl dancing">
+							Bienvenue sur notre site de réservation de logements touristiques !
+						</div>
+						<div class="mb-4 text-base">
+							Nous sommes une équipe passionnée par le voyage et la découverte de nouveaux horizons. Notre objectif est de faciliter l'accès à des logements de qualité pour les voyageurs du monde entier.
+
+						</div>
+						<div class="mb-4 text-base">
+							Nous avons créé cette plateforme de réservation pour offrir une alternative pratique et économique aux hôtels traditionnels. Nous croyons
+							                            que chaque voyageur mérite un logement confortable, spacieux et bien équipé pour profiter pleinement de son séjour. C'est pourquoi nous avons sélectionné avec soin des logements de qualité dans les villes les plus populaires et les destinations les plus prisées.
+						</div>
+						<div class="mb-4 text-base">
+							Notre équipe est composée de professionnels expérimentés dans le domaine du tourisme et de l'hospitalité. Nous travaillons en étroite collaboration avec les propriétaires de logements pour vous offrir des hébergements de qualité, répondant à vos besoins et à vos attentes, que ce soit pour un court séjour ou pour des vacances prolongées.
+						</div>
+						<div class="mb-4 text-base">
+							Nous sommes convaincus que le voyage est une source d'enrichissement personnel et nous souhaitons vous accompagner dans cette aventure en vous offrant une expérience de réservation simple, rapide et sécurisée. Notre plateforme de réservation en ligne vous permet de trouver facilement le logement qui correspond à vos critères et de réserver en quelques clics seulement.
+						</div>
+
+
+					</div>
+					<div class="flex justify-evenly w-full">
+						<div class="flex flex-col  justify-between w-1/2">
+							<a href="" class=" min-content border-4 mb-5 border-green-700 p-5 text-xl font-bold mr-8 rounded-tr-lg rounded-bl-lg">Mieux nous connaitre</a>
+							<div class="w-11/12 ">
+								<img src="{{ asset('IMG/about_2.jpg') }}" alt="">
+							</div>
+						</div>
+						<div class="flex w-full"><img src="{{ asset('IMG/about_3.jpg') }}" alt=""></div>
+					</div>
+				</div>
+
+				<div class='mb-6  w-2/6 flex flex-col'>
+					<div class=""><img src="{{ asset('IMG/about_1.jpg') }}" alt=""></div>
+					<div class="flex h-full justify-center items-center">
+						<div class="flex justify-center">
+							<a href="" class="bg-green-600 p-5 text-xl font-bold text-white rounded-tl-lg rounded-br-lg">Besoin de plus d'informations ?</a>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</section>
+
+		<section id="present" class="relative top-4 flex justify-evenly items-center py-16 mx-auto w-11/12">
+			<div class=" w-2/5 flex flex-col justify-center">
+				<h2 class="mb-8 text-black text-center">Offrez le cadeau parfait avec notre carte cadeau !</h2>
+				<a href="" class="text-xl p-4 bg-green-600 text-white font-bold border rounded-tl-lg rounded-br-lg mx-auto">Je passe commande</a>
+
+			</div>
+			<div class="w-3/5"><img src="{{ asset('IMG/cartes_cadeaux.png') }}" alt=""></div>
+		</section>
+		<section>
+			{# Séparation #}
+		</section>
+		<section class="relative">
+			<h2 class="text-center mt-10">Vivez une expérience inoubliable !</h2>
+			<div class="grid grid-rows-2 grid-flow-col gap-6 mx-auto w-11/12 my-10">
+				<div class="flex justify-center">
+					<div class="mr-6 w-1/5"><img src="{{ asset('IMG/dimmention_insolite.webp') }}" alt="" class="rounded-full"></div>
+					<div class=" w-3/5">
+						<div class="text-3xl text-green-600 dancing">Dimmention insolite</div>
+						<div>
+							Nous vous proposons une expérience de vacances unique en son genre. Découvrez des hébergements atypiques tels que des cabanes dans les arbres, des bulles transparentes ou des yourtes traditionnelles. Offrez-vous un séjour inoubliable dans des lieux insolites sélectionnés avec soin pour vous.
+						</div>
+					</div>
+				</div>
+				<div class="flex justify-center">
+					<div class="mr-6"><img src="{{ asset('IMG/environement_privilidie.webp') }}" alt="" class="rounded-full"></div>
+					<div class=" w-3/5">
+						<div class=" text-3xl text-green-600 dancing">Environement privilégié</div>
+						<div>
+							Notre sélection d'hébergements vous offre un environnement privilégié pour des vacances en toute sérénité. Profitez de la beauté naturelle des paysages environnants, de la tranquillité des lieux et de la proximité avec la nature. Réservez dès maintenant pour vivre une expérience de vacances en harmonie avec l'environnement.
+						</div>
+					</div>
+				</div>
+				<div class="flex justify-center">
+					<div class="mr-6 w-1/5"><img src="{{ asset('IMG/tarif_attractif.webp') }}" alt="" class="rounded-full"></div>
+
+					<div class=" w-3/4">
+						<div class="text-3xl text-green-600 dancing">Offre et tarif alléchants</div>
+						<div>
+							Notre site de réservation de vacances propose une multitude d'offres alléchantes pour tous les goûts et tous les budgets. Que vous cherchiez un chalet rustique en montagne, une villa de luxe en bord de mer ou un appartement en ville, nous avons ce qu'il vous faut. De plus, nos tarifs compétitifs vous permettent de profiter au maximum de vos vacances sans vous ruiner.
+						</div>
+					</div>
+				</div>
+				<div class="flex justify-center">
+					<div class="mr-6 w-1/5"><img src="{{ asset('IMG/qualite_hebergement.webp') }}" alt="" class="rounded-full"></div>
+
+					<div class=" w-3/4">
+						<div class="text-3xl text-green-600 dancing">Qualité d'hebergement</div>
+						<div>
+							Nous avons soigneusement sélectionné les hébergements proposés sur notre site pour vous offrir une qualité de séjour exceptionnelle. Que vous optiez pour une chambre chez l'habitant, un appartement ou une villa de luxe, vous pouvez être assuré de bénéficier d'un hébergement confortable, propre et bien équipé. Nous nous engageons à vous offrir une expérience de vacances inoubliable dans des hébergements de qualité supérieure.
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="w-11/12 mx-auto my-12 relative z-0 " id="countries">
+			<div class="flex align-center justify-center flex-col my-6 overflow-hidden relative h-80">
+				<div class="absolute -z-1">
+					<img src="{{ asset('IMG/voyage_region_1.jpg') }}" alt="" class=" object-cover object-center">
+				</div>
+				<h2 class="relative z-1 h-full flex justify-center items-center bg-opacity-40 bg-black text-white ">Votre destination par régions</h2>
+			</div>
+			<div class="grid grid-cols-3 gap-3">
+				{% for country in countries %}
+					<a href="/region/{{country.name}}">
+						<div class="relative overflow-hidden flex flex-col align-center justify-center h-52">
+							<img src="{{ uploaded_asset(country.imagePath) }}" alt="" class="absolute -z-1">
+							<div class="relative z-1 text-2xl h-full flex justify-center items-center bg-opacity-40 bg-black text-white hover:bg-opacity-50 hover:bg-green-700">{{country.name}}</div>
+
+						</div>
+					</a>
+				{% endfor %}
+
+
+			</div>
+			<div class="flex justify-center">
+				<a href="" class="text-center p-4 bg-green-600 text-white font-bold border rounded-tl-lg rounded-br-lg mx-auto">Toutes nos destinations</a>
+			</div>
+		</section>
+		{# Séparation plantation arbres #}
+		<section id="">
+			<div class=" overflow-hidden relative z-2 h-96">
+				<div class="relative -z-1 flex w-full">
+					<img src="{{ asset('IMG/arbre_fond.jpg') }}" alt="" class=" relative z-1 object-none object-center w-full opacity-25">
+				</div>
+				<div class="11/12 mx-auto p-10 absolute h-full z-1 top-0 flex items-center">
+					<div class="flex justify-evenly items-center h-90">
+						<div class="mr-4 w-1/6">
+							<img src="{{ asset('IMG/arbre_logo.jpg') }}" alt="" class="rounded-full">
+						</div>
+						<div class="w-4/5">
+							<div class="text-2xl font-semibold">1 Réservation = 1 Arbre planté</div>
+							<div>Voyagez en toute conscience avec notre offre de réservation qui plante un arbre à chaque achat, pour préserver notre environnement ensemble.</div>
+							<div class="my-8">
+								<a href="https://planete-urgence.org/" target="_blank" class=" border-4  border-green-700 p-5 text-xl font-bold rounded-tr-lg rounded-bl-lg">En savoir plus</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 {% endblock %}

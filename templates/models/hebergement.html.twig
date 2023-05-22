@@ -7,7 +7,7 @@
 	<header class="">
 		{# Faire un header spéciale pour recuperer l'imge de la bdd #}
 		{# {% set class_header = 'header_home text-rose-700 h-screen' %}
-																																												    {% include 'models/header.html.twig'%} #}
+																																														    {% include 'models/header.html.twig'%} #}
 	{% include 'partials/navbar.html.twig'%}
 	</header>
 		<section class=""> <div class="relative hebergement_presentation w-full overflow-hidden flex">
@@ -345,9 +345,9 @@
 										<div class="FormGroup">
 
 											<div class="font-semibold">Prix d'une nuit :</div>
-											<div class="text-red font-semibold" class="form_price">{{hebergement.promoTotal}}
-												€</div>
-
+											<div class="text-red font-semibold" class="form_price">
+												{{hebergement.promoTotal}}€
+											</div>
 										</div>
 									</div>
 									<div class="formGroup w-2/5">
@@ -355,10 +355,7 @@
 										<button type="submit" value="valider" class="buttonSub">valider</button>
 									</div>
 								</div>
-
 								{{ form_end(form) }}
-
-
 							</div>
 						</div>
 
