@@ -353,6 +353,12 @@ footer {
   #ecology .-z-1 {
     height: 100%;
   }
+  footer div .w-3\/5 {
+    width: 100%;
+  }
+  footer .gap-16 {
+    gap: 0;
+  }
 }
 @media only screen and (max-width: 40em) {
   h2, .TestFont {
