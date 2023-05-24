@@ -260,4 +260,235 @@
 footer {
   color: #FFF;
   background-color: #444941;
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) and (orientation: portrait) {
+  h2, .TestFont {
+    font-size: 2.5rem;
+  }
+  header .bg-white div {
+    width: auto;
+  }
+  header .bg-white .flex-wrap {
+    flex-wrap: initial;
+  }
+  header .bg-white li, header .bg-white a {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  #home_category {
+    min-height: auto;
+    width: 100%;
+    background-image: url("/public/IMG/fond_3.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #home_category img {
+    display: none;
+  }
+  #home_category .inline-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #about div:nth-child(1) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #about div:nth-child(1) .w-full div {
+    margin-right: 1rem;
+  }
+  #about div:nth-child(1) div {
+    width: 100%;
+  }
+  #about div:nth-child(1) div:first-child img:first-child {
+    margin-bottom: 1rem;
+  }
+  #about div:nth-child(1) div:last-child a {
+    margin-top: 1rem;
+  }
+  #about div:nth-child(2) {
+    display: flex;
+    flex-direction: initial;
+    align-items: center;
+  }
+  #about div:nth-child(2) div {
+    width: 50%;
+  }
+  #countries .titre h2 {
+    text-shadow: 1px 2px 2px black;
+    background-color: transparent;
+  }
+  #countries .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 1rem;
+  }
+  #ecology .-z-1 {
+    height: 100%;
+  }
+  footer div .w-3\/5 {
+    width: 100%;
+  }
+  footer .gap-16 {
+    gap: 0;
+  }
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) and (orientation: landscape) {
+  #home_category {
+    min-height: auto;
+  }
+  #home_category .inline-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #countries .titre h2 {
+    text-shadow: 1px 2px 2px black;
+    background-color: transparent;
+  }
+  #countries .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 1rem;
+  }
+  #ecology .-z-1 {
+    height: 100%;
+  }
+}
+@media only screen and (max-width: 40em) {
+  h2, .TestFont {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .text-4xl {
+    font-size: 1.6rem;
+  }
+  .text-3xl {
+    font-size: 1.5rem;
+  }
+  .text-2xl {
+    font-size: 1.1rem;
+  }
+  .text-xl {
+    font-size: 1.1rem;
+  }
+  .home_img_div {
+    background-image: url("/public/IMG/fond_mobile.webp");
+    background-repeat: no-repeat;
+  }
+  .home_img_div .home_img {
+    display: none;
+  }
+  #home_category {
+    background-image: url("/public/IMG/fond_3_mobile.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #home_category .inline-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  #home_category img {
+    display: none;
+  }
+  #home_category .w-3\/5 {
+    width: 100%;
+  }
+  #about .flex {
+    flex-direction: column;
+  }
+  #about .flex div {
+    width: 100%;
+  }
+  #about .flex div:first-child img:first-child {
+    margin-bottom: 1rem;
+  }
+  #about .flex div:last-child a {
+    margin-top: 1rem;
+  }
+  #present {
+    flex-direction: column;
+  }
+  #present div {
+    width: 100%;
+  }
+  #present div a {
+    margin-bottom: 1rem;
+  }
+  #exp .grid {
+    display: flex;
+    flex-direction: column;
+  }
+  #exp .grid div {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  #exp .grid div img {
+    margin: 0 auto;
+  }
+  #countries .titre .absolute {
+    display: none;
+  }
+  #countries .titre h2 {
+    color: #059669;
+    height: auto;
+    text-align: center;
+  }
+  #countries .titre h2.bg-black {
+    background-color: none;
+  }
+  #countries .titre h2.bg-opacity-40 {
+    --tw-bg-opacity: 0;
+  }
+  #countries .h-80 {
+    height: auto;
+    margin-bottom: 3rem;
+  }
+  #countries div:nth-child(3) {
+    margin-top: 1rem;
+  }
+  #countries .grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  #ecology {
+    background-image: url("/public/IMG/arbre_fond_mobile.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #ecology .flex.h-90 {
+    flex-direction: column;
+  }
+  #ecology div .relative img {
+    display: none;
+  }
+  footer .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  footer .grid div {
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 0.8rem;
+  }
+  footer .grid div ul {
+    margin-top: 1rem;
+  }
+  footer .grid div:first-child div a img {
+    width: 8rem;
+  }
+  footer .grid div:first-child .italic {
+    font-size: 1rem;
+  }
+  footer .grid div:last-child .news {
+    text-align: left;
+  }
+  footer .grid div:last-child .news a {
+    margin: 0;
+    color: #059669;
+  }
+  footer .grid .resaux ul {
+    flex-direction: initial;
+  }
 }/*# sourceMappingURL=app.css.map */

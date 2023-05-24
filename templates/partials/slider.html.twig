@@ -1,39 +1,40 @@
- <div class="slide-container swiper">
-    <div class="slide-content">
-        <div class="card_wrapper swiper-wrapper">
-        {% for promotion in promotions %}
-            <div class="card swiper-slide">
-                <div class="image_content h-52 ">
-                    <img src="{{ uploaded_asset(promotion.imagePath) }}" alt="{{promotion.title}}" class="card_img relative rounded-tl-3xl">
-                    <div class="promo  text-yellow-500 bg-white rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{promotion.promotion}}%</div>
-                </div>
-                <div class="card_content ">
-                    <div class="card_height flex flex-col">
-                        <div class="card_header">
-                            <div class="card_title font-semibold text-2xl dancing text-green-600">{{promotion.title}}</div>
-                            <div class="flex flex-col">
-                             <div class="card_price font-semibold text-lg w-1/4">
-                                {{promotion.promoTotal}}€
-                            </div>
-                             <div class="card_price line-through text-red-600 text-lg w-1/4">
-                                {{promotion.tarif}}€
-                                
-                            </div>
-                            </div>
-                           
-                        </div>
-                        <div class="text-base">{{promotion.lieux}}</div>
-                        <div class="text-base break-all max-h-full" >{{promotion.description|striptags|u.truncate(120, '...', false) }}</div>
-                    </div>
-                    
-                    <button class="button" onclick="window.location.href = '/hebergement/{{promotion.id}}';"> Je fonce !</button>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+<div class="slide-container swiper">
+	<div class="slide-content">
+		<div class="card_wrapper swiper-wrapper">
+			{% for promotion in promotions %}
+				<div class="card swiper-slide">
+					<div class="image_content h-52 ">
+						<img src="{{ uploaded_asset(promotion.imagePath) }}" alt="{{promotion.title}}" class="card_img relative rounded-tl-3xl">
+						<div class="promo  text-yellow-500 bg-white rounded-bl-2xl font-bold text-xl text-right absolute p-4 ">{{promotion.promotion}}%</div>
+					</div>
+					<div class="card_content ">
+						<div class="card_height flex flex-col">
+							<div class="card_header">
+								<div class="card_title font-semibold text-2xl dancing text-green-600">{{promotion.title}}</div>
+								<div class="flex flex-col">
+									<div class="card_price font-semibold text-lg w-1/4">
+										{{promotion.promoTotal}}€
+									</div>
+									<div class="card_price line-through text-red-600 text-lg w-1/4">
+										{{promotion.tarif}}€
 
-    <div class="swiper-button-next swiper-navBtn"></div>
-    <div class="swiper-button-prev swiper-navBtn"></div>
-    <div class="swiper-pagination"></div>
-</div> 
+									</div>
+								</div>
+
+							</div>
+							<div class="text-base">{{promotion.lieux}}</div>
+							<div class="text-base break-all max-h-full">{{promotion.description|striptags|u.truncate(120, '...', false) }}</div>
+						</div>
+
+						<button class="button" onclick="window.location.href = '/hebergement/{{promotion.id}}';">
+							Je fonce !</button>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="swiper-button-next swiper-navBtn"></div>
+	<div class="swiper-button-prev swiper-navBtn"></div>
+	<div class="swiper-pagination"></div>
+</div>
