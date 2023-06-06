@@ -67,8 +67,16 @@ class ReservationCrudController extends AbstractCrudController
             MoneyField::new('price', 'Montant de la réservation')
                 ->setCurrency('EUR')
                 ->setCustomOption('storedAsCents', false),
-            IdField::new('panier_id', 'ID panier')
-
+            // IdField::new('panier_id', 'ID panier')
+            AssociationField::new('panier', 'ID panier')
+                ->setRequired(true)
+                ->setFormTypeOption('choice_label', 'title')
+                ->formatValue(function ($id, $entite) {
+                    if ($entite->getPanier() == null) {
+                        return '';
+                    }
+                    return $entite->getPanier()->getId();
+                }),
         ];
     }
 }

@@ -75,13 +75,13 @@
         * Tarifs / Réductions
         * Lieux
         * IMG _?BDD ou boucle img ?_
-        * Options du séjour (animeaux, wifi, nombre chambres, ..)
+        * Options du séjour (animaux, wifi, nombre chambres, ..)
         * Catégorie
         * Description
     - Table services en option
     - **Concevoir une Table pour les clients**
-        * Newslatter
-        * Réservations (Close annulation, affichage réservation )
+        * Newsletter
+        * Réservations (Clause annulation, affichage réservation )
 - Interface Admin
     - Gestion des produits
         * Ajout
